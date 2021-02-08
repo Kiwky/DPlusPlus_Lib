@@ -18,8 +18,7 @@ void Discord::Start(const std::string &token) {
 		}
 	});
 
-	client.connect(U("wss://gateway.discord.gg")).then([&]() {
-		Log::Print(Info, "Gateway connection successful.");
+	client.connect(U(GATEWAY_URL)).then([&]() {
 		ProcessBotIdentity();
 	});
 }
@@ -45,4 +44,165 @@ void Discord::ProcessBotIdentity() {
 	// Convert 'identity' object (json object) to string and send it to server.
 	msg.set_utf8_message(to_string(identity));
 	client.send(msg);
+}
+
+void Discord::ProcessBotJson(websocket_incoming_message &msg) {
+	std::string message = msg.extract_string().get();
+	nJson jsonMsg = nJson::parse(message.begin(), message.end());
+
+	//std::cout << message << std::endl;
+	int op = jsonMsg["op"];
+
+	switch(op) {
+		case OP_Type::DISPATCH:
+		{
+			const std::string type = jsonMsg["t"];	// Message type.
+			const nJson data = jsonMsg["d"];		// Data (json string).
+			lastSRec = jsonMsg["s"];				// Last signal/event id received.
+
+			Log::Print(Info, "Event received: " + type);
+			switch(hash_string(type.c_str())) {
+				case hash_string("READY"):
+				{
+					Log::Print(Succes, "Gateway connection successfull.");
+					break;
+				}
+				case hash_string("RESUMED"):
+				{
+					break;
+				}
+				case hash_string("GUILD_CREATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_DELETE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_ROLE_CREATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_ROLE_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_ROLE_DELETE"):
+				{
+					break;
+				}
+				case hash_string("CHANNEL_CREATE"):
+				{
+					break;
+				}
+				case hash_string("CHANNEL_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("CHANNEL_DELETE"):
+				{
+					break;
+				}
+				case hash_string("CHANNEL_PINS_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_MEMBER_ADD"):
+				{
+					break;
+				}
+				case hash_string("GUILD_MEMBER_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_MEMBER_REMOVE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_BAN_ADD"):
+				{
+					break;
+				}
+				case hash_string("GUILD_BAN_REMOVE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_EMOJIS_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("GUILD_INTEGRATIONS_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("WEBHOOKS_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("INVITE_CREATE"):
+				{
+					break;
+				}
+				case hash_string("INVITE_DELETE"):
+				{
+					break;
+				}
+				case hash_string("VOICE_STATE_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("PRESENCE_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_CREATE"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_UPDATE"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_DELETE"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_DELETE_BULK"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_REACTION_ADD"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_REACTION_REMOVE"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_REACTION_REMOVE_ALL"):
+				{
+					break;
+				}
+				case hash_string("MESSAGE_REACTION_REMOVE_EMOJI"):
+				{
+					break;
+				}
+				case hash_string("TYPING_START"):
+				{
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
+			break;
+		}
+		default:
+			break;
+	}
 }

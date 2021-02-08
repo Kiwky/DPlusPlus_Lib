@@ -169,10 +169,12 @@
     <ClCompile Include="Discord.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Discord.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

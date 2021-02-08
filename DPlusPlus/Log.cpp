@@ -11,6 +11,9 @@ void Log::Print(Log_Type logType, const std::string &message) {
 		case Info:
 			std::cout << COLOR_MAGENTA << "[INFO] " << COLOR_RESET << message << std::endl;
 			break;
+		case Succes:
+			std::cout << COLOR_GREEN << "[SUCCES] " << COLOR_RESET << message << std::endl;
+			break;
 		default:
 			break;
 	}

@@ -1,9 +1,15 @@
 /*
-	Dependencies:
+	Dependencies: [AR - x86]
 		BOOST			-> 1.7.0 (BUILD)
 		OPENSSL			-> pe 32 biti (INSTALLER)
 		CPPRESKSDK		-> din NuGet
 		NLOGMANN JSON	-> GitHub (https://github.com/nlohmann/json)
+
+	Probleme:
+		[LOG]	: Culorile la windows se folosesc in alt mod. Trebuie facut pentru fiecare so.
+	
+	TODO:
+		Bot heartbeat interval.
 */
 
 #pragma once
@@ -14,10 +20,14 @@
 #include <nlohmann/json.hpp>
 
 #include "Log.h"
+#include "Utilities.h"
 
 using namespace web;
 using namespace web::websockets::client;
+using namespace DPlusPlus::NonTemplate;
 using nJson = nlohmann::json;
+
+#define GATEWAY_URL "wss://gateway.discord.gg"
 
 enum OP_Type {
 	DISPATCH				/**/ = 0,
@@ -47,32 +57,11 @@ private:
 public:
 	void Start(const std::string &token);
 	void ProcessBotIdentity();
+	void ProcessBotJson(websocket_incoming_message &msg);
 
-	void ProcessBotJson(websocket_incoming_message &msg) {
-		std::string message = msg.extract_string().get();
-		nJson jsonMsg = nJson::parse(message.begin(), message.end());
-
-		std::cout << message << std::endl;
-
-		int op = jsonMsg["op"];
-
-		switch(op) {
-			case OP_Type::DISPATCH:
-			{
-				const std::string type = jsonMsg["t"];	// Message type.
-				const nJson data = jsonMsg["d"];		// Data (json string).
-				lastSRec = jsonMsg["s"];				// Last signal/event id received.
-
-				Log::Print(Info, "Event received: " + type);
-
-				// Switch each event type name.
-				break;
-			}
-			default:
-				break;
-		}
-	}
-
+public:
+	virtual void OnReady(/*TODO: CLASS Ready &ready*/) {}
+	virtual void OnHeartBeat() {}
 
 };
 

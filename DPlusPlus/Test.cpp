@@ -2,19 +2,20 @@
 #include <string>
 #include <conio.h>
 #include "Discord.h"
+#include "Utilities.h"
 
 using namespace std;
 
 class Bot: public Discord {
 
 public:
-	// Functii
+	void OnReady() override {}
 
 };
 
 int main() {
 	Bot bot;
-	bot.Start("BOT TOKEN :)");
+	bot.Start("");
 
 	_getch();
 }

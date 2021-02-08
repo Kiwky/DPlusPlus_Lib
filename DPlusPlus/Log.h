@@ -12,7 +12,7 @@
 #define COLOR_CYNAN		"\x1B[36m"
 #define COLOR_WHITE		"\x1B[37m"
 
-enum Log_Type { Error, Warning, Info };
+enum Log_Type { Error, Warning, Info, Succes };
 
 class Log {
 
