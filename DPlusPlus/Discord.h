@@ -24,6 +24,8 @@
 #include <cpprest/ws_client.h>
 #include <nlohmann/json.hpp>
 
+#include "Ready.h"
+
 #include "Log.h"
 #include "Utilities.h"
 
@@ -68,7 +70,7 @@ public:
 	void ProcessBotJson(websocket_incoming_message &msg);
 
 public:
-	virtual void OnReady(/*TODO: CLASS Ready &ready*/) {}
+	virtual void OnReady(Ready &ready) {}
 	virtual void OnHeartBeat() {}
 
 };

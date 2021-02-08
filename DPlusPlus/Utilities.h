@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include <nlohmann/json.hpp>
 
 using nJson = nlohmann::json;
@@ -16,6 +17,22 @@ namespace DPlusPlus {
 			}
 			else {
 				val = j.value(key, T{});
+			}
+		}
+
+		template <typename T>
+		void GetJsonVector(const nJson &j, const char *key, std::vector<T> &val) {
+			if(j.contains(key) == false || j.at(key).is_null()) {
+				val = vector<T>();
+			}
+			else {
+				const nJson &tempJson = j.at(key);
+				val.resize(tempJson.size());
+				copy(
+					j[key].begin(),
+					j[key].end(),
+					val.begin()
+				);
 			}
 		}
 
