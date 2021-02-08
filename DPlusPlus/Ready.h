@@ -13,7 +13,7 @@ class Ready {
 
 public:
 	int gVersion;
-	std::string sessionId;
+	std::string session_id;
 	User user;
 	vector<Unavailable_Guild> unavailableGuilds;
 	vector<Channel> privateChannels;

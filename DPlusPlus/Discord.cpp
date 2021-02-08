@@ -81,16 +81,16 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					Log::Print(Succes, "Gateway connection successfull.");
 
 					Ready readyData(data);
-					this->session_id = readyData.sessionId;
+					this->session_id = readyData.session_id;
 
 					// Call virtual.
 					OnReady(readyData);
 					break;
 				}
-				case hash_string("RESUMED"):
+				/*case hash_string("RESUMED"):
 				{
 					break;
-				}
+				}*/
 				case hash_string("GUILD_CREATE"):
 				{
 					break;
@@ -117,6 +117,10 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("CHANNEL_CREATE"):
 				{
+					Channel channel(data);
+
+					// Call virtual.
+					OnChannelCreate(channel);
 					break;
 				}
 				case hash_string("CHANNEL_UPDATE"):
@@ -181,10 +185,18 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("MESSAGE_CREATE"):
 				{
+					const Message message(data);
+
+					// Call virtual.
+					OnMessageCreate(message);
 					break;
 				}
 				case hash_string("MESSAGE_UPDATE"):
 				{
+					const Message message(data);
+
+					// Call virtual.
+					OnMessageUpdate(message);
 					break;
 				}
 				case hash_string("MESSAGE_DELETE"):
@@ -232,8 +244,8 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 			hearbeat_thread = std::thread([&]() {
 				while(true) {
 					try {
-						ProcessBotHeartbeat();
 						std::this_thread::sleep_for(std::chrono::milliseconds(heartbeat_interval));
+						ProcessBotHeartbeat();
 					} catch(const std::exception &e) {
 						Log::Print(Error, "Heartbeat thread error [CATCH]: " + (std::string)e.what());
 					}
@@ -243,7 +255,16 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 			break;
 		}
 #pragma endregion
+#pragma region HEARTBEAT_ACK [11]
+		case OP_Type::HEARTBACK_ACK:
+		{
+			// Call  virtual.
+			OnHeartBeat();
+		}
+#pragma endregion
+#pragma region DEFAULT
 		default:
 			break;
+#pragma endregion
 	}
 }

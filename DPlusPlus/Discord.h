@@ -14,6 +14,7 @@
 		User Class
 		Message Class
 		Snowflake Class
+		Partial app class: https://discord.com/developers/docs/topics/oauth2#application-object
 */
 
 #pragma once
@@ -24,17 +25,18 @@
 #include <cpprest/ws_client.h>
 #include <nlohmann/json.hpp>
 
-#include "Ready.h"
-
 #include "Log.h"
 #include "Utilities.h"
+
+#include "Ready.h"
+#include "Message.h"
 
 using namespace web;
 using namespace web::websockets::client;
 using namespace DPlusPlus::NonTemplate;
 using nJson = nlohmann::json;
 
-#define GATEWAY_URL		"wss://gateway.discord.gg"
+#define GATEWAY_URL		"wss://gateway.discord.gg/"
 #define API_URL			"www.discord.gg/api/v8"
 
 enum OP_Type {
@@ -70,8 +72,11 @@ public:
 	void ProcessBotJson(websocket_incoming_message &msg);
 
 public:
-	virtual void OnReady(Ready &ready) {}
-	virtual void OnHeartBeat() {}
+	virtual void OnReady(Ready &ready);
+	virtual void OnHeartBeat();
+	virtual void OnMessageCreate(const Message &message);
+	virtual void OnMessageUpdate(const Message &message);
+	virtual void OnChannelCreate(const Channel &channel);
 
 };
 
