@@ -14,7 +14,7 @@ void Discord::Start(const std::string &token) {
 		try {
 			ProcessBotJson(msg);
 		} catch(const std::exception &e) {
-			Log::Print(Error, "Message handler error [CATCH]:" + (std::string)e.what());
+			Log::Print(Error, "Message handler error [CATCH]: " + (std::string)e.what());
 		}
 	});
 
@@ -30,19 +30,30 @@ void Discord::ProcessBotIdentity() {
 	identity["op"] = OP_Type::IDENTIFY;
 	identity["d"] = {
 		{"token", token},
-		{"properties",{
+		{"properties", {
 			{"$os", "Windows"},
-		{"$browser", "DPlusPlus"},
-		{"$device", "DPlusPlus"},
-		{"$referrer", ""},
-		{"$referring_domain", ""}
-	}},
+			{"$browser", "DPlusPlus"},
+			{"$device", "DPlusPlus"},
+			{"$referrer", ""},
+			{"$referring_domain", ""}
+		}},
 		{"compress", false},
 		{"large_threshold", 250}
 	};
 
 	// Convert 'identity' object (json object) to string and send it to server.
 	msg.set_utf8_message(to_string(identity));
+	client.send(msg);
+}
+
+void Discord::ProcessBotHeartbeat() {
+	websocket_outgoing_message msg;
+	nJson hearbeat;
+
+	hearbeat["op"] = OP_Type::HEARTBEAT;
+	hearbeat["d"] = lastSRec;
+
+	msg.set_utf8_message(to_string(hearbeat));
 	client.send(msg);
 }
 
@@ -53,11 +64,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	//std::cout << message << std::endl;
 	int op = jsonMsg["op"];
 
+	// Data (json string).
+	const nJson data = jsonMsg["d"];
+
 	switch(op) {
+#pragma region DISPATCH [1]
 		case OP_Type::DISPATCH:
 		{
 			const std::string type = jsonMsg["t"];	// Message type.
-			const nJson data = jsonMsg["d"];		// Data (json string).
 			lastSRec = jsonMsg["s"];				// Last signal/event id received.
 
 			Log::Print(Info, "Event received: " + type);
@@ -202,6 +216,27 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 			}
 			break;
 		}
+#pragma endregion
+#pragma region HELLO [10]
+		case OP_Type::HELLO:
+		{
+			isReady = true;
+			heartbeat_interval = data["heartbeat_interval"];
+
+			hearbeat_thread = std::thread([&]() {
+				while(true) {
+					try {
+						ProcessBotHeartbeat();
+						std::this_thread::sleep_for(std::chrono::milliseconds(heartbeat_interval));
+					} catch(const std::exception &e) {
+						Log::Print(Error, "Heartbeat thread error [CATCH]: " + (std::string)e.what());
+					}
+				}
+			});
+
+			break;
+		}
+#pragma endregion
 		default:
 			break;
 	}

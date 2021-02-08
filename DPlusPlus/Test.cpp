@@ -15,7 +15,7 @@ public:
 
 int main() {
 	Bot bot;
-	bot.Start("");
+	bot.Start("BOT TOKEN HERE :)");
 
 	_getch();
 }

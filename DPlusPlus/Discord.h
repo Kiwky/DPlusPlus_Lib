@@ -7,15 +7,20 @@
 
 	Probleme:
 		[LOG]	: Culorile la windows se folosesc in alt mod. Trebuie facut pentru fiecare so.
-	
+
 	TODO:
 		Bot heartbeat interval.
+		Ready Class
+		User Class
+		Message Class
+		Snowflake Class
 */
 
 #pragma once
 
 #include <iostream>
 #include <string>
+#include <thread>
 #include <cpprest/ws_client.h>
 #include <nlohmann/json.hpp>
 
@@ -27,7 +32,8 @@ using namespace web::websockets::client;
 using namespace DPlusPlus::NonTemplate;
 using nJson = nlohmann::json;
 
-#define GATEWAY_URL "wss://gateway.discord.gg"
+#define GATEWAY_URL		"wss://gateway.discord.gg"
+#define API_URL			"www.discord.gg/api/v8"
 
 enum OP_Type {
 	DISPATCH				/**/ = 0,
@@ -53,10 +59,12 @@ private:
 	int lastSRec;
 	int heartbeat_interval;
 	bool isReady;
+	std::thread hearbeat_thread;
 
 public:
 	void Start(const std::string &token);
 	void ProcessBotIdentity();
+	void ProcessBotHeartbeat();
 	void ProcessBotJson(websocket_incoming_message &msg);
 
 public:
