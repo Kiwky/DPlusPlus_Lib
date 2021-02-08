@@ -1,7 +1,16 @@
 #include <iostream>
+#include "Discord.h"
 
 using namespace std;
 
-int main() {
+class Bot: public Discord {
 
+public:
+	// Functii
+
+};
+
+int main() {
+	Bot bot;
+	bot.Start("");
 }
