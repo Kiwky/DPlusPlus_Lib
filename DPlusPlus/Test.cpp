@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <conio.h>
 #include "Discord.h"
 
 using namespace std;
@@ -12,5 +14,7 @@ public:
 
 int main() {
 	Bot bot;
-	bot.Start("");
+	bot.Start("BOT TOKEN :)");
+
+	_getch();
 }

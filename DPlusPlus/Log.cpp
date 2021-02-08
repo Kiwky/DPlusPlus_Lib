@@ -1,15 +1,15 @@
 #include "Log.h"
 
-void Log::Print(Log_Type logType, const string &message) {
+void Log::Print(Log_Type logType, const std::string &message) {
 	switch(logType) {
 		case Error:
-			cout << COLOR_RED << "[ERROR] " << COLOR_RESET << message << endl;
+			std::cout << COLOR_RED << "[ERROR] " << COLOR_RESET << message << std::endl;
 			break;
 		case Warning:
-			cout << COLOR_YELOW << "[WARNING] " << COLOR_RESET << message << endl;
+			std::cout << COLOR_YELOW << "[WARNING] " << COLOR_RESET << message << std::endl;
 			break;
 		case Info:
-			cout << COLOR_MAGENTA << "[INFO] " << COLOR_RESET << message << endl;
+			std::cout << COLOR_MAGENTA << "[INFO] " << COLOR_RESET << message << std::endl;
 			break;
 		default:
 			break;

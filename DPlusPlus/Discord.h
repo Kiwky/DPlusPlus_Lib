@@ -15,9 +15,24 @@
 
 #include "Log.h"
 
-using nJson = nlohmann::json;
 using namespace web;
 using namespace web::websockets::client;
+using nJson = nlohmann::json;
+
+enum OP_Type {
+	DISPATCH				/**/ = 0,
+	HEARTBEAT				/**/ = 1,
+	IDENTIFY				/**/ = 2,
+	STATUS_UPDATE			/**/ = 3,
+	VOICE_STATE_UPDATE		/**/ = 4,
+	VOICE_SERVER_PING		/**/ = 5,
+	RESUME					/**/ = 6,
+	RECONECT				/**/ = 7,
+	REQUEST_GUILD_MEMBERS	/**/ = 8,
+	INVALID_SESSION			/**/ = 9,
+	HELLO					/**/ = 10,
+	HEARTBACK_ACK			/**/ = 11
+};
 
 class Discord {
 
@@ -30,12 +45,34 @@ private:
 	bool isReady;
 
 public:
-	void Start(const std::string &token) {
-		if(token.length() == 0) {
-			Log::Print(Error, "No token has been set.");
-			return;
+	void Start(const std::string &token);
+	void ProcessBotIdentity();
+
+	void ProcessBotJson(websocket_incoming_message &msg) {
+		std::string message = msg.extract_string().get();
+		nJson jsonMsg = nJson::parse(message.begin(), message.end());
+
+		std::cout << message << std::endl;
+
+		int op = jsonMsg["op"];
+
+		switch(op) {
+			case OP_Type::DISPATCH:
+			{
+				const std::string type = jsonMsg["t"];	// Message type.
+				const nJson data = jsonMsg["d"];		// Data (json string).
+				lastSRec = jsonMsg["s"];				// Last signal/event id received.
+
+				Log::Print(Info, "Event received: " + type);
+
+				// Switch each event type name.
+				break;
+			}
+			default:
+				break;
 		}
 	}
+
 
 };
 
