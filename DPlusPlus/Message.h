@@ -1,9 +1,12 @@
 #pragma once
 
 #include <string>
+#include <vector>
 #include <nlohmann/json.hpp>
 
 #include "User.h"
+#include "Channel.h"
+#include "Guild.h"
 
 using nJson = nlohmann::json;
 
@@ -27,6 +30,7 @@ enum Message_Type {
 	APPLICATION_COMMAND,
 };
 
+
 class Message {
 
 public:
@@ -43,5 +47,24 @@ public:
 public:
 	Message() {}
 	Message(const nJson &data);
+
+};
+
+
+class MessageDeleteArg {
+
+public:
+	std::string id;
+	std::string channe_id;
+	std::string guild_id;
+
+public:
+	MessageDeleteArg(const nJson &data) {
+		Message m(data);
+
+		id = m.id;
+		channe_id = m.channel_id;
+		guild_id = m.guild_id;
+	}
 
 };

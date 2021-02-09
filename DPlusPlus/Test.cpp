@@ -31,11 +31,15 @@ public:
 		cout << "Mesaj: " << message.content << "\n";
 	}
 
+	void OnMessageDelete(const MessageDeleteArg &message) {
+		cout << "Mesajul a fost sters: " << message.id << "\n";
+		cout << "Mesaj: " << message.channe_id << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.wUJJdnobq246l5p60-jNQZy9ldM");
+	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.y2f-7CDCwRjB-3IhZoqKBUeQ8EE");
 
 	_getch();
 	return 0;

@@ -2,7 +2,8 @@
 #include "Utilities.h"
 
 Message::Message(const nJson &data) {
-	this->author = User(data["author"]);
+	if(data.contains("author"))
+		this->author = User(data["author"]);
 
 	DPlusPlus::Template::GetJson(data, "type",				/**/ this->type);
 	DPlusPlus::Template::GetJson(data, "id",				/**/ this->id);
@@ -13,3 +14,5 @@ Message::Message(const nJson &data) {
 	DPlusPlus::Template::GetJson(data, "mention_everyone",	/**/ this->mention_everyone);
 	DPlusPlus::Template::GetJson(data, "pinned",			/**/ this->pinned);
 }
+
+

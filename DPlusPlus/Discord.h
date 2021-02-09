@@ -74,8 +74,11 @@ public:
 public:
 	virtual void OnReady(Ready &ready);
 	virtual void OnHeartBeat();
+
 	virtual void OnMessageCreate(const Message &message);
 	virtual void OnMessageUpdate(const Message &message);
+	virtual void OnMessageDelete(const MessageDeleteArg &message);
+
 	virtual void OnChannelCreate(const Channel &channel);
 
 };

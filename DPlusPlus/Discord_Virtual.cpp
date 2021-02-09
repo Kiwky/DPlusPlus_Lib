@@ -16,6 +16,10 @@ void Discord::OnMessageUpdate(const Message &message) {
 	Log::Print(Info, "Message update.");
 }
 
+void Discord::OnMessageDelete(const MessageDeleteArg &message) {
+	Log::Print(Info, "Message delete.");
+}
+
 void Discord::OnChannelCreate(const Channel &channel) {
 	Log::Print(Info, "Channel created.");
 }
