@@ -26,6 +26,7 @@
 #include "Ready.h"
 #include "Message.h"
 #include "Voice.h"
+#include "Role.h"
 
 using namespace web;
 using namespace web::websockets::client;
@@ -80,6 +81,8 @@ public:
 	virtual void OnChannelDelete(const Channel &channel);
 
 	virtual void OnVoiceState(const Voice &voice);
+
+	virtual void OnRoleCreate(std::string &guild_id, const Role &role);
 
 };
 

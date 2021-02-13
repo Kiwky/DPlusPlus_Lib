@@ -33,3 +33,7 @@ void Discord::OnChannelDelete(const Channel &channel) {
 void Discord::OnVoiceState(const Voice &voice) {
 	Log::Print(Info, "Voice state.");
 }
+
+void Discord::OnRoleCreate(std::string &guild_id, const Role &role) {
+	Log::Print(Info, "Role create.");
+}

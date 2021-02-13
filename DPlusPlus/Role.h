@@ -10,9 +10,9 @@ class Role {
 public:
 	int color;
 	int position;
+	uint64_t permissions;
 	std::string id;
 	std::string name;
-	std::string permissions;
 	bool hoist;
 	bool managed;
 	bool mentionable;

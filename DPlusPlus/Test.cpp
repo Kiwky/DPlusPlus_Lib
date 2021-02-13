@@ -39,11 +39,17 @@ public:
 	void OnVoiceState(const Voice &voice) {
 		cout << "Voice channel id: " << voice.channel_id << "\n";
 	}
+
+	void OnRoleCreate(std::string &guild_id, const Role &role) {
+		cout << "Role: " << role.name << "\n";
+		cout << "Role id: " << role.id << "\n";
+		cout << "Guild id: " << guild_id << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
-	bot.Start("TOKEN");
+	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.eZ2Z1JiLxpA-kuOZJjNZgZ7UFzY");
 
 	_getch();
 	return 0;
