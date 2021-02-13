@@ -43,7 +43,7 @@ public:
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.gGXmX7UBJjet0KuL0WS5ovTi8Rw");
+	bot.Start("TOKEN");
 
 	_getch();
 	return 0;
