@@ -125,10 +125,18 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("CHANNEL_UPDATE"):
 				{
+					Channel channel(data);
+
+					// Call virtual.
+					OnChannelUpdate(channel);
 					break;
 				}
 				case hash_string("CHANNEL_DELETE"):
 				{
+					Channel channel(data);
+
+					// Call virtual.
+					OnChannelDelete(channel);
 					break;
 				}
 				case hash_string("CHANNEL_PINS_UPDATE"):
@@ -177,6 +185,10 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("VOICE_STATE_UPDATE"):
 				{
+					const Voice voice(data);
+
+					// Call virtual.
+					OnVoiceState(voice);
 					break;
 				}
 				case hash_string("PRESENCE_UPDATE"):

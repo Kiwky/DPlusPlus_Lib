@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Picua\Desktop\CPP_Files\boost_1_70_0;C:\Program Files (x86)\OpenSSL-Win32\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Picua\Desktop\CPP_Files\boost_1_70_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>G:\boost_1_70_0;C:\Program Files (x86)\OpenSSL-Win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>G:\boost_1_70_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -192,6 +192,7 @@
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="Utilities.cpp" />
+    <ClCompile Include="Voice.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Channel.h" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Ready.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Utilities.h" />
+    <ClInclude Include="Voice.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

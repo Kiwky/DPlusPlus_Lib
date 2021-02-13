@@ -9,12 +9,7 @@
 		[LOG]	: Culorile la windows se folosesc in alt mod. Trebuie facut pentru fiecare so.
 
 	TODO:
-		Bot heartbeat interval.
-		Ready Class
-		User Class
-		Message Class
-		Snowflake Class
-		Partial app class: https://discord.com/developers/docs/topics/oauth2#application-object
+		Voice `member` object.
 */
 
 #pragma once
@@ -30,6 +25,7 @@
 
 #include "Ready.h"
 #include "Message.h"
+#include "Voice.h"
 
 using namespace web;
 using namespace web::websockets::client;
@@ -80,6 +76,10 @@ public:
 	virtual void OnMessageDelete(const MessageDeleteArg &message);
 
 	virtual void OnChannelCreate(const Channel &channel);
+	virtual void OnChannelUpdate(const Channel &channel);
+	virtual void OnChannelDelete(const Channel &channel);
+
+	virtual void OnVoiceState(const Voice &voice);
 
 };
 

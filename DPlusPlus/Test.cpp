@@ -35,11 +35,15 @@ public:
 		cout << "Mesajul a fost sters: " << message.id << "\n";
 		cout << "Mesaj: " << message.channe_id << "\n";
 	}
+
+	void OnVoiceState(const Voice &voice) {
+		cout << "Voice channel id: " << voice.channel_id << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.y2f-7CDCwRjB-3IhZoqKBUeQ8EE");
+	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.gGXmX7UBJjet0KuL0WS5ovTi8Rw");
 
 	_getch();
 	return 0;

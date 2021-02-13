@@ -3,7 +3,6 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-using namespace std;
 using nJson = nlohmann::json;
 
 class User {

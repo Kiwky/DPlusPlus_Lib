@@ -23,3 +23,13 @@ void Discord::OnMessageDelete(const MessageDeleteArg &message) {
 void Discord::OnChannelCreate(const Channel &channel) {
 	Log::Print(Info, "Channel created.");
 }
+
+void Discord::OnChannelUpdate(const Channel &channel) {
+}
+
+void Discord::OnChannelDelete(const Channel &channel) {
+}
+
+void Discord::OnVoiceState(const Voice &voice) {
+	Log::Print(Info, "Voice state.");
+}

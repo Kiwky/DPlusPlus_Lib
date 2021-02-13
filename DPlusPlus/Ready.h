@@ -15,8 +15,8 @@ public:
 	int gVersion;
 	std::string session_id;
 	User user;
-	vector<Unavailable_Guild> unavailableGuilds;
-	vector<Channel> privateChannels;
+	std::vector<Unavailable_Guild> unavailableGuilds;
+	std::vector<Channel> privateChannels;
 
 public:
 	Ready() {}
