@@ -50,6 +50,9 @@
     <ClCompile Include="Role.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Member.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Discord.h">
@@ -80,6 +83,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Role.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Member.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

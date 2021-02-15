@@ -189,6 +189,7 @@
     <ClCompile Include="Discord_Virtual.cpp" />
     <ClCompile Include="Guild.cpp" />
     <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Member.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Ready.cpp" />
     <ClCompile Include="Role.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Discord.h" />
     <ClInclude Include="Guild.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="Member.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Ready.h" />
     <ClInclude Include="Role.h" />

@@ -11,6 +11,7 @@
 
 	TODO:
 		API CALLS
+		OnReactionAdd adaugare parametru 'Emoji`
 */
 
 #pragma once
@@ -28,6 +29,8 @@
 #include "Message.h"
 #include "Voice.h"
 #include "Role.h"
+#include "Member.h"
+#include "User.h"
 
 using namespace web;
 using namespace web::websockets::client;
@@ -83,11 +86,12 @@ public:
 
 	virtual void OnVoiceState(const Voice &voice);
 
-	virtual void OnRoleCreate(std::string &guild_id, const Role &role);
-	virtual void OnRoleUpdate(std::string &guild_id, const Role &role);
-	virtual void OnRoleDelete(std::string &guild_id, const Role &role);
+	virtual void OnRoleCreate(const std::string &guild_id, const Role &role);
+	virtual void OnRoleUpdate(const std::string &guild_id, const Role &role);
+	virtual void OnRoleDelete(const std::string &guild_id, const Role &role);
 
-	virtual void OnChannelPinsUpdate(std::string &guild_id, std::string &channel_id, std::string &last_pin_time);
+	virtual void OnChannelPinsUpdate(const std::string &guild_id, const std::string &channel_id, const std::string &last_pin_time);
 
+	virtual void OnReactionAdd(const Member &member, const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id);
 };
 

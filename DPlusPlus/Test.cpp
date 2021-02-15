@@ -47,9 +47,15 @@ public:
 	}
 
 	void OnChannelPinsUpdate(std::string &guild_id, std::string &channel_id, std::string &last_pin_time) {
-		cout << "GID: " << guild_id << endl;
-		cout << "CID: " << channel_id << endl;
-		cout << "LT: " << last_pin_time << endl;
+		cout << "GID: " << guild_id << "\n";
+		cout << "CID: " << channel_id << "\n";
+		cout << "LT: " << last_pin_time << "\n";
+	}
+
+	void OnReactionAdd(const Member &member, const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id) {
+		cout << "Member name: " << member.user.username << "\n";
+		cout << "User id: " << user_id << "\n";
+		cout << "Channel id: " << channel_id << "\n";
 	}
 };
 

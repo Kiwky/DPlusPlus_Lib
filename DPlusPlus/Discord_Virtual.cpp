@@ -25,27 +25,33 @@ void Discord::OnChannelCreate(const Channel &channel) {
 }
 
 void Discord::OnChannelUpdate(const Channel &channel) {
+	Log::Print(Info, "Channel update.");
 }
 
 void Discord::OnChannelDelete(const Channel &channel) {
+	Log::Print(Info, "Channel delete.");
 }
 
 void Discord::OnVoiceState(const Voice &voice) {
 	Log::Print(Info, "Voice state.");
 }
 
-void Discord::OnRoleCreate(std::string &guild_id, const Role &role) {
+void Discord::OnRoleCreate(const std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role create.");
 }
 
-void Discord::OnRoleUpdate(std::string &guild_id, const Role &role) {
+void Discord::OnRoleUpdate(const std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role update.");
 }
 
-void Discord::OnRoleDelete(std::string &guild_id, const Role &role) {
+void Discord::OnRoleDelete(const std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role delete.");
 }
 
-void Discord::OnChannelPinsUpdate(std::string &guild_id, std::string &channel_id, std::string &last_pin_time) {
+void Discord::OnChannelPinsUpdate(const std::string &guild_id, const std::string &channel_id, const std::string &last_pin_time) {
 	Log::Print(Info, "Pins channel update.");
+}
+
+void Discord::OnReactionAdd(const Member &member, const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id) {
+	Log::Print(Info, "Reaction add.");
 }

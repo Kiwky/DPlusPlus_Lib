@@ -158,9 +158,9 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				{
 					std::string guild_id, channel_id, last_pin_timestamp;
 
-					DPlusPlus::Template::GetJson(data, "guild_id", guild_id);
-					DPlusPlus::Template::GetJson(data, "channel_id", channel_id);
-					DPlusPlus::Template::GetJson(data, "last_pin_timestamp", last_pin_timestamp);
+					DPlusPlus::Template::GetJson(data, "guild_id",				/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "channel_id",			/**/ channel_id);
+					DPlusPlus::Template::GetJson(data, "last_pin_timestamp",	 /**/ last_pin_timestamp);
 
 					// Call virtual.
 					OnChannelPinsUpdate(guild_id, channel_id, last_pin_timestamp);
@@ -248,6 +248,20 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("MESSAGE_REACTION_ADD"):
 				{
+					Member member;
+					std::string user_id, channel_id, message_id, guild_id;
+
+					if(data.contains("member")) {
+						member = Member(data["member"]);
+					}
+
+					DPlusPlus::Template::GetJson(data, "user_id",		/**/ user_id);
+					DPlusPlus::Template::GetJson(data, "channel_id",	/**/ channel_id);
+					DPlusPlus::Template::GetJson(data, "message_id",	/**/ message_id);
+					DPlusPlus::Template::GetJson(data, "guild_id",		/**/ guild_id);
+
+					// Call virtual.
+					OnReactionAdd(member, user_id, guild_id, channel_id, message_id);
 					break;
 				}
 				case hash_string("MESSAGE_REACTION_REMOVE"):
