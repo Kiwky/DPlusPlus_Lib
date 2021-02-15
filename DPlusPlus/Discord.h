@@ -85,6 +85,7 @@ public:
 
 	virtual void OnRoleCreate(std::string &guild_id, const Role &role);
 	virtual void OnRoleUpdate(std::string &guild_id, const Role &role);
+	virtual void OnRoleDelete(std::string &guild_id, const Role &role);
 
 };
 

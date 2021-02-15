@@ -41,3 +41,7 @@ void Discord::OnRoleCreate(std::string &guild_id, const Role &role) {
 void Discord::OnRoleUpdate(std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role update.");
 }
+
+void Discord::OnRoleDelete(std::string &guild_id, const Role &role) {
+	Log::Print(Info, "Role delete.");
+}

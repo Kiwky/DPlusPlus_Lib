@@ -123,6 +123,11 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_ROLE_DELETE"):
 				{
+					const Role role(data["role"]);
+					std::string guild_id = data["guild_id"];
+
+					// Call virtual.
+					OnRoleDelete(guild_id, role);
 					break;
 				}
 				case hash_string("CHANNEL_CREATE"):
