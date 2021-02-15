@@ -55,3 +55,7 @@ void Discord::OnChannelPinsUpdate(const std::string &guild_id, const std::string
 void Discord::OnReactionAdd(const Member &member, const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id) {
 	Log::Print(Info, "Reaction add.");
 }
+
+void Discord::OnReactionRemove(const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id) {
+	Log::Print(Info, "Reaction remove.");
+}

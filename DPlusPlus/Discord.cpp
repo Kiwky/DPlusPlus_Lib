@@ -266,6 +266,15 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("MESSAGE_REACTION_REMOVE"):
 				{
+					std::string user_id, channel_id, message_id, guild_id;
+
+					DPlusPlus::Template::GetJson(data, "user_id",		/**/ user_id);
+					DPlusPlus::Template::GetJson(data, "channel_id",	/**/ channel_id);
+					DPlusPlus::Template::GetJson(data, "message_id",	/**/ message_id);
+					DPlusPlus::Template::GetJson(data, "guild_id",		/**/ guild_id);
+
+					// Call virtual.
+					OnReactionRemove(user_id, guild_id, channel_id, message_id);
 					break;
 				}
 				case hash_string("MESSAGE_REACTION_REMOVE_ALL"):

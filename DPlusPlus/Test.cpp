@@ -57,6 +57,13 @@ public:
 		cout << "User id: " << user_id << "\n";
 		cout << "Channel id: " << channel_id << "\n";
 	}
+
+	void OnReactionRemove(const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id) {
+		cout << "User id: " << user_id << "\n";
+		cout << "Guild id: " << guild_id << "\n";
+		cout << "Channel id: " << channel_id << "\n";
+	}
+
 };
 
 int main() {
