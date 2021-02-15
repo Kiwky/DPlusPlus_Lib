@@ -1,4 +1,6 @@
 /*
+	git ls-files | xargs cat | wc -l
+	
 	Dependencies: [AR - x86]
 		BOOST			-> 1.7.0 (BUILD)
 		OPENSSL			-> pe 32 biti (INSTALLER)
@@ -6,10 +8,9 @@
 		NLOGMANN JSON	-> GitHub (https://github.com/nlohmann/json)
 
 	Probleme:
-		[LOG]	: Culorile la windows se folosesc in alt mod. Trebuie facut pentru fiecare so.
-
+		
 	TODO:
-		Voice `member` object.
+		API CALLS
 */
 
 #pragma once
@@ -83,6 +84,7 @@ public:
 	virtual void OnVoiceState(const Voice &voice);
 
 	virtual void OnRoleCreate(std::string &guild_id, const Role &role);
+	virtual void OnRoleUpdate(std::string &guild_id, const Role &role);
 
 };
 

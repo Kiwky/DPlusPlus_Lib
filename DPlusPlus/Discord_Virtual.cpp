@@ -37,3 +37,7 @@ void Discord::OnVoiceState(const Voice &voice) {
 void Discord::OnRoleCreate(std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role create.");
 }
+
+void Discord::OnRoleUpdate(std::string &guild_id, const Role &role) {
+	Log::Print(Info, "Role update.");
+}

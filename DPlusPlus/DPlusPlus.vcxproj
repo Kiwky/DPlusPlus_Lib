@@ -100,6 +100,8 @@
       <SupportJustMyCode>false</SupportJustMyCode>
       <LanguageStandard>Default</LanguageStandard>
       <PreprocessorDefinitions>_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>
+      </MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

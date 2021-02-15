@@ -49,7 +49,7 @@ public:
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.HqUKFt5_lsGC2kozCmkbIsO7yl0");
+	bot.Start("");
 
 	_getch();
 	return 0;

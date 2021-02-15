@@ -105,7 +105,6 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_ROLE_CREATE"):
 				{
-					std::cout << "\n" << data << "\n";
 					const Role role(data["role"]);
 					std::string guild_id = data["guild_id"];
 
@@ -115,6 +114,11 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_ROLE_UPDATE"):
 				{
+					const Role role(data["role"]);
+					std::string guild_id = data["guild_id"];
+
+					// Call virtual.
+					OnRoleUpdate(guild_id, role);
 					break;
 				}
 				case hash_string("GUILD_ROLE_DELETE"):
