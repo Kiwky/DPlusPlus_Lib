@@ -1,5 +1,4 @@
 #include "Ready.h"
-
 #include "Utilities.h"
 
 Ready::Ready(const nJson &data) {

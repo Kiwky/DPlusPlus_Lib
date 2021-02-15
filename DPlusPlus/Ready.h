@@ -21,6 +21,4 @@ public:
 public:
 	Ready() {}
 	Ready(const nJson &data);
-
 };
-
