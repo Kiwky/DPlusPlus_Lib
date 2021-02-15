@@ -156,6 +156,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("CHANNEL_PINS_UPDATE"):
 				{
+					std::string guild_id, channel_id, last_pin_timestamp;
+
+					DPlusPlus::Template::GetJson(data, "guild_id", guild_id);
+					DPlusPlus::Template::GetJson(data, "channel_id", channel_id);
+					DPlusPlus::Template::GetJson(data, "last_pin_timestamp", last_pin_timestamp);
+
+					// Call virtual.
+					OnChannelPinsUpdate(guild_id, channel_id, last_pin_timestamp);
 					break;
 				}
 				case hash_string("GUILD_MEMBER_ADD"):

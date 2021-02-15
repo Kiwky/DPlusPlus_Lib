@@ -45,3 +45,7 @@ void Discord::OnRoleUpdate(std::string &guild_id, const Role &role) {
 void Discord::OnRoleDelete(std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role delete.");
 }
+
+void Discord::OnChannelPinsUpdate(std::string &guild_id, std::string &channel_id, std::string &last_pin_time) {
+	Log::Print(Info, "Pins channel update.");
+}

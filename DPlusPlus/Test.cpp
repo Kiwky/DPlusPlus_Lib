@@ -45,6 +45,12 @@ public:
 		cout << "Role id: " << role.id << "\n";
 		cout << "Guild id: " << guild_id << "\n";
 	}
+
+	void OnChannelPinsUpdate(std::string &guild_id, std::string &channel_id, std::string &last_pin_time) {
+		cout << "GID: " << guild_id << endl;
+		cout << "CID: " << channel_id << endl;
+		cout << "LT: " << last_pin_time << endl;
+	}
 };
 
 int main() {

@@ -1,6 +1,6 @@
 /*
 	git ls-files | xargs cat | wc -l
-	
+
 	Dependencies: [AR - x86]
 		BOOST			-> 1.7.0 (BUILD)
 		OPENSSL			-> pe 32 biti (INSTALLER)
@@ -8,7 +8,7 @@
 		NLOGMANN JSON	-> GitHub (https://github.com/nlohmann/json)
 
 	Probleme:
-		
+
 	TODO:
 		API CALLS
 */
@@ -86,6 +86,8 @@ public:
 	virtual void OnRoleCreate(std::string &guild_id, const Role &role);
 	virtual void OnRoleUpdate(std::string &guild_id, const Role &role);
 	virtual void OnRoleDelete(std::string &guild_id, const Role &role);
+
+	virtual void OnChannelPinsUpdate(std::string &guild_id, std::string &channel_id, std::string &last_pin_time);
 
 };
 
