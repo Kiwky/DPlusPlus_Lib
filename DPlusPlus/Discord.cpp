@@ -169,7 +169,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 
 					DPlusPlus::Template::GetJson(data, "guild_id",				/**/ guild_id);
 					DPlusPlus::Template::GetJson(data, "channel_id",			/**/ channel_id);
-					DPlusPlus::Template::GetJson(data, "last_pin_timestamp",	 /**/ last_pin_timestamp);
+					DPlusPlus::Template::GetJson(data, "last_pin_timestamp",	/**/ last_pin_timestamp);
 
 					// Call virtual.
 					OnChannelPinsUpdate(guild_id, channel_id, last_pin_timestamp);
@@ -178,7 +178,9 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				case hash_string("GUILD_MEMBER_ADD"):
 				{
 					Member member(data);
-					std::string guild_id = data["guild_id"];
+					std::string guild_id;
+
+					DPlusPlus::Template::GetJson(data, "guild_id", guild_id);
 
 					// Call virtual.
 					OnMemberAdd(guild_id, member);
@@ -186,8 +188,10 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_MEMBER_REMOVE"):
 				{
-					User user(data);
-					std::string guild_id = data["guild_id"];
+					User user(data["user"]);
+					std::string guild_id;
+
+					DPlusPlus::Template::GetJson(data, "guild_id", guild_id);
 
 					// Call virtual.
 					OnMemberRemove(guild_id, user);
@@ -195,6 +199,15 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_MEMBER_UPDATE"):
 				{
+					User user(data["user"]);
+					std::string guild_id, nick, joined_at;
+
+					DPlusPlus::Template::GetJson(data, "guild_id",	/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "nick",		/**/ nick);
+					DPlusPlus::Template::GetJson(data, "joined_at", /**/ joined_at);
+
+					// Call virtual.
+					OnMemberUpdate(guild_id, user, nick, joined_at);
 					break;
 				}
 				case hash_string("GUILD_BAN_ADD"):
