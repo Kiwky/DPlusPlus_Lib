@@ -14,6 +14,11 @@
 		API CALLS
 		OnReactionAdd adaugare parametru 'Emoji`
 		OnReactionRemove adaugare parametru 'Emoji`
+		Guild.h nu are `emojis`
+		Guild.h nu are `features`
+		Guild.h nu are `welcome_screen`
+		Guild.h nu are `voice_states`
+		Guild.h nu are `presences`
 */
 
 #pragma once
@@ -90,6 +95,8 @@ protected:
 	virtual void OnChannelUpdate(const Channel &channel);
 	virtual void OnChannelDelete(const Channel &channel);
 
+	virtual void OnGuildCreate(const Guild &guild);
+	virtual void OnGuildUpdate(const Guild &guild);
 	virtual void OnGuildDelete(const Unavailable_Guild &guild);
 
 	virtual void OnVoiceState(const Voice &voice);

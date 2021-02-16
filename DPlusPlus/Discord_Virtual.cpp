@@ -44,6 +44,14 @@ void Discord::OnChannelDelete(const Channel &channel) {
 	Log::Print(Info, "Channel delete.");
 }
 
+void Discord::OnGuildCreate(const Guild &guild) {
+	Log::Print(Info, "Guild create.");
+}
+
+void Discord::OnGuildUpdate(const Guild &guild) {
+	Log::Print(Info, "Guild update.");
+}
+
 void Discord::OnGuildDelete(const Unavailable_Guild &guild) {
 	Log::Print(Info, "Guild delete.");
 }

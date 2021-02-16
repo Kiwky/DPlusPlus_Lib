@@ -75,7 +75,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	std::string message = msg.extract_string().get();
 	nJson jsonMsg = nJson::parse(message.begin(), message.end());
 
-	std::cout << message << std::endl;
+	//std::cout << message << std::endl;
 	int op = jsonMsg["op"];
 
 	// Data (json string).
@@ -106,10 +106,18 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}*/
 				case hash_string("GUILD_CREATE"):
 				{
+					Guild guild(data);
+
+					// Call virtual.
+					OnGuildCreate(guild);
 					break;
 				}
 				case hash_string("GUILD_UPDATE"):
 				{
+					Guild guild(data);
+
+					// Call virtual.
+					OnGuildUpdate(guild);
 					break;
 				}
 				case hash_string("GUILD_DELETE"):

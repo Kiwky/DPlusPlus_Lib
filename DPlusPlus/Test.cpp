@@ -76,11 +76,16 @@ public:
 		cout << "GID: " << guild.id << "\n";
 		cout << "GUN: " << guild.unavailable << "\n";
 	}
+
+	void OnGuildCreate(const Guild &guild) {
+		cout << "New guild: " << guild.id << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
 	bot.Start("");
+
 
 	_getch();
 	return 0;

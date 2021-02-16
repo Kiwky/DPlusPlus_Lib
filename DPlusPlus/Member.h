@@ -16,10 +16,10 @@ public:
 	std::string joined_at;
 	std::string premium_since;
 	std::string permissions;
-	std::vector<std::string> roles;
 	bool deaf;
 	bool mute;
 	bool pending;
+	std::vector<std::string> roles;
 
 public:
 	Member() {}
