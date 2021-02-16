@@ -12,6 +12,7 @@ class Unavailable_Guild {
 
 public:
 	std::string id;
+	bool unavailable;
 
 public:
 	Unavailable_Guild() {}

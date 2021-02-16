@@ -8,6 +8,7 @@
 		NLOHMANN JSON	-> NuGet
 
 	Probleme:
+		Guild role delete argumente gresite. [Bloc comentat complet]
 
 	TODO:
 		API CALLS
@@ -88,6 +89,8 @@ protected:
 	virtual void OnChannelCreate(const Channel &channel);
 	virtual void OnChannelUpdate(const Channel &channel);
 	virtual void OnChannelDelete(const Channel &channel);
+
+	virtual void OnGuildDelete(const Unavailable_Guild &guild);
 
 	virtual void OnVoiceState(const Voice &voice);
 

@@ -44,6 +44,10 @@ void Discord::OnChannelDelete(const Channel &channel) {
 	Log::Print(Info, "Channel delete.");
 }
 
+void Discord::OnGuildDelete(const Unavailable_Guild &guild) {
+	Log::Print(Info, "Guild delete.");
+}
+
 void Discord::OnVoiceState(const Voice &voice) {
 	Log::Print(Info, "Voice state.");
 }

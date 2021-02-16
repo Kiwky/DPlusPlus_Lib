@@ -71,11 +71,16 @@ public:
 		cout << "New member: " << member.user.username << "\n";
 		cout << "Guild id: " << guild_id << "\n";
 	}
+
+	void OnGuildDelete(const Unavailable_Guild &guild) {
+		cout << "GID: " << guild.id << "\n";
+		cout << "GUN: " << guild.unavailable << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.thCfWuSVwzH235tZoZPwzkHMZsQ");
+	bot.Start("");
 
 	_getch();
 	return 0;
