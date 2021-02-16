@@ -88,5 +88,8 @@
     <ClInclude Include="Member.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Intents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

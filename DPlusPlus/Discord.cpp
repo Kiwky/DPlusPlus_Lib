@@ -1,4 +1,5 @@
 #include "Discord.h"
+#include "Intents.h"
 
 void Discord::Start(const std::string &token) {
 	if(token.length() == 0) {
@@ -21,15 +22,24 @@ void Discord::Start(const std::string &token) {
 	client.connect(U(GATEWAY_URL)).then([&]() {
 		ProcessBotIdentity();
 	});
+
+	client.set_close_handler([&](websocket_close_status status,
+								 const utility::string_t &reason,
+								 const std::error_code &code) {
+		std::cout << "Bot close handler. [" << code.value() << "] \n";
+	});
 }
 
 void Discord::ProcessBotIdentity() {
 	websocket_outgoing_message msg;
 	nJson identity;
 
+	Intents tempInt;
+
 	identity["op"] = OP_Type::IDENTIFY;
 	identity["d"] = {
 		{"token", token},
+		{"intents", tempInt.GetIntents()},
 		{"properties", {
 			{"$os", "Windows"},
 			{"$browser", "DPlusPlus"},
@@ -68,7 +78,6 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	const nJson data = jsonMsg["d"];
 
 	switch(op) {
-#pragma region DISPATCH [1]
 		case OP_Type::DISPATCH:
 		{
 			const std::string type = jsonMsg["t"];	// Message type.
@@ -168,6 +177,11 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_MEMBER_ADD"):
 				{
+					Member member(data);
+					std::string guild_id = data["guild_id"];
+					
+					// Call virtual.
+					OnMemberAdd(guild_id, member);
 					break;
 				}
 				case hash_string("GUILD_MEMBER_UPDATE"):
@@ -277,14 +291,6 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnReactionRemove(user_id, guild_id, channel_id, message_id);
 					break;
 				}
-				case hash_string("MESSAGE_REACTION_REMOVE_ALL"):
-				{
-					break;
-				}
-				case hash_string("MESSAGE_REACTION_REMOVE_EMOJI"):
-				{
-					break;
-				}
 				case hash_string("TYPING_START"):
 				{
 					break;
@@ -296,8 +302,6 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 			}
 			break;
 		}
-#pragma endregion
-#pragma region HELLO [10]
 		case OP_Type::HELLO:
 		{
 			isReady = true;
@@ -316,17 +320,12 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 
 			break;
 		}
-#pragma endregion
-#pragma region HEARTBEAT_ACK [11]
 		case OP_Type::HEARTBACK_ACK:
 		{
 			// Call  virtual.
 			OnHeartBeat();
 		}
-#pragma endregion
-#pragma region DEFAULT
 		default:
 			break;
-#pragma endregion
 	}
 }

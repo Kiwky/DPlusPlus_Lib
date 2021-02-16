@@ -8,6 +8,10 @@ void Discord::OnHeartBeat() {
 	Log::Print(Info, "Client heartbeat.");
 }
 
+void Discord::OnMemberAdd(const std::string guild_id, const Member &member) {
+	Log::Print(Info, "Member add.");
+}
+
 void Discord::OnMessageCreate(const Message &message) {
 	Log::Print(Info, "Message created.");
 }

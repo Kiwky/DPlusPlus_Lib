@@ -37,7 +37,10 @@ public:
 	}
 
 	void OnVoiceState(const Voice &voice) {
-		cout << "Voice channel id: " << voice.channel_id << "\n";
+		if(voice.channel_id == "") {
+			cout << "Disconnect\n";
+		}
+		else cout << "Connected\n";
 	}
 
 	void OnRoleCreate(std::string &guild_id, const Role &role) {
@@ -64,6 +67,10 @@ public:
 		cout << "Channel id: " << channel_id << "\n";
 	}
 
+	void OnMemberAdd(const std::string guild_id, const Member &member) {
+		cout << "New member: " << member.user.username << "\n";
+		cout << "Guild id: " << guild_id << "\n";
+	}
 };
 
 int main() {
