@@ -22,4 +22,3 @@ public:
 	Voice(const nJson &data);
 
 };
-
