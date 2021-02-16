@@ -12,6 +12,10 @@ void Discord::OnMemberAdd(const std::string guild_id, const Member &member) {
 	Log::Print(Info, "Member add.");
 }
 
+void Discord::OnMemberRemove(const std::string guild_id, const User &user) {
+	Log::Print(Info, "Member remove.");
+}
+
 void Discord::OnMessageCreate(const Message &message) {
 	Log::Print(Info, "Message created.");
 }

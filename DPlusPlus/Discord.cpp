@@ -179,13 +179,18 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				{
 					Member member(data);
 					std::string guild_id = data["guild_id"];
-					
+
 					// Call virtual.
 					OnMemberAdd(guild_id, member);
 					break;
 				}
 				case hash_string("GUILD_MEMBER_UPDATE"):
 				{
+					User user(data);
+					std::string guild_id = data["guild_id"];
+
+					// Call virtual.
+					OnMemberRemove(guild_id, user);
 					break;
 				}
 				case hash_string("GUILD_MEMBER_REMOVE"):
