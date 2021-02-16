@@ -41,8 +41,12 @@ void Discord::ProcessBotIdentity() {
 		{"token", token},
 		{"intents", tempInt.GetIntents()},
 		{"properties", {
+#ifdef _WIN32
 			{"$os", "Windows"},
-			{"$browser", "DPlusPlus"},
+#else
+			{"$os", "Linux"},
+#endif
+		{"$browser", "DPlusPlus"},
 			{"$device", "DPlusPlus"},
 			{"$referrer", ""},
 			{"$referring_domain", ""}
@@ -248,6 +252,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("PRESENCE_UPDATE"):
 				{
+					// TODO
 					break;
 				}
 				case hash_string("MESSAGE_CREATE"):

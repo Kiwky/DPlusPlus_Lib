@@ -4,8 +4,8 @@
 	Dependencies: [AR - x86]
 		BOOST			-> 1.7.0 (BUILD)
 		OPENSSL			-> pe 32 biti (INSTALLER)
-		CPPRESKSDK		-> din NuGet
-		NLOGMANN JSON	-> GitHub (https://github.com/nlohmann/json)
+		CPPRESKSDK		-> NuGet
+		NLOHMANN JSON	-> NuGet
 
 	Probleme:
 
@@ -73,7 +73,7 @@ public:
 	void ProcessBotHeartbeat();
 	void ProcessBotJson(websocket_incoming_message &msg);
 
-public:
+protected:
 	virtual void OnReady(Ready &ready);
 	virtual void OnHeartBeat();
 
