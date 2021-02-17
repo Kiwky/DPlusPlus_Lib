@@ -228,6 +228,13 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_BAN_ADD"):
 				{
+					User user(data["user"]);
+					std::string guild_id;
+
+					DPlusPlus::Template::GetJson(data, "guild_id", guild_id);
+
+					// Call virtual.
+					OnMemberBan(guild_id, user);
 					break;
 				}
 				case hash_string("GUILD_BAN_REMOVE"):

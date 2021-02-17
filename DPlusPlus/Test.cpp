@@ -80,12 +80,16 @@ public:
 	void OnGuildCreate(const Guild &guild) {
 		cout << "New guild: " << guild.id << "\n";
 	}
+
+	void OnMemberBan(const std::string guild_id, const User &user) {
+		cout << "Member banned: " << user.username << "\n";
+		cout << "GID: " << guild_id << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
 	bot.Start("");
-
 
 	_getch();
 	return 0;

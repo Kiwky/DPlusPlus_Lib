@@ -86,6 +86,7 @@ protected:
 	virtual void OnMemberAdd(const std::string guild_id, const Member &member);
 	virtual void OnMemberRemove(const std::string guild_id, const User &user);
 	virtual void OnMemberUpdate(const std::string guild_id, const User &user, const std::string &nick, const std::string &joined_at);
+	virtual void OnMemberBan(const std::string guild_id, const User &user);
 
 	virtual void OnMessageCreate(const Message &message);
 	virtual void OnMessageUpdate(const Message &message);
