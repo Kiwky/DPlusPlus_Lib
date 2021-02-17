@@ -85,6 +85,11 @@ public:
 		cout << "Member banned: " << user.username << "\n";
 		cout << "GID: " << guild_id << "\n";
 	}
+
+	void OnMemberUnBan(const std::string guild_id, const User &user) {
+		cout << "Member unbanned: " << user.username << "\n";
+		cout << "GID: " << guild_id << "\n";
+	}
 };
 
 int main() {
