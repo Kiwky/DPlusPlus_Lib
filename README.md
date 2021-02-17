@@ -1,6 +1,6 @@
 Bot instance.
 ```c++
-class Bot: public Discord {}
+class Bot: public Discord {};
 
 int main() {
 	Bot bot;
