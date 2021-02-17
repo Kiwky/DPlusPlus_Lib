@@ -99,3 +99,7 @@ void Discord::OnWebHooksUpdate(const std::string &guild_id, const std::string &c
 void Discord::OnInviteCreate(const User &user, const std::string &guild_id, const std::string &channel_id, const std::string &code, int max_use, bool temporary) {
 	Log::Print(Info, "Invite create.");
 }
+
+void Discord::OnInviteDelete(const std::string &guild_id, const std::string &channel_id, const std::string &code) {
+	Log::Print(Info, "Invite delete.");
+}

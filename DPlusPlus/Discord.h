@@ -19,6 +19,9 @@
 		Guild.h nu are `welcome_screen`
 		Guild.h nu are `voice_states`
 		Guild.h nu are `presences`
+
+	RMD:
+		INVITE_CREATE nu are toti parametrii (are tot ce e important), nu este o problema dar de stiut.
 */
 
 #pragma once
@@ -115,5 +118,6 @@ protected:
 	virtual void OnWebHooksUpdate(const std::string &guild_id, const std::string &channel_id);
 
 	virtual void OnInviteCreate(const User &user, const std::string &guild_id, const std::string &channel_id, const std::string &code, int max_use, bool temporary);
+	virtual void OnInviteDelete(const std::string &guild_id, const std::string &channel_id, const std::string &code);
 };
 

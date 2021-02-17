@@ -270,7 +270,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				case hash_string("INVITE_CREATE"):
 				{
 					User inviter;
-					std::string channel_id, code, guild_id;
+					std::string guild_id, channel_id, code;
 					int max_use;
 					bool temporary;
 
@@ -290,6 +290,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("INVITE_DELETE"):
 				{
+					std::string guild_id, channel_id, code;
+
+					DPlusPlus::Template::GetJson(data, "guild_id",		/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "channel_id",	/**/ channel_id);
+					DPlusPlus::Template::GetJson(data, "code",			/**/ code);
+
+					// Call virtual.
+					OnInviteDelete(guild_id, channel_id, code);
 					break;
 				}
 				case hash_string("VOICE_STATE_UPDATE"):
