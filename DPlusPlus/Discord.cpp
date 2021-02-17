@@ -299,7 +299,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					const Voice voice(data);
 
 					// Call virtual.
-					OnVoiceState(voice);
+					OnVoiceStateUpdate(voice);
 					break;
 				}
 				case hash_string("PRESENCE_UPDATE"):

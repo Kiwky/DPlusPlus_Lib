@@ -68,7 +68,7 @@ void Discord::OnGuildDelete(const Unavailable_Guild &guild) {
 	Log::Print(Info, "Guild delete.");
 }
 
-void Discord::OnVoiceState(const Voice &voice) {
+void Discord::OnVoiceStateUpdate(const Voice &voice) {
 	Log::Print(Info, "Voice state.");
 }
 
