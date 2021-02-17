@@ -258,6 +258,13 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("WEBHOOKS_UPDATE"):
 				{
+					std::string guild_id, channel_id;
+
+					DPlusPlus::Template::GetJson(data, "guild_id",		/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "channel_id",	/**/ channel_id);
+
+					// Call virtual.
+					OnWebHooksUpdate(guild_id, channel_id);
 					break;
 				}
 				case hash_string("INVITE_CREATE"):

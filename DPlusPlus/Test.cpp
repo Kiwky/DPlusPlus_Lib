@@ -90,6 +90,11 @@ public:
 		cout << "Member unbanned: " << user.username << "\n";
 		cout << "GID: " << guild_id << "\n";
 	}
+
+	void OnWebHooksUpdate(const std::string &guild_id, const std::string &channel_id) {
+		cout << "GID: " << guild_id << "\n";
+		cout << "CID: " << channel_id << "\n";
+	}
 };
 
 int main() {

@@ -91,3 +91,7 @@ void Discord::OnReactionAdd(const Member &member, const std::string &user_id, co
 void Discord::OnReactionRemove(const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id) {
 	Log::Print(Info, "Reaction remove.");
 }
+
+void Discord::OnWebHooksUpdate(const std::string &guild_id, const std::string &channel_id) {
+	Log::Print(Info, "Webhook update.");
+}
