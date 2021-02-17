@@ -113,5 +113,7 @@ protected:
 	virtual void OnReactionRemove(const std::string &user_id, const std::string &guild_id, const std::string &channel_id, const std::string &message_id);
 
 	virtual void OnWebHooksUpdate(const std::string &guild_id, const std::string &channel_id);
+
+	virtual void OnInviteCreate(const User &user, const std::string &guild_id, const std::string &channel_id, const std::string &code, int max_use, bool temporary);
 };
 

@@ -269,6 +269,23 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("INVITE_CREATE"):
 				{
+					User inviter;
+					std::string channel_id, code, guild_id;
+					int max_use;
+					bool temporary;
+
+					if(data.contains("inviter")) {
+						inviter = User(data["inviter"]);
+					}
+
+					DPlusPlus::Template::GetJson(data, "channel_id",	/**/ channel_id);
+					DPlusPlus::Template::GetJson(data, "code",			/**/ code);
+					DPlusPlus::Template::GetJson(data, "guild_id",		/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "max_uses",		/**/ max_use);
+					DPlusPlus::Template::GetJson(data, "temporary",		/**/ temporary);
+
+					// Call virtual.
+					OnInviteCreate(inviter, guild_id, channel_id, code, max_use, temporary);
 					break;
 				}
 				case hash_string("INVITE_DELETE"):

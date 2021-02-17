@@ -95,6 +95,14 @@ public:
 		cout << "GID: " << guild_id << "\n";
 		cout << "CID: " << channel_id << "\n";
 	}
+
+	virtual void OnInviteCreate(const User &user, const std::string &guild_id, const std::string &channel_id, const std::string &code, int max_use, bool temporary) {
+		cout << "User: " << user.username << "\n";
+		cout << "GID: " << guild_id << "\n";
+		cout << "CID: " << channel_id << "\n";
+		cout << "Code: " << code << "\n";
+		cout << "Max use: " << max_use << "\n";
+	}
 };
 
 int main() {

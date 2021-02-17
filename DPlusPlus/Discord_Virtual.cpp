@@ -95,3 +95,7 @@ void Discord::OnReactionRemove(const std::string &user_id, const std::string &gu
 void Discord::OnWebHooksUpdate(const std::string &guild_id, const std::string &channel_id) {
 	Log::Print(Info, "Webhook update.");
 }
+
+void Discord::OnInviteCreate(const User &user, const std::string &guild_id, const std::string &channel_id, const std::string &code, int max_use, bool temporary) {
+	Log::Print(Info, "Invite create.");
+}
