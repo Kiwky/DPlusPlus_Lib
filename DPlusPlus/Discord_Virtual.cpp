@@ -28,6 +28,10 @@ void Discord::OnMemberUnBan(const std::string guild_id, const User &user) {
 	Log::Print(Info, "Member unban.");
 }
 
+void Discord::OnMemberPresenceUpdate(const User &user, const std::string &guild_id, const std::string &status) {
+	Log::Print(Info, "Presence update.");
+}
+
 void Discord::OnMessageCreate(const Message &message) {
 	Log::Print(Info, "Message created.");
 }

@@ -18,9 +18,12 @@
 		Guild.h nu are `welcome_screen`
 		Guild.h nu are `voice_states`
 		Guild.h nu are `presences`
+		OnMemberPresenceUpdate nu are toti parametrii.
 
 	RMD:
 		INVITE_CREATE nu are toti parametrii (are tot ce e important), nu este o problema dar de stiut.
+		GUILD_EMOJIS_UPDATE stearsa temporar din `Discord.h`
+		GUILD_INTEGRATIONS_UPDATE stearsa temporar din `Discord.h`
 */
 
 #pragma once
@@ -90,6 +93,7 @@ protected:
 	virtual void OnMemberUpdate(const std::string guild_id, const User &user, const std::string &nick, const std::string &joined_at);
 	virtual void OnMemberBan(const std::string guild_id, const User &user);
 	virtual void OnMemberUnBan(const std::string guild_id, const User &user);
+	virtual void OnMemberPresenceUpdate(const User &user, const std::string &guild_id, const std::string &status);
 
 	virtual void OnMessageCreate(const Message &message);
 	virtual void OnMessageUpdate(const Message &message);

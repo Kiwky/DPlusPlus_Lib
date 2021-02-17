@@ -250,14 +250,6 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnMemberUnBan(guild_id, user);
 					break;
 				}
-				case hash_string("GUILD_EMOJIS_UPDATE"):
-				{
-					break;
-				}
-				case hash_string("GUILD_INTEGRATIONS_UPDATE"):
-				{
-					break;
-				}
 				case hash_string("WEBHOOKS_UPDATE"):
 				{
 					std::string guild_id, channel_id;
@@ -312,7 +304,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("PRESENCE_UPDATE"):
 				{
-					// TODO
+					User user(data["user"]);
+					std::string guild_id, status;
+
+					DPlusPlus::Template::GetJson(data, "guild_id",	/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "status",	/**/ status);
+
+					// Call virtual.
+					OnMemberPresenceUpdate(user, guild_id, status);
 					break;
 				}
 				case hash_string("MESSAGE_CREATE"):

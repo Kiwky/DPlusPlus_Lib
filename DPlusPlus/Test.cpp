@@ -114,6 +114,12 @@ public:
 		cout << "Role delete: " << role_id << "\n";
 		cout << "GID: " << guild_id << "\n";
 	}
+
+	void OnMemberPresenceUpdate(const User &user, const std::string &guild_id, const std::string &status) {
+		cout << "User presence: " << user.username << "\n";
+		cout << "GID: " << guild_id << "\n";
+		cout << "Status: " << status << "\n";
+	}
 };
 
 int main() {
