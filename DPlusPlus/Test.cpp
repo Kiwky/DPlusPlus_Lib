@@ -109,6 +109,11 @@ public:
 		cout << "CID: " << channel_id << "\n";
 		cout << "Code: " << code << "\n";
 	}
+
+	void OnRoleDelete(const std::string &guild_id, const std::string &role_id) {
+		cout << "Role delete: " << role_id << "\n";
+		cout << "GID: " << guild_id << "\n";
+	}
 };
 
 int main() {

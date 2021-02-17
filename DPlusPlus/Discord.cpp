@@ -148,11 +148,13 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("GUILD_ROLE_DELETE"):
 				{
-					//const Role role(data);
-					//std::string guild_id = data["guild_id"];
+					std::string guild_id, role_id;
 
-					//// Call virtual.
-					//OnRoleDelete(guild_id, role);
+					DPlusPlus::Template::GetJson(data, "guild_id",	/**/ guild_id);
+					DPlusPlus::Template::GetJson(data, "role_id",	/**/ role_id);
+
+					// Call virtual.
+					OnRoleDelete(guild_id, role_id);
 					break;
 				}
 				case hash_string("CHANNEL_CREATE"):

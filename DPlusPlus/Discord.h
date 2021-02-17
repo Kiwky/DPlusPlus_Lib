@@ -8,8 +8,7 @@
 		NLOHMANN JSON	-> NuGet
 
 	Probleme:
-		Guild role delete argumente gresite. [Bloc comentat complet]
-
+		
 	TODO:
 		API CALLS
 		OnReactionAdd adaugare parametru 'Emoji`
@@ -108,7 +107,7 @@ protected:
 
 	virtual void OnRoleCreate(const std::string &guild_id, const Role &role);
 	virtual void OnRoleUpdate(const std::string &guild_id, const Role &role);
-	virtual void OnRoleDelete(const std::string &guild_id, const Role &role);
+	virtual void OnRoleDelete(const std::string &guild_id, const std::string &role_id);
 
 	virtual void OnChannelPinsUpdate(const std::string &guild_id, const std::string &channel_id, const std::string &last_pin_time);
 

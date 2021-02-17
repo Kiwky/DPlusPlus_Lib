@@ -76,7 +76,7 @@ void Discord::OnRoleUpdate(const std::string &guild_id, const Role &role) {
 	Log::Print(Info, "Role update.");
 }
 
-void Discord::OnRoleDelete(const std::string &guild_id, const Role &role) {
+void Discord::OnRoleDelete(const std::string &guild_id, const std::string &role_id) {
 	Log::Print(Info, "Role delete.");
 }
 
