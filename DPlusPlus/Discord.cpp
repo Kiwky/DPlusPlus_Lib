@@ -87,7 +87,6 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 			const std::string type = jsonMsg["t"];	// Message type.
 			lastSRec = jsonMsg["s"];				// Last signal/event id received.
 
-			//Log::Print(Info, "Event received: " + type);
 			switch(hash_string(type.c_str())) {
 				case hash_string("READY"):
 				{
