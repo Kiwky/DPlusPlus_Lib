@@ -340,6 +340,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("MESSAGE_DELETE_BULK"):
 				{
+					std::cout << "[TODO] MESSAGE DELETE BULK EVENT EMPTY.\n";
 					break;
 				}
 				case hash_string("MESSAGE_REACTION_ADD"):
@@ -373,10 +374,10 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnReactionRemove(user_id, guild_id, channel_id, message_id);
 					break;
 				}
-				case hash_string("TYPING_START"):
+				/*case hash_string("TYPING_START"):
 				{
 					break;
-				}
+				}*/
 				default:
 				{
 					break;
