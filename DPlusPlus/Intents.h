@@ -1,3 +1,5 @@
+#pragma once
+
 enum eIntents: int {
 	GUILDS						/**/ = 1 << 0,
 	GUILD_MEMBERS				/**/ = 1 << 1,
@@ -22,27 +24,11 @@ private:
 	int value = 0;
 
 public:
-	Intents() {
-		AddIntents(GUILDS);
-		AddIntents(GUILD_MEMBERS);
-		AddIntents(GUILD_BANS);
-		AddIntents(GUILD_EMOJIS);
-		AddIntents(GUILD_INTEGRATIONS);
-		AddIntents(GUILD_WEBHOOKS);
-		AddIntents(GUILD_INVITES);
-		AddIntents(GUILD_VOICE_STATES);
-		AddIntents(GUILD_PRESENCES);
-		AddIntents(GUILD_MESSAGES);
-		AddIntents(GUILD_MESSAGE_REACTIONS);
-		AddIntents(GUILD_MESSAGE_TYPING);
-		AddIntents(DIRECT_MESSAGES);
-		AddIntents(DIRECT_MESSAGE_REACTIONS);
-		AddIntents(DIRECT_MESSAGE_TYPING);
-	}
+	Intents();
 
-	void AddIntents(eIntents intents) {
-		value |= intents;
-	}
+public:
+	void AddIntents(eIntents intents);
+	int GetIntents();
 
-	int GetIntents() { return value; }
 };
+
