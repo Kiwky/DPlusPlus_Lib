@@ -76,7 +76,28 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	std::string message = msg.extract_string().get();
 	nJson jsonMsg = nJson::parse(message.begin(), message.end());
 
-	int op = jsonMsg["op"];
+	int op = jsonMsg["op"];				// OP_Type
+	const nJson data = jsonMsg["d"];	// Json data
 
-	const nJson data = jsonMsg["d"];
+	switch(op) {
+		case OP_Type::DISPATCH:
+		{
+			const std::string type = jsonMsg["t"];	// Message type.
+			last_signal_id = jsonMsg["s"];			// Last signal/event id received.
+
+			switch(hash_string(type.c_str())) {
+				case hash_string("READY"):
+				{
+					Ready ready(data);
+					this->session_id = ready.session_id;
+
+					// Call virtual function.
+					OnReady(ready);
+					break;
+				}
+			}
+		}
+	}
 }
+
+

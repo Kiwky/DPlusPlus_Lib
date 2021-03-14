@@ -26,6 +26,18 @@
     <ClCompile Include="Intents.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Snowflake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Discord_Virtuals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Discord.h">
@@ -35,6 +47,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Intents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Snowflake.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

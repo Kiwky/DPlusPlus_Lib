@@ -6,8 +6,10 @@
 #include <cpprest/ws_client.h>
 #include <nlohmann/json.hpp>
 
+#include "Utilities.h"
 #include "Ready.h"
 
+using namespace DPlusPlus::NonTemplate;
 using namespace web;
 using namespace web::websockets::client;
 using nJson = nlohmann::json;
@@ -56,6 +58,6 @@ public:
 
 protected:
 	/* The ready event is dispatched when a client has completed the initial handshake with the gateway */
-	//virtual void OnReady(Ready &ready);
+	virtual void OnReady(Ready &ready);
 
 };

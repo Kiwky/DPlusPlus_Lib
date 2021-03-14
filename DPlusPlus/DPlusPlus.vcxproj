@@ -185,14 +185,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Discord.cpp" />
+    <ClCompile Include="Discord_Virtuals.cpp" />
     <ClCompile Include="Intents.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Ready.cpp" />
+    <ClCompile Include="Snowflake.cpp" />
+    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Discord.h" />
     <ClInclude Include="Intents.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Ready.h" />
+    <ClInclude Include="Snowflake.h" />
+    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
