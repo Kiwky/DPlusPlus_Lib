@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>G:\boost_1_70_0;C:\Program Files (x86)\OpenSSL-Win32\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\alexl\Desktop\DPlusPlus Library C++\DPlusPlus\include;G:\boost_1_70_0;C:\Program Files (x86)\OpenSSL-Win32\include;$(IncludePath)</IncludePath>
     <LibraryPath>G:\boost_1_70_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -184,22 +184,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Discord.cpp" />
-    <ClCompile Include="Discord_Virtuals.cpp" />
-    <ClCompile Include="Intents.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="Ready.cpp" />
-    <ClCompile Include="Snowflake.cpp" />
-    <ClCompile Include="Utilities.cpp" />
+    <ClCompile Include="source\Discord.cpp" />
+    <ClCompile Include="source\Discord_Virtuals.cpp" />
+    <ClCompile Include="source\Intents.cpp" />
+    <ClCompile Include="source\Message.cpp" />
+    <ClCompile Include="source\Ready.cpp" />
+    <ClCompile Include="source\Snowflake.cpp" />
+    <ClCompile Include="source\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Discord.h" />
-    <ClInclude Include="Intents.h" />
-    <ClInclude Include="Message.h" />
-    <ClInclude Include="Ready.h" />
-    <ClInclude Include="Snowflake.h" />
-    <ClInclude Include="Utilities.h" />
+    <ClInclude Include="include\Discord.h" />
+    <ClInclude Include="include\Intents.h" />
+    <ClInclude Include="include\Message.h" />
+    <ClInclude Include="include\Ready.h" />
+    <ClInclude Include="include\Snowflake.h" />
+    <ClInclude Include="include\Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
