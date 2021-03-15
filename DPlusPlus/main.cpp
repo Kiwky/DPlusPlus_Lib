@@ -4,15 +4,23 @@
 
 #include "Discord.h"
 
-#include "Message.h"
-
 using namespace std;
 
 class Bot: public Discord {
 
 public:
+	void OnReady(const Ready &ready) {}
+
 	void OnMessageCreated(const Message &message) {
-		printf("Message created: [%s] %s", message.channel_id.c_str(), message.content.c_str());
+		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
+	}
+
+	void OnMessageDeleted(const MessageDelete &message) {
+		printf("Message deleted: [%s - %s] %s \n",
+			   message.guild_id.c_str(),
+			   message.channel_id.c_str(),
+			   message.id.c_str()
+		);
 	}
 };
 

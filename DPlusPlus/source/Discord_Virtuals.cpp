@@ -8,3 +8,7 @@ void Discord::OnReady(const Ready &ready) {
 void Discord::OnMessageCreated(const Message &message) {
 	Log::Print(Info, "Message created.");
 }
+
+void Discord::OnMessageDeleted(const MessageDelete &message) {
+	Log::Print(Info, "Message deleted.");
+}

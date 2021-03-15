@@ -103,6 +103,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnMessageCreated(message);
 					break;
 				}
+				case hash_string("MESSAGE_DELETE"):
+				{
+					MessageDelete message(data);
+
+					// Call virtual function.
+					OnMessageDeleted(message);
+					break;
+				}
 			}
 		}
 	}

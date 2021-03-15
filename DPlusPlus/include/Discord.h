@@ -63,4 +63,7 @@ protected:
 
 	/* Sent when a message is created. */
 	virtual void OnMessageCreated(const Message &message);
+
+	/* Sent when a message is deleted. */
+	virtual void OnMessageDeleted(const MessageDelete &message);
 };
