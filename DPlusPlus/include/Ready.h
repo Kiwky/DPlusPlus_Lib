@@ -8,7 +8,7 @@ using nJson = nlohmann::json;
 class Ready {
 
 public:
-	uint32_t gateway_version;
+	int gateway_version;
 	std::string session_id;
 
 public:

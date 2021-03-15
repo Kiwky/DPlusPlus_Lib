@@ -188,18 +188,23 @@
     <ClCompile Include="source\Discord.cpp" />
     <ClCompile Include="source\Discord_Virtuals.cpp" />
     <ClCompile Include="source\Intents.cpp" />
+    <ClCompile Include="source\Log.cpp" />
     <ClCompile Include="source\Message.cpp" />
     <ClCompile Include="source\Ready.cpp" />
     <ClCompile Include="source\Snowflake.cpp" />
+    <ClCompile Include="source\User.cpp" />
     <ClCompile Include="source\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Discord.h" />
     <ClInclude Include="include\Intents.h" />
+    <ClInclude Include="include\Log.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\Ready.h" />
     <ClInclude Include="include\Snowflake.h" />
+    <ClInclude Include="include\User.h" />
     <ClInclude Include="include\Utilities.h" />
+    <ClInclude Include="Log.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

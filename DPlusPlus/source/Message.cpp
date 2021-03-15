@@ -1,6 +1,9 @@
 #include "Message.h"
 
 Message::Message(const nJson &data) {
+	if(data.contains("author"))
+		this->author = User(data["author"]);
+
 	GetJson(data, "id",					/**/ id);
 	GetJson(data, "channel_id",			/**/ channel_id);
 	GetJson(data, "guild_id",			/**/ guild_id);
@@ -13,6 +16,8 @@ Message::Message(const nJson &data) {
 	GetJson(data, "tts",				/**/ tts);
 	GetJson(data, "mention_everyone",	/**/ mention_everyone);
 	GetJson(data, "pinned",				/**/ pinned);
+
+	GetJsonVector(data, "mentions",		/**/ mentions);
 }
 
 void Message::ToJson(nJson &j) {
@@ -30,4 +35,12 @@ void Message::ToJson(nJson &j) {
 		{ "mention_everyone",	mention_everyone		},
 		{ "pinned",				pinned					}
 	};
+}
+
+MessageDelete::MessageDelete(const nJson &data) {
+	Message m(data);
+
+	id = m.id;
+	channel_id = m.channel_id;
+	guild_id = m.guild_id;
 }

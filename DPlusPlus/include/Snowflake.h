@@ -13,7 +13,7 @@ public:
 	Snowflake(const char *_value): value(_value) {}
 
 public:
-	operator std::string &() { return value; }
+	operator std::string &();
 
 };
 

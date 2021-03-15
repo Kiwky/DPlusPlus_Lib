@@ -36,8 +36,8 @@ class Discord {
 
 private:
 	websocket_callback_client client;
-	uint32_t last_signal_id;
-	uint32_t heartbeat_interval;
+	int last_signal_id;
+	int heartbeat_interval;
 	bool is_ready;
 	std::string token;
 	std::string session_id;
@@ -50,7 +50,7 @@ public:
 	/* Try to connect with bot information. */
 	void ProcessBotIdentity();
 
-	/* Description. */
+	/* Send bot information every `heartbeat_interval` ms. */
 	void ProcessBotHeartbeat();
 
 	/* Process the json received. */

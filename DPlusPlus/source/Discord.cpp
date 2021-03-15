@@ -47,7 +47,7 @@ void Discord::ProcessBotIdentity() {
 #else
 			{"$os", "Linux"},
 #endif
-		{"$browser", "DPlusPlus"},
+			{"$browser", "DPlusPlus"},
 			{"$device", "DPlusPlus"},
 			{"$referrer", ""},
 			{"$referring_domain", ""}
