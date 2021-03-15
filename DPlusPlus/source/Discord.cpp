@@ -95,6 +95,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnReady(ready);
 					break;
 				}
+				case hash_string("MESSAGE_CREATE"):
+				{
+					Message message(data);
+
+					// Call virtual function.
+					OnMessageCreated(message);
+					break;
+				}
 			}
 		}
 	}

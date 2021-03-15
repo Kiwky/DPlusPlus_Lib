@@ -22,10 +22,10 @@ Message::Message(const nJson &data) {
 
 void Message::ToJson(nJson &j) {
 	j = nJson{
-		{ "id",					(std::string)id			},
-		{ "guild_id",			(std::string)guild_id	},
-		{ "channel_id",			(std::string)channel_id	},
-		{ "webhook_id",			(std::string)webhook_id	},
+		{ "id",					id						},
+		{ "guild_id",			guild_id				},
+		{ "channel_id",			channel_id				},
+		{ "webhook_id",			webhook_id				},
 		{ "flags",				flags					},
 		{ "type",				type					},
 		{ "content",			content					},

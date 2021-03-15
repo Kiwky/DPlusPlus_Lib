@@ -8,6 +8,7 @@
 
 #include "Utilities.h"
 #include "Ready.h"
+#include "Message.h"
 
 using namespace DPlusPlus::NonTemplate;
 using namespace web;
@@ -58,6 +59,8 @@ public:
 
 protected:
 	/* The ready event is dispatched when a client has completed the initial handshake with the gateway */
-	virtual void OnReady(Ready &ready);
+	virtual void OnReady(const Ready &ready);
 
+	/* Sent when a message is created. */
+	virtual void OnMessageCreated(const Message &message);
 };

@@ -6,7 +6,6 @@
 
 #include "Utilities.h"
 #include "User.h"
-#include "Snowflake.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus::Template;
@@ -34,13 +33,13 @@ enum Message_Type {
 class Message {
 
 public:
-	Snowflake id;
-	Snowflake channel_id;
-	Snowflake guild_id;
-	Snowflake webhook_id;
+	DPlusPlus::Snowflake id;
+	DPlusPlus::Snowflake channel_id;
+	DPlusPlus::Snowflake guild_id;
+	DPlusPlus::Snowflake webhook_id;
 	int flags;
 	Message_Type type;
-	User author;							
+	User author;
 	//Member member;						
 	std::string content;
 	std::string timestamp;
@@ -48,7 +47,7 @@ public:
 	bool tts = false;
 	bool mention_everyone = false;
 	bool pinned = false;
-	std::vector<User> mentions;			
+	std::vector<User> mentions;
 	//std::vector<Role> mention_roles;		
 	//std::vector<Attachments> attachments;
 	//std::vector<Embed> embeds;			
@@ -67,9 +66,9 @@ public:
 class MessageDelete {
 
 public:
-	Snowflake id;
-	Snowflake channel_id;
-	Snowflake guild_id;
+	DPlusPlus::Snowflake id;
+	DPlusPlus::Snowflake channel_id;
+	DPlusPlus::Snowflake guild_id;
 
 public:
 	MessageDelete(const nJson &data);

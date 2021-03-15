@@ -11,12 +11,14 @@ using namespace std;
 class Bot: public Discord {
 
 public:
-
+	void OnMessageCreated(const Message &message) {
+		printf("Message created: [%s] %s", message.channel_id.c_str(), message.content.c_str());
+	}
 };
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.fGg0yZb2g_JR7p162Ko22x8YFYI");
+	bot.Start("");
 
 	_getch();
 }
