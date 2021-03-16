@@ -16,3 +16,7 @@ void Discord::OnMessageUpdated(const Message &message) {
 void Discord::OnMessageDeleted(const MessageDelete &message) {
 	Log::Print(Info, "Message deleted.");
 }
+
+void Discord::OnMessageDeletedBulk(const MessageDeleteBulk &message) {
+	Log::Print(Info, "Message deleted bulk.");
+}

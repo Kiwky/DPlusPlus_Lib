@@ -3,7 +3,7 @@
 
 void Discord::Start(const std::string &token) {
 	if(token.length() == 0) {
-		//Log::Print(Error, "No token has been set.");
+		Log::Print(Error, "No token has been set.");
 		return;
 	}
 
@@ -16,7 +16,7 @@ void Discord::Start(const std::string &token) {
 			ProcessBotJson(msg);
 		}
 		catch(const std::exception &e) {
-			//Log::Print(Error, "Message handler error [CATCH]: " + (std::string)e.what());
+			Log::Print(Error, "Message handler error [CATCH]: " + (std::string)e.what());
 		}
 	});
 
@@ -117,6 +117,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 
 					// Call virtual function.
 					OnMessageDeleted(message);
+					break;
+				}
+				case hash_string("MESSAGE_DELETE_BULK"):
+				{
+					MessageDeleteBulk message(data);
+
+					// Call virtual function.
+					OnMessageDeletedBulk(message);
 					break;
 				}
 			}

@@ -38,9 +38,14 @@ void Message::ToJson(nJson &j) {
 }
 
 MessageDelete::MessageDelete(const nJson &data) {
-	Message m(data);
+	GetJson(data, "id",					/**/ id);
+	GetJson(data, "channel_id",			/**/ channel_id);
+	GetJson(data, "guild_id",			/**/ guild_id);
+}
 
-	id = m.id;
-	channel_id = m.channel_id;
-	guild_id = m.guild_id;
+MessageDeleteBulk::MessageDeleteBulk(const nJson &data) {
+	GetJson(data, "channel_id",			/**/ channel_id);
+	GetJson(data, "guild_id",			/**/ guild_id);
+
+	GetJsonVector(data, "ids",			/**/ id);
 }

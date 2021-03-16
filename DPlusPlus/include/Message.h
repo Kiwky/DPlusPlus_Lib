@@ -74,3 +74,15 @@ public:
 	MessageDelete(const nJson &data);
 
 };
+
+class MessageDeleteBulk {
+
+public:
+	std::vector<DPlusPlus::Snowflake> id;
+	DPlusPlus::Snowflake channel_id;
+	DPlusPlus::Snowflake guild_id;
+
+public:
+	MessageDeleteBulk(const nJson &data);
+
+};

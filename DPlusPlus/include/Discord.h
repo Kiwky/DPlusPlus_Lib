@@ -7,6 +7,7 @@
 #include <nlohmann/json.hpp>
 
 #include "Utilities.h"
+#include "Log.h"
 #include "Ready.h"
 #include "Message.h"
 
@@ -69,4 +70,7 @@ protected:
 
 	/* Sent when a message is deleted. */
 	virtual void OnMessageDeleted(const MessageDelete &message);
+
+	/* Sent when multiple messages are deleted at once. */
+	virtual void OnMessageDeletedBulk(const MessageDeleteBulk &message);
 };
