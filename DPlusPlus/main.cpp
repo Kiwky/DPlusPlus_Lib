@@ -15,6 +15,14 @@ public:
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 	}
 
+	void OnMessageUpdated(const Message &message) {
+		printf("Message updated: [%s - %s] %s \n",
+			   message.guild_id.c_str(),
+			   message.channel_id.c_str(),
+			   message.id.c_str()
+		);
+	}
+
 	void OnMessageDeleted(const MessageDelete &message) {
 		printf("Message deleted: [%s - %s] %s \n",
 			   message.guild_id.c_str(),
