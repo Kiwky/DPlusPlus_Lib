@@ -6,9 +6,10 @@
 
 #include "Utilities.h"
 #include "User.h"
+#include "../Embed.h"
 
 using nJson = nlohmann::json;
-using namespace DPlusPlus::Template;
+using namespace DPlusPlus;
 
 enum Message_Type {
 	DEFAULT = 0,
@@ -30,45 +31,12 @@ enum Message_Type {
 	APPLICATION_COMMAND,
 };
 
-class Message {
-
-public:
-	DPlusPlus::Snowflake id;
-	DPlusPlus::Snowflake channel_id;
-	DPlusPlus::Snowflake guild_id;
-	DPlusPlus::Snowflake webhook_id;
-	int flags;
-	Message_Type type;
-	User author;
-	//Member member;						
-	std::string content;
-	std::string timestamp;
-	std::string edited_timestamp;
-	bool tts = false;
-	bool mention_everyone = false;
-	bool pinned = false;
-	std::vector<User> mentions;
-	//std::vector<Role> mention_roles;		
-	//std::vector<Attachments> attachments;
-	//std::vector<Embed> embeds;			
-	//std::vector<Reaction> reactions;		
-
-public:
-	Message() {}
-	Message(const nJson &data);
-
-public:
-	// Serialize class without vectors.
-	void ToJson(nJson &j);
-
-};
-
 class MessageDelete {
 
 public:
-	DPlusPlus::Snowflake id;
-	DPlusPlus::Snowflake channel_id;
-	DPlusPlus::Snowflake guild_id;
+	Snowflake id;
+	Snowflake channel_id;
+	Snowflake guild_id;
 
 public:
 	MessageDelete(const nJson &data);
@@ -79,10 +47,42 @@ class MessageDeleteBulk {
 
 public:
 	std::vector<DPlusPlus::Snowflake> id;
-	DPlusPlus::Snowflake channel_id;
-	DPlusPlus::Snowflake guild_id;
+	Snowflake channel_id;
+	Snowflake guild_id;
 
 public:
 	MessageDeleteBulk(const nJson &data);
+
+};
+
+class Message {
+
+public:
+	Snowflake id;
+	Snowflake channel_id;
+	Snowflake guild_id;
+	Snowflake webhook_id;
+	int flags;
+	Message_Type type;
+	User author;
+	//Member member;						
+	std::string content;
+	std::string timestamp;
+	std::string edited_timestamp;
+	bool tts = false;
+	bool mention_everyone = false;
+	bool pinned = false;
+	Embed embeds;
+	std::vector<User> mentions;
+	//std::vector<Role> mention_roles;		
+	//std::vector<Attachments> attachments;
+	//std::vector<Reaction> reactions;		
+
+public:
+	Message() {}
+	Message(const nJson &data);
+
+public:
+	void ToJson(nJson &j);
 
 };

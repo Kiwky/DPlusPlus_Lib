@@ -7,7 +7,7 @@
 #include "Utilities.h"
 
 using nJson = nlohmann::json;
-using namespace DPlusPlus::Template;
+using namespace DPlusPlus;
 
 enum User_Flags {
 	NONE				/**/ = 0,
@@ -29,7 +29,7 @@ enum User_Flags {
 class User {
 
 public:
-	DPlusPlus::Snowflake id;
+	Snowflake id;
 	int premium_type;
 	int public_flags;
 	User_Flags flags;

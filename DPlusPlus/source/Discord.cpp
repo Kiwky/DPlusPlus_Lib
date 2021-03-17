@@ -1,6 +1,8 @@
 #include "Discord.h"
 #include "Intents.h"
 
+std::string Discord::token;
+
 void Discord::Start(const std::string &token) {
 	if(token.length() == 0) {
 		Log::Print(Error, "No token has been set.");

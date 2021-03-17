@@ -5,19 +5,19 @@
 #include <thread>
 #include <cpprest/ws_client.h>
 #include <nlohmann/json.hpp>
+#include <cpprest/http_client.h>
 
 #include "Utilities.h"
 #include "Log.h"
 #include "Ready.h"
 #include "Message.h"
+#include "../Channel.h"	// TODO
 
-using namespace DPlusPlus::NonTemplate;
+using namespace DPlusPlus;
 using namespace web;
+using namespace web::http;
 using namespace web::websockets::client;
 using nJson = nlohmann::json;
-
-#define GATEWAY_URL	"wss://gateway.discord.gg/"
-#define API_URL		"www.discord.gg/api/v8"
 
 enum OP_Type {
 	DISPATCH				/**/ = 0,
@@ -41,7 +41,7 @@ private:
 	int last_signal_id;
 	int heartbeat_interval;
 	bool is_ready;
-	std::string token;
+	static std::string token;
 	std::string session_id;
 	std::thread heartbeat_thread;
 

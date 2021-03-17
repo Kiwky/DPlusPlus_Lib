@@ -184,7 +184,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Channel.cpp" />
+    <ClCompile Include="Embed.cpp" />
+    <ClCompile Include="Endpoints.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Member.cpp" />
     <ClCompile Include="source\Discord.cpp" />
     <ClCompile Include="source\Discord_Virtuals.cpp" />
     <ClCompile Include="source\Intents.cpp" />
@@ -195,6 +199,8 @@
     <ClCompile Include="source\Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Channel.h" />
+    <ClInclude Include="Embed.h" />
     <ClInclude Include="include\Discord.h" />
     <ClInclude Include="include\Intents.h" />
     <ClInclude Include="include\Log.h" />
@@ -202,7 +208,7 @@
     <ClInclude Include="include\Ready.h" />
     <ClInclude Include="include\User.h" />
     <ClInclude Include="include\Utilities.h" />
-    <ClInclude Include="Log.h" />
+    <ClInclude Include="Member.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
