@@ -9,19 +9,87 @@
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
 
-class Embed_Footer {};
+enum Embe_Type {
+	RICH = 0,
+	IMAGE,
+	VIDEO,
+	GIFV,
+	ARTICLE,
+	LINK
+};
 
-class Embed_Image {};
+class Embed_Footer {
 
-class Embed_Thumbnail {};
+public:
+	std::string text;
+	std::string icon_url;
+	std::string proxy_icon_url;
 
-class Embed_Video {};
+public:
+	void ToJson(nJson &j);
 
-class Embed_Provider {};
+};
 
-class Embed_Author {};
+class Embed_Image {
 
-class Embed_Field {
+public:
+	std::string url;
+	std::string proxy_url;
+	std::string height;
+	std::string width;
+
+public:
+	void ToJson(nJson &j);
+
+};
+
+class Embed_Thumbnail {
+
+public:
+	std::string url;
+	std::string proxy_url;
+	std::string height;
+	std::string width;
+
+public:
+	void ToJson(nJson &j);
+
+};
+
+class Embed_Video {
+
+public:
+	std::string url;
+	std::string proxy_url;
+	std::string height;
+	std::string width;
+
+public:
+	void ToJson(nJson &j);
+
+};
+
+class Embed_Provider {
+
+public:
+	std::string name;
+	std::string url;
+
+public:
+	void ToJson(nJson &j);
+
+};
+
+class Embed_Author {
+
+public:
+	std::string name;
+	std::string url;
+	std::string icon_url;
+	std::string proxy_icon_url;
+
+public:
+	void ToJson(nJson &j);
 
 };
 
@@ -43,29 +111,7 @@ public:
 	std::vector<nJson> fields;
 
 public:
-	void ToJson(nJson &j) {
-		j = nJson{
-			{"title",		/**/ title},
-			{"type",		/**/ type},
-			{"description",	/**/ description},
-			{"url",			/**/ url},
-			{"timestamp",	/**/ timestamp},
-			{"color",		/**/ color}
-		};
-
-		for(auto iter = fields.begin(); iter != fields.end(); ++iter) {
-			j["fields"].push_back(*iter);
-		}
-	}
-
-	void AddField(const std::string &name, const std::string &value, bool _inlineField) {
-		nJson newField;
-
-		newField["name"] = name;
-		newField["value"] = value;
-		newField["inline"] = _inlineField;
-
-		fields.push_back(newField);
-	}
+	void ToJson(nJson &j);
+	void AddField(const std::string &name, const std::string &value, bool _inlineField);
 
 };

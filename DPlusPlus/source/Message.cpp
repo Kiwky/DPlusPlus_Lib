@@ -26,19 +26,19 @@ void Message::ToJson(nJson &j) {
 
 	// Momentan doar SnedMessage foloseste ToJson, si are nevoie decat de content si embed.
 	j = nJson{
-		//{ "id",				id					},
-		//{ "guild_id",			guild_id			},
-		//{ "channel_id",		channel_id			},
-		//{ "webhook_id",		webhook_id			},
-		//{ "flags",			flags				},
-		//{ "type",				type				},
-		{ "content",			content				},
-		//{ "timestamp",		timestamp			},
-		//{ "edited_timestamp",	edited_timestamp	},
-		//{ "tts",				tts					},
-		//{ "mention_everyone",	mention_everyone	},
-		//{ "pinned",			pinned				},
-		{ "embed",				embedJson			}
+		{"content",				content				},
+		{"embed",				embedJson			},
+		//{"id",				id					},
+		//{"guild_id",			guild_id			},
+		//{"channel_id",		channel_id			},
+		//{"webhook_id",		webhook_id			},
+		//{"flags",				flags				},
+		//{"type",				type				},
+		//{"timestamp",			timestamp			},
+		//{"edited_timestamp",	edited_timestamp	},
+		//{"tts",				tts					},
+		//{"mention_everyone",	mention_everyone	},
+		//{"pinned",			pinned				}
 	};
 }
 

@@ -19,22 +19,20 @@ public:
 		if(!message.author.bot) {
 			Channel t(message.channel_id);
 
-			Message m;
-			Embed e;
-			e.AddField("Fiel 1", "Value 1", true);
-			e.AddField("Fiel 2", "Value 2", true);
-			e.AddField("Fiel 3", "Value 3", true);
-			e.AddField("Fiel 4", "Value 4", true);
-			e.AddField("Fiel 5", "Value 5", true);
-			e.AddField("Fiel 6", "Value 6", true);
-			m.content = "EMBED";
+			/*Embed e;
 
-			m.embeds = e;
+			e.title = "Titlu";
 
-			nJson j;
-			m.ToJson(j);
+			e.AddField("Field 1", "Value 1", true);
+			e.AddField("Field 2", "Value 2", true);
+			e.AddField("Field 3", "Value 3", true);
+			e.AddField("Field 4", "Value 4", true);
+			e.AddField("Field 5", "Value 5", true);
+			e.AddField("Field 6", "Value 6", true);
 
-			t.SendMessage("CONTENT :)", &e);
+			e.footer = Embed_Footer{"Titlu footer"};
+
+			t.SendMessage("CONTENT :)", &e);*/
 		}
 	}
 
@@ -58,5 +56,6 @@ public:
 int main() {
 	Bot bot;
 	bot.Start("");
+
 	_getch();
 }

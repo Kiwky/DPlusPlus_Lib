@@ -40,7 +40,7 @@ public:
 public:
 	Channel() {}
 	Channel(const Snowflake channel_id) {
-		this->id = channel_id;
+		API_Call("/channels/" + channel_id, methods::GET, "");
 	}
 	Channel(const nJson &data);
 
@@ -55,7 +55,6 @@ public:
 		}
 
 		message.ToJson(object);
-		std::cout << this->id;
 		API_Call("/channels/" + this->id + "/messages", methods::POST, object.dump());
 	}
 

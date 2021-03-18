@@ -41,9 +41,11 @@ private:
 	int last_signal_id;
 	int heartbeat_interval;
 	bool is_ready;
-	static std::string token;
 	std::string session_id;
 	std::thread heartbeat_thread;
+
+public:
+	static std::string token;
 
 public:
 	/* Start the bot instance. */
