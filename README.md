@@ -7,6 +7,10 @@ int main() {
 	bot.Start("BOT TOKEN");
 }
 
-Class:
-> Message
+Message:
+```
+	> void SendMessage(const std::string &content, Embed *embed = nullptr);
+	> Message GetMessage(const Snowflake &message_id);
+	> std::vector<Message> GetMessages(int limit = 100);
+```
 ```
