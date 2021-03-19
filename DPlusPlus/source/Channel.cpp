@@ -19,15 +19,24 @@ Channel::Channel(const nJson &data) {
 	GetJson(data, "nsfw",				/**/ nsfw);
 }
 
-std::vector<Message> Channel::GetMessages(int _count) {
+std::vector<Message> Channel::GetMessages(int limit) {
 	std::vector<Message> result;
-	nJson jsonResult = API_Call("/channels/" + id + "/messages?limit=" + std::to_string(_count), methods::GET, "");
+
+	nJson jsonResult = API_Call(
+		"/channels/" + id + "/messages?limit=" + std::to_string(limit),
+		methods::GET,
+		""
+	);
 
 	for(auto iter = jsonResult.begin(); iter != jsonResult.end(); ++iter) {
 		result.emplace_back(Message(*iter));
 	}
 
 	return result;
+}
+
+Message Channel::GetMessage(const Snowflake &message_id) {
+	return Message();
 }
 
 void Channel::SendMessage(const std::string &content, Embed *embed) {

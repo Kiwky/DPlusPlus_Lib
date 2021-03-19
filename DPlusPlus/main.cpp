@@ -32,7 +32,6 @@ public:
 
 			e.footer = Embed_Footer{"Titlu footer"};*/
 
-
 			t.SendMessage("CONTENT :)");
 
 			std::vector<Message> mList = t.GetMessages(3);

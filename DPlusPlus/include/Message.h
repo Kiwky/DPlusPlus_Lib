@@ -6,7 +6,7 @@
 
 #include "Utilities.h"
 #include "User.h"
-#include "../Embed.h"
+#include "Embed.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
