@@ -6,4 +6,7 @@ int main() {
 	Bot bot;
 	bot.Start("BOT TOKEN");
 }
+
+Class:
+> Message
 ```
