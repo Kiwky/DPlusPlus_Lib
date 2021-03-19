@@ -39,23 +39,10 @@ public:
 
 public:
 	Channel() {}
-	Channel(const Snowflake channel_id) {
-		API_Call("/channels/" + channel_id, methods::GET, "");
-	}
+	Channel(const Snowflake channel_id);
 	Channel(const nJson &data);
 
 public:
-	void SendMessage(const std::string &content, Embed *embed = nullptr) {
-		nJson object;
-		Message message;
-
-		message.content = content;
-		if(embed != nullptr) {
-			message.embeds = *embed;
-		}
-
-		message.ToJson(object);
-		API_Call("/channels/" + this->id + "/messages", methods::POST, object.dump());
-	}
+	void SendMessage(const std::string &content, Embed *embed = nullptr);
 
 };

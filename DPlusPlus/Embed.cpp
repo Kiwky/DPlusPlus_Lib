@@ -17,12 +17,12 @@ void Embed::ToJson(nJson &j) {
 		{"url",			url				},
 		{"timestamp",	timestamp		},
 		{"color",		color			},
-		{"footer",		footerJson		},
+		/*{"footer",		footerJson		},
 		{"image",		imageJson		},
 		{"thumbnail",	thumbnailJson	},
 		{"video",		videoJson		},
 		{"provider",	providerJson	},
-		{"author",		authorJson		}
+		{"author",		authorJson		}*/
 	};
 
 	for(auto iter = fields.begin(); iter != fields.end(); ++iter) {

@@ -51,5 +51,5 @@ namespace DPlusPlus {
 		}
 	}
 
-	void API_Call(const std::string &url, method api_method, const std::string &jsonObject);
+	nJson API_Call(const std::string &url, method api_method, const std::string &jsonObject);
 }

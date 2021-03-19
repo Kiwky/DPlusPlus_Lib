@@ -30,9 +30,10 @@ public:
 			e.AddField("Field 5", "Value 5", true);
 			e.AddField("Field 6", "Value 6", true);
 
-			e.footer = Embed_Footer{"Titlu footer"};
+			e.footer = Embed_Footer{"Titlu footer"};*/
 
-			t.SendMessage("CONTENT :)", &e);*/
+
+			t.SendMessage("CONTENT :)");
 		}
 	}
 

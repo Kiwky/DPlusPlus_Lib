@@ -22,9 +22,10 @@ Message::Message(const nJson &data) {
 
 void Message::ToJson(nJson &j) {
 	nJson embedJson;
-	embeds.ToJson(embedJson);
+	if(embeds.description.length() > 0 || embeds.fields.size() > 0)
+		embeds.ToJson(embedJson);
 
-	// Momentan doar SnedMessage foloseste ToJson, si are nevoie decat de content si embed.
+	// Momentan doar SendMessage foloseste ToJson, si are nevoie decat de content si embed.
 	j = nJson{
 		{"content",				content				},
 		{"embed",				embedJson			},

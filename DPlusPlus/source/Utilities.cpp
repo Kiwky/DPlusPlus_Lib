@@ -8,7 +8,8 @@ using namespace web::http::client;
 using namespace utility;
 
 namespace DPlusPlus {
-	void API_Call(const std::string &url, method api_method, const std::string &jsonObject) {
+	nJson API_Call(const std::string &url, method api_method, const std::string &jsonObject) {
+		std::cout << "\n\n " << jsonObject << "\n\n";
 		try {
 			web::json::value json_v;
 			web::http::client::http_client client(U(API_URL));
@@ -21,21 +22,26 @@ namespace DPlusPlus {
 			req.headers().add(L"User-Agent", L"DPlusPlus");
 			req.headers().add(L"Content-Type", L"application/json");
 
-			//req.set_body(jsonObject);
-			//client.request(req);
+			if(api_method == methods::POST) {
+				req.set_body(jsonObject);
+				//client.request(req);
+			}
 
-			web::json::value ret;
 			pplx::task<http_response> requestTask = client.request(req).then([](http_response response) {
 				return response;
 			});
 
 			requestTask.wait();
-			ret = value::parse(requestTask.get().extract_string().get());
+			auto response_string = requestTask.get().extract_string().get();
+			std::cout << response_string.c_str() << std::endl;
 
-			std::wcout << ret;
+			nJson s = nJson::parse(response_string.begin(), response_string.end());
+			std::cout << s << "\n";
+			return s;
 		}
 		catch(std::exception &e) {
 			std::cout << e.what();
 		}
+
 	}
 }
