@@ -49,5 +49,8 @@ void Channel::SendMessage(const std::string &content, Embed *embed) {
 	}
 
 	message.ToJson(object);
+	
+	std::cout << "AICI " << object.dump();
+
 	API_Call("/channels/" + this->id + "/messages", methods::POST, object.dump());
 }

@@ -19,8 +19,7 @@ public:
 		if(!message.author.bot) {
 			Channel t(message.channel_id);
 
-			/*Embed e;
-
+			Embed e;
 			e.title = "Titlu";
 
 			e.AddField("Field 1", "Value 1", true);
@@ -30,9 +29,9 @@ public:
 			e.AddField("Field 5", "Value 5", true);
 			e.AddField("Field 6", "Value 6", true);
 
-			e.footer = Embed_Footer{"Titlu footer"};*/
+			e.footer = Embed_Footer{"Titlu footer"};
 
-			t.SendMessage("CONTENT :)");
+			t.SendMessage("CONTENT :)", &e);
 
 			std::vector<Message> mList = t.GetMessages(3);
 			cout << mList.size();

@@ -35,8 +35,8 @@ class Embed_Image {
 public:
 	std::string url;
 	std::string proxy_url;
-	std::string height;
-	std::string width;
+	int height;
+	int width;
 
 public:
 	void ToJson(nJson &j);
@@ -48,8 +48,8 @@ class Embed_Thumbnail {
 public:
 	std::string url;
 	std::string proxy_url;
-	std::string height;
-	std::string width;
+	int height;
+	int width;
 
 public:
 	void ToJson(nJson &j);
@@ -61,8 +61,8 @@ class Embed_Video {
 public:
 	std::string url;
 	std::string proxy_url;
-	std::string height;
-	std::string width;
+	int height;
+	int width;
 
 public:
 	void ToJson(nJson &j);
