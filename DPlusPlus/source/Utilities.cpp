@@ -22,10 +22,8 @@ namespace DPlusPlus {
 			req.headers().add(L"User-Agent", L"DPlusPlus");
 			req.headers().add(L"Content-Type", L"application/json");
 
-			if(api_method == methods::POST) {
+			if((api_method != methods::GET) && (api_method != methods::HEAD))
 				req.set_body(jsonObject);
-				//client.request(req);
-			}
 
 			pplx::task<http_response> requestTask = client.request(req).then([](http_response response) {
 				return response;

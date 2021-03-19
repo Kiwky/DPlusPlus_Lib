@@ -25,21 +25,9 @@ void Message::ToJson(nJson &j) {
 	if(embeds.description.length() > 0 || embeds.fields.size() > 0)
 		embeds.ToJson(embedJson);
 
-	// Momentan doar SendMessage foloseste ToJson, si are nevoie decat de content si embed.
 	j = nJson{
 		{"content",				content				},
 		{"embed",				embedJson			},
-		//{"id",				id					},
-		//{"guild_id",			guild_id			},
-		//{"channel_id",		channel_id			},
-		//{"webhook_id",		webhook_id			},
-		//{"flags",				flags				},
-		//{"type",				type				},
-		//{"timestamp",			timestamp			},
-		//{"edited_timestamp",	edited_timestamp	},
-		//{"tts",				tts					},
-		//{"mention_everyone",	mention_everyone	},
-		//{"pinned",			pinned				}
 	};
 }
 

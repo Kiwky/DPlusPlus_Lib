@@ -34,6 +34,9 @@ public:
 
 
 			t.SendMessage("CONTENT :)");
+
+			std::vector<Message> mList = t.GetMessages(3);
+			cout << mList.size();
 		}
 	}
 

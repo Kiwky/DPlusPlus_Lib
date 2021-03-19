@@ -44,5 +44,6 @@ public:
 
 public:
 	void SendMessage(const std::string &content, Embed *embed = nullptr);
+	std::vector<Message> GetMessages(int _count);
 
 };
