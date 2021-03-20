@@ -60,6 +60,9 @@ public:
 	// Delete a message.
 	void DeleteMessage(const Snowflake &message_id);
 
+	// Delete multiple messages in a single request. 
+	void DeleteMessageBulk(std::vector<Message> message_list);
+
 	// Delete a channel, or close a private message.
 	void DeleteChannel();
 };

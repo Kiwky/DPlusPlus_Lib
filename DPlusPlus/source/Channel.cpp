@@ -79,6 +79,17 @@ void Channel::DeleteMessage(const Snowflake &message_id) {
 	API_Call("/channels/" + this->id + "/messages/" + message_id, methods::DEL);
 }
 
+void Channel::DeleteMessageBulk(std::vector<Message> message_list) {
+	nJson object;
+
+	for(auto iter = message_list.begin(); iter != message_list.end(); ++iter) {
+		object["messages"].push_back(iter->id);
+	}
+
+	API_Call("/channels/" + this->id + "/messages/bulk-delete", methods::POST, object.dump());
+}
+
 void Channel::DeleteChannel() {
 	API_Call("/channels/" + this->id, methods::DEL);
 }
+
