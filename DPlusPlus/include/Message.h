@@ -85,4 +85,7 @@ public:
 public:
 	void ToJson(nJson &j);
 
+	// Edit a previously sent message.
+	Message Modify(Message &new_message);
+
 };

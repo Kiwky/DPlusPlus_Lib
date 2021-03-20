@@ -1,3 +1,9 @@
+/**
+ *	TODO:
+ *		> OnMessageDeletedBulk modificare parametrii:
+ *			> De exemplu (std::vector<Snowflake> ids, Snowflake channel_id, Snowflake guild_id); 
+ */
+
 #pragma once
 
 #include <iostream>

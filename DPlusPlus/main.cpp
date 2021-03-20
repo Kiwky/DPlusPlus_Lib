@@ -16,10 +16,13 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
+		Message m;
+		m.content = "NOU";
+
 		Channel c(message.channel_id);
-		vector<Message> list;
-		list = c.GetMessages(2);
-		c.DeleteMessageBulk(list);
+		Message edit = c.GetMessage("822602337008353332");
+		edit.Modify(m);
+
 	}
 
 	void OnMessageUpdated(const Message &message) {
@@ -36,6 +39,12 @@ public:
 			   message.channel_id.c_str(),
 			   message.id.c_str()
 		);
+	}
+
+	void OnMessageDeletedBulk(const MessageDeleteBulk &message) {
+		for(int i = 0; i < message.id.size(); i++) {
+			cout << message.id[i] << "\n";
+		}
 	}
 };
 

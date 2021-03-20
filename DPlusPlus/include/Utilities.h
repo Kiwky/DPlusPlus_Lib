@@ -14,7 +14,7 @@ using nJson = nlohmann::json;
 
 namespace DPlusPlus {
 
-#define GATEWAY_URL	"wss://gateway.discord.gg/"
+#define GATEWAY_URL	"wss://gateway.discord.gg/?v=8&encoding=json"
 #define API_URL		"https://discord.com/api/v8"
 
 	typedef std::string Snowflake;

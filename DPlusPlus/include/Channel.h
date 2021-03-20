@@ -55,7 +55,7 @@ public:
 	std::vector<Message> GetMessages(int limit = 100);
 
 	// Update a channel's settings.
-	Channel ModifyChannel(const Snowflake &channel_id, Channel &new_channel);
+	Channel Modify(Channel &new_channel);
 
 	// Delete a message.
 	void DeleteMessage(const Snowflake &message_id);

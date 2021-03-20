@@ -66,12 +66,13 @@ std::vector<Message> Channel::GetMessages(int limit) {
 	return result;
 }
 
-Channel Channel::ModifyChannel(const Snowflake &channel_id, Channel &new_channel) {
+Channel Channel::Modify(Channel &new_channel) {
 	nJson object;
 	new_channel.ToJson(object);
 
-	API_Call("/channels/" + channel_id, methods::PATCH, object.dump());
+	API_Call("/channels/" + this->id, methods::PATCH, object.dump());
 
+	// TODO
 	return Channel();
 }
 

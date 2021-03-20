@@ -76,7 +76,7 @@ void Discord::ProcessBotHeartbeat() {
 
 void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	std::string message = msg.extract_string().get();
-	nJson jsonMsg = nJson::parse(message.begin(), message.end());
+	nJson jsonMsg = nJson::parse(message);
 
 	int op = jsonMsg["op"];				// OP_Type
 	const nJson data = jsonMsg["d"];	// Json data
@@ -129,7 +129,32 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnMessageDeletedBulk(message);
 					break;
 				}
+				default:
+				{
+					break;
+				}
 			}
+
+			break;
+		}
+		case OP_Type::HELLO:
+		{
+			heartbeat_interval = data["heartbeat_interval"];
+			is_ready = true;
+
+			heartbeat_thread = std::thread([&]() {
+				while(true) {
+					try {
+						std::this_thread::sleep_for(std::chrono::milliseconds(heartbeat_interval));
+						ProcessBotHeartbeat();
+					}
+					catch(const std::exception &e) {
+						Log::Print(Error, "Heartbeat thread error [CATCH]: " + (std::string)e.what());
+					}
+				}
+			});
+
+			break;
 		}
 	}
 }

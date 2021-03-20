@@ -26,9 +26,19 @@ void Message::ToJson(nJson &j) {
 		embeds.ToJson(embedJson);
 
 	j = nJson{
-		{"content",				content				},
-		{"embed",				embedJson			},
+		{"content",	content		},
+		{"embed",	embedJson	},
 	};
+}
+
+Message Message::Modify(Message &new_message) {
+	nJson object;
+	new_message.ToJson(object);
+
+	API_Call("/channels/" + this->channel_id + "/messages/" + this->id, methods::PATCH, object.dump());
+
+	// TODO
+	return Message();
 }
 
 MessageDelete::MessageDelete(const nJson &data) {
