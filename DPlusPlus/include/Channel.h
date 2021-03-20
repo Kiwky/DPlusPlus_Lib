@@ -57,5 +57,9 @@ public:
 	// Update a channel's settings.
 	Channel ModifyChannel(const Snowflake &channel_id, Channel &new_channel);
 
+	// Delete a message.
 	void DeleteMessage(const Snowflake &message_id);
+
+	// Delete a channel, or close a private message.
+	void DeleteChannel();
 };

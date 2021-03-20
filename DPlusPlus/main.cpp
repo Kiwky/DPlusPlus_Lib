@@ -17,8 +17,7 @@ public:
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
 		Channel c(message.channel_id);
-
-		c.DeleteMessage(message.content);
+		c.DeleteChannel();
 	}
 
 	void OnMessageUpdated(const Message &message) {

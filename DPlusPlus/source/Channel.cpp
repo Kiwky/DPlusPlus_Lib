@@ -78,3 +78,7 @@ Channel Channel::ModifyChannel(const Snowflake &channel_id, Channel &new_channel
 void Channel::DeleteMessage(const Snowflake &message_id) {
 	API_Call("/channels/" + this->id + "/messages/" + message_id, methods::DEL);
 }
+
+void Channel::DeleteChannel() {
+	API_Call("/channels/" + this->id, methods::DEL);
+}
