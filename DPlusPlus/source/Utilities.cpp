@@ -9,7 +9,6 @@ using namespace utility;
 
 namespace DPlusPlus {
 	nJson API_Call(const std::string &url, method api_method, const std::string &jsonObject) {
-		std::cout << "\n\n " << jsonObject << "\n\n";
 		try {
 			web::json::value json_v;
 			web::http::client::http_client client(U(API_URL));
@@ -31,10 +30,8 @@ namespace DPlusPlus {
 
 			requestTask.wait();
 			auto response_string = requestTask.get().extract_string().get();
-			std::cout << response_string.c_str() << std::endl;
 
 			nJson s = nJson::parse(response_string.begin(), response_string.end());
-			std::cout << s << "\n";
 			return s;
 		}
 		catch(std::exception &e) {

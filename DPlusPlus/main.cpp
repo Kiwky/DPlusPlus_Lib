@@ -18,7 +18,7 @@ public:
 
 		Channel c(message.channel_id);
 
-		cout << c.GetMessage("822770515747012649").content;
+		c.DeleteMessage(message.content);
 	}
 
 	void OnMessageUpdated(const Message &message) {
