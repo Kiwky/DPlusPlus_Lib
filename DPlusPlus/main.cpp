@@ -16,26 +16,9 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
-		if(!message.author.bot) {
-			Channel t(message.channel_id);
+		Channel c(message.channel_id);
 
-			Embed e;
-			e.title = "Titlu";
-
-			e.AddField("Field 1", "Value 1", true);
-			e.AddField("Field 2", "Value 2", true);
-			e.AddField("Field 3", "Value 3", true);
-			e.AddField("Field 4", "Value 4", true);
-			e.AddField("Field 5", "Value 5", true);
-			e.AddField("Field 6", "Value 6", true);
-
-			e.footer = Embed_Footer{"Titlu footer"};
-
-			t.SendMessage("CONTENT :)", &e);
-
-			std::vector<Message> mList = t.GetMessages(3);
-			cout << mList.size();
-		}
+		cout << c.GetMessage("822770515747012649").content;
 	}
 
 	void OnMessageUpdated(const Message &message) {

@@ -43,13 +43,17 @@ public:
 	Channel(const nJson &data);
 
 public:
+	void ToJson(nJson &j);
+
 	// Sends a message to this channel.
 	void SendMessage(const std::string &content, Embed *embed = nullptr);
 
-	// TODO
 	// Returns a specific message.
 	Message GetMessage(const Snowflake &message_id);
 
 	// Returns a list of 'limit' messages.
 	std::vector<Message> GetMessages(int limit = 100);
+
+	// Update a channel's settings.
+	Channel ModifyChannel(const Snowflake &channel_id, Channel &newChannel);
 };
