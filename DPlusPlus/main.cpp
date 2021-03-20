@@ -1,9 +1,11 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <conio.h>
 #include <nlohmann/json.hpp>
 
 #include "Discord.h"
+#include "Invite.h"
+#include "windows.h"
 
 using namespace std;
 using nJson = nlohmann::json;
@@ -16,13 +18,12 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
-		Message m;
-		m.content = "NOU";
-
 		Channel c(message.channel_id);
-		Message edit = c.GetMessage("822602337008353332");
-		edit.Modify(m);
+		vector<Invite> list = c.GetInvites();
+		for(int i = 0; i < list.size(); i++) {
 
+			cout << list[i].code << "\n";
+		}
 	}
 
 	void OnMessageUpdated(const Message &message) {

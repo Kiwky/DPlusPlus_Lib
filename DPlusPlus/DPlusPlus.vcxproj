@@ -188,6 +188,7 @@
     <ClInclude Include="include\Discord.h" />
     <ClInclude Include="include\Embed.h" />
     <ClInclude Include="include\Intents.h" />
+    <ClInclude Include="include\Invite.h" />
     <ClInclude Include="include\Log.h" />
     <ClInclude Include="include\Member.h" />
     <ClInclude Include="include\Message.h" />
@@ -203,6 +204,7 @@
     <ClCompile Include="source\Embed.cpp" />
     <ClCompile Include="source\Endpoints.cpp" />
     <ClCompile Include="source\Intents.cpp" />
+    <ClCompile Include="source\Invite.cpp" />
     <ClCompile Include="source\Log.cpp" />
     <ClCompile Include="source\Member.cpp" />
     <ClCompile Include="source\Message.cpp" />

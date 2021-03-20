@@ -31,16 +31,6 @@ void Message::ToJson(nJson &j) {
 	};
 }
 
-Message Message::Modify(Message &new_message) {
-	nJson object;
-	new_message.ToJson(object);
-
-	API_Call("/channels/" + this->channel_id + "/messages/" + this->id, methods::PATCH, object.dump());
-
-	// TODO
-	return Message();
-}
-
 MessageDelete::MessageDelete(const nJson &data) {
 	GetJson(data, "id",					/**/ id);
 	GetJson(data, "channel_id",			/**/ channel_id);

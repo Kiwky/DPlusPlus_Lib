@@ -42,6 +42,9 @@
     <ClInclude Include="include\Embed.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="include\Invite.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Intents.cpp">
@@ -81,6 +84,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Invite.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

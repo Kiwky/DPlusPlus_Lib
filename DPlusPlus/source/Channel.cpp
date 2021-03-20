@@ -66,7 +66,7 @@ std::vector<Message> Channel::GetMessages(int limit) {
 	return result;
 }
 
-Channel Channel::Modify(Channel &new_channel) {
+Channel Channel::ModifyChannel(Channel &new_channel) {
 	nJson object;
 	new_channel.ToJson(object);
 
@@ -74,6 +74,16 @@ Channel Channel::Modify(Channel &new_channel) {
 
 	// TODO
 	return Channel();
+}
+
+Message Channel::ModifyMessage(const Snowflake &message_id, Message &new_message) {
+	nJson object;
+	new_message.ToJson(object);
+
+	API_Call("/channels/" + this->id + "/messages/" + message_id, methods::PATCH, object.dump());
+
+	// TODO
+	return Message();
 }
 
 void Channel::DeleteMessage(const Snowflake &message_id) {
@@ -94,3 +104,22 @@ void Channel::DeleteChannel() {
 	API_Call("/channels/" + this->id, methods::DEL);
 }
 
+void Channel::DeleteAllReactions(const Snowflake &message_id) {
+	API_Call("/channels/" + this->id + "/messages/" + message_id + "/reactions", methods::DEL);
+}
+
+void Channel::CreateReaction(const Snowflake &message_id, const std::string &emoji) {
+	API_Call("/channels/" + this->id + "/messages/" + message_id + "/reactions/" + emoji + "/@me", methods::PUT);
+}
+
+std::vector<Invite> Channel::GetInvites() {
+	std::vector<Invite> result;
+
+	nJson jsonResult = API_Call("/channels/" + this->id + "/invites", methods::GET);
+
+	for(auto iter = jsonResult.begin(); iter != jsonResult.end(); ++iter) {
+		result.emplace_back(Invite(*iter));
+	}
+
+	return result;
+}
