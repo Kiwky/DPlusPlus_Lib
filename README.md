@@ -7,9 +7,14 @@ int main() {
 	bot.Start("BOT TOKEN");
 }
 
-Message:
+Class Channel:
 	void SendMessage(const std::string &content, Embed *embed = nullptr);
 	Message GetMessage(const Snowflake &message_id);
 	std::vector<Message> GetMessages(int limit = 100);
-	
+	Channel ModifyChannel(Channel &new_channel);
+	Message ModifyMessage(const Snowflake &message_id, Message &new_message);
+	void DeleteMessage(const Snowflake &message_id);
+	void DeleteMessageBulk(std::vector<Message> message_list);
+	void DeleteChannel();
+	void DeleteAllReactions(const Snowflake &message_id);
 ```
