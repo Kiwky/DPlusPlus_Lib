@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 
 #include "Utilities.h"
+#include "User.h"
 #include "Message.h"
 #include "Embed.h"
 #include "Invite.h"
@@ -66,6 +67,16 @@ public:
 	// Requires the MANAGE_MESSAGES permission. 
 	Message ModifyMessage(const Snowflake &message_id, Message &new_message);
 
+	// TODO
+	// Edit the channel permission overwrites for a user or role in a channel.
+	// Requires the MANAGE_ROLES permission.
+	void ModifyChannelPermissions(/*const Overwrite overwrite*/);
+
+	// TODO
+	// Delete a channel permission overwrite for a user or role in a channel.
+	// Requires the MANAGE_ROLES permission.
+	void DeleteChannelPermission(/*const Overwrite overwrite*/);
+
 	// Delete a message.
 	// Requires the MANAGE_MESSAGES permission. 
 	void DeleteMessage(const Snowflake &message_id);
@@ -78,19 +89,49 @@ public:
 	// Requires the VIEW_CHANNEL permission.
 	void DeleteChannel();
 
+	// TODO
+	// Deletes another user's reaction.
+	// Requires the MANAGE_MESSAGES permission.
+	void DeleteUserReaction(const Snowflake &message_id, const std::string &emoji);
+
+	// TODO
 	// Deletes all the reactions for a given emoji on a message. 
 	// Requires the MANAGE_MESSAGES permission.
-	void DeleteReaction();
+	void DeleteReaction(const Snowflake &message_id, const std::string &emoji);
 
 	// Deletes all reactions on a message.
 	// Requires the MANAGE_MESSAGES permission.
 	void DeleteAllReactions(const Snowflake &message_id);
 
 	// TODO (Nu functioneaza).
-	// If nobody else has reacted to the message using this emoji, requires the ADD_REACTIONS
+	// If nobody else has reacted to the message using this emoji.
+	// Requires the ADD_REACTIONS permission.
 	void CreateReaction(const Snowflake &message_id, const std::string &emoji);
+
+	// TODO (Nu functioneaza cred, nu e verificat)
+	// Get a list of users that reacted with this emoji.
+	std::vector<User> GetReactions(const Snowflake &message_id, const std::string &emoji);
 
 	// Returns a list of invite objects (with invite metadata) for the channel.
 	// Requires the MANAGE_CHANNELS permission.
 	std::vector<Invite> GetInvites();
+
+	// TODO
+	// Create a new invite object for the channel.
+	// Requires the CREATE_INSTANT_INVITE permission.
+	Invite CreateInvite(int max_age, int max_uses, bool temporary, const std::string target_user = "");
+
+	// TODO
+	// Returns all pinned messages in the channel.
+	std::vector<Message> GetPinnedMessages();
+
+	// TODO
+	// Pin a message in a channel.
+	// Requires the MANAGE_MESSAGES permission.
+	void AddPinnedMessage(const Snowflake &message_id);
+
+	// TODO
+	// Delete a pinned message in a channel. 
+	// Requires the MANAGE_MESSAGES permission.
+	void DeletePinnedMessage(const Snowflake &message_id);
 };

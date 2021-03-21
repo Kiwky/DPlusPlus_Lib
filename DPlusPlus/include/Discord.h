@@ -17,7 +17,7 @@
 #include "Log.h"
 #include "Ready.h"
 #include "Message.h"
-#include "Channel.h"	// TODO
+#include "Channel.h"	
 
 using namespace DPlusPlus;
 using namespace web;

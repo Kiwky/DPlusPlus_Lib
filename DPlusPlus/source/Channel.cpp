@@ -86,6 +86,14 @@ Message Channel::ModifyMessage(const Snowflake &message_id, Message &new_message
 	return Message();
 }
 
+void Channel::ModifyChannelPermissions(/*const Overwrite overwrite*/) {
+
+}
+
+void Channel::DeleteChannelPermission(/*const Overwrite overwrite*/) {
+
+}
+
 void Channel::DeleteMessage(const Snowflake &message_id) {
 	API_Call("/channels/" + this->id + "/messages/" + message_id, methods::DEL);
 }
@@ -104,12 +112,20 @@ void Channel::DeleteChannel() {
 	API_Call("/channels/" + this->id, methods::DEL);
 }
 
+void Channel::DeleteUserReaction(const Snowflake &message_id, const std::string &emoji) {
+
+}
+
 void Channel::DeleteAllReactions(const Snowflake &message_id) {
 	API_Call("/channels/" + this->id + "/messages/" + message_id + "/reactions", methods::DEL);
 }
 
 void Channel::CreateReaction(const Snowflake &message_id, const std::string &emoji) {
 	API_Call("/channels/" + this->id + "/messages/" + message_id + "/reactions/" + emoji + "/@me", methods::PUT);
+}
+
+std::vector<User> Channel::GetReactions(const Snowflake &message_id, const std::string &emoji) {
+	return std::vector<User>();
 }
 
 std::vector<Invite> Channel::GetInvites() {
@@ -122,4 +138,20 @@ std::vector<Invite> Channel::GetInvites() {
 	}
 
 	return result;
+}
+
+Invite Channel::CreateInvite(int max_age, int max_uses, bool temporary, const std::string target_user /*= ""*/) {
+	return Invite();
+}
+
+std::vector<Message> Channel::GetPinnedMessages() {
+	return std::vector<Message>();
+}
+
+void Channel::AddPinnedMessage(const Snowflake &message_id) {
+
+}
+
+void Channel::DeletePinnedMessage(const Snowflake &message_id) {
+
 }
