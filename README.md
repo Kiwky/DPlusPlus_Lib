@@ -13,11 +13,20 @@ Class Channel:
 	std::vector<Message> GetMessages(int limit = 100);
 	Channel ModifyChannel(Channel &new_channel);
 	Message ModifyMessage(const Snowflake &message_id, Message &new_message);
+	void ModifyChannelPermissions(/*const Overwrite overwrite*/);
+	void DeleteChannelPermission(/*const Overwrite overwrite*/);
 	void DeleteMessage(const Snowflake &message_id);
 	void DeleteMessageBulk(std::vector<Message> message_list);
 	void DeleteChannel();
-	void DeleteReaction(const Snowflake &message_id, const std : string & emoji);
+	void DeleteUserReaction(const Snowflake &message_id, const std::string &emoji);
+	void DeleteReaction(const Snowflake &message_id, const std::string &emoji);
 	void DeleteAllReactions(const Snowflake &message_id);
 	void CreateReaction(const Snowflake &message_id, const std::string &emoji);
+	std::vector<User> GetReactions(const Snowflake &message_id, const std::string &emoji);
 	std::vector<Invite> GetInvites();
+	Invite CreateInvite(int max_age, int max_uses, bool temporary, const std::string target_user = "");
+	std::vector<Message> GetPinnedMessages();
+	void AddPinnedMessage(const Snowflake &message_id);
+	void DeletePinnedMessage(const Snowflake &message_id);
+
 ```
