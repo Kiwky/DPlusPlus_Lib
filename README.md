@@ -16,5 +16,8 @@ Class Channel:
 	void DeleteMessage(const Snowflake &message_id);
 	void DeleteMessageBulk(std::vector<Message> message_list);
 	void DeleteChannel();
+	void DeleteReaction(const Snowflake &message_id, const std : string & emoji);
 	void DeleteAllReactions(const Snowflake &message_id);
+	void CreateReaction(const Snowflake &message_id, const std::string &emoji);
+	std::vector<Invite> GetInvites();
 ```
