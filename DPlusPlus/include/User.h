@@ -32,16 +32,16 @@ public:
 	Snowflake id;
 	int premium_type;
 	int public_flags;
+	bool bot;
+	bool system;
+	bool mfa_enabled;
+	bool verified;
 	User_Flags flags;
 	std::string username;
 	std::string discriminator;
 	std::string avatar;
 	std::string locale;
 	std::string email;
-	bool bot;
-	bool system;
-	bool mfa_enabled;
-	bool verified;
 
 public:
 	User() {}

@@ -184,6 +184,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Emoji.h" />
+    <ClInclude Include="Guild.h" />
     <ClInclude Include="include\Channel.h" />
     <ClInclude Include="include\Discord.h" />
     <ClInclude Include="include\Embed.h" />
@@ -197,6 +199,8 @@
     <ClInclude Include="include\Utilities.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Emoji.cpp" />
+    <ClCompile Include="Guild.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Channel.cpp" />
     <ClCompile Include="source\Discord.cpp" />

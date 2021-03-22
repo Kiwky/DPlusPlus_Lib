@@ -20,7 +20,7 @@ public:
 
 		Channel c(message.channel_id);
 		vector<Invite> list = c.GetInvites();
-		for(int i = 0; i < list.size(); i++) {
+		for(int i = 0; i < (int)list.size(); i++) {
 
 			cout << list[i].code << "\n";
 		}
@@ -43,7 +43,7 @@ public:
 	}
 
 	void OnMessageDeletedBulk(const MessageDeleteBulk &message) {
-		for(int i = 0; i < message.id.size(); i++) {
+		for(int i = 0; i < (int)message.id.size(); i++) {
 			cout << message.id[i] << "\n";
 		}
 	}

@@ -34,13 +34,12 @@ namespace DPlusPlus {
 			nJson s = nJson::parse(response_string.begin(), response_string.end());
 
 			//std::cout << s.dump(4);
-
 			return s;
 		}
 		catch(std::exception &e) {
 			std::cout << e.what();
 		}
-
+		return "";
 	}
 }
 

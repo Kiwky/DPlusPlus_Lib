@@ -4,28 +4,26 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-#include "Utilities.h"
 #include "User.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
 
-class Member {
+class Emoji {
 
 public:
+	Snowflake id;
+	bool require_colons;
+	bool managed;
+	bool animated;
+	bool available;
+	std::string name;
 	User user;
-	bool deaf;
-	bool mute;
-	bool pending;
-	std::string nick;
-	std::string joined_at;
-	std::string premium_since;
-	std::string permissions;
 	//std::vector<Role> roles;
 
 public:
-	Member() {}
-	Member(const nJson &data);
+	Emoji() {}
+	Emoji(const nJson &data);
 
 };
 
