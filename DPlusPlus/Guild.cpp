@@ -1,5 +1,9 @@
 #include "Guild.h"
 
+Guild::Guild(const Snowflake &guild_id) {
+	*this = Guild(API_Call("/guilds/" + guild_id, methods::GET));
+}
+
 Guild::Guild(const nJson &data) {
 	GetJson(data, "id",								/**/ id);
 	GetJson(data, "owner_id",						/**/ owner_id);
@@ -46,3 +50,24 @@ Guild::Guild(const nJson &data) {
 	GetJsonVector(data, "emojis",					/**/ emojis);
 
 }
+
+std::vector<Emoji> Guild::ListEmoji() {
+	return std::vector<Emoji>();
+}
+
+Emoji Guild::GetEmoji(const std::string &emoji_id) {
+	return Emoji();
+}
+
+Emoji Guild::CreateEmoji(const std::string &name, /*const Image &image*/ std::vector<Snowflake> *roles /*= nullptr*/) {
+	return Emoji();
+}
+
+Emoji Guild::ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles /*= nullptr*/) {
+	return Emoji();
+}
+
+void Guild::DeleteEmoji(const std::string &emoji_id) {
+
+}
+

@@ -63,7 +63,33 @@ public:
 
 public:
 	Guild() {}
+	Guild(const Snowflake &guild_id);
 	Guild(const nJson &data);
 
+public:
+	void ToJson(nJson &j);
+
+	// TODO
+	// Returns a list of emoji objects for the given guild.
+	std::vector<Emoji> ListEmoji();
+
+	// TODO
+	// Returns an emoji object for the given guild and emoji IDs.
+	Emoji GetEmoji(const std::string &emoji_id);
+
+	// TODO
+	// Create a new emoji for the guild.
+	// Requires the MANAGE_EMOJIS permission.
+	Emoji CreateEmoji(const std::string &name, /*const Image &image*/ std::vector<Snowflake> *roles = nullptr);
+
+	// TODO
+	// Modify the given emoji. 
+	// Requires the MANAGE_EMOJIS permission.
+	Emoji ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles = nullptr);
+
+	// TODO
+	// Delete the given emoji. 
+	// Requires the MANAGE_EMOJIS permission. 
+	void DeleteEmoji(const std::string &emoji_id);
 };
 

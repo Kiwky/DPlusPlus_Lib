@@ -5,6 +5,7 @@
 
 #include "Discord.h"
 #include "Invite.h"
+#include "Guild.h"
 #include "windows.h"
 
 using namespace std;
@@ -18,12 +19,15 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
-		Channel c(message.channel_id);
+		/*Channel c(message.channel_id);
 		vector<Invite> list = c.GetInvites();
 		for(int i = 0; i < (int)list.size(); i++) {
 
 			cout << list[i].code << "\n";
-		}
+		}*/
+		Guild g(message.guild_id);
+
+		cout << g.name;
 	}
 
 	void OnMessageUpdated(const Message &message) {
