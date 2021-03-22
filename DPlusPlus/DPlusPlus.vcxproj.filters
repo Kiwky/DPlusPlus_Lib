@@ -47,6 +47,7 @@
     </ClInclude>
     <ClInclude Include="Emoji.h" />
     <ClInclude Include="Guild.h" />
+    <ClInclude Include="GuildPreview.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Intents.cpp">
@@ -93,5 +94,6 @@
     </ClCompile>
     <ClCompile Include="Emoji.cpp" />
     <ClCompile Include="Guild.cpp" />
+    <ClCompile Include="GuildPreview.cpp" />
   </ItemGroup>
 </Project>

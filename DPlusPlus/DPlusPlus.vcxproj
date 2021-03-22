@@ -186,6 +186,7 @@
   <ItemGroup>
     <ClInclude Include="Emoji.h" />
     <ClInclude Include="Guild.h" />
+    <ClInclude Include="GuildPreview.h" />
     <ClInclude Include="include\Channel.h" />
     <ClInclude Include="include\Discord.h" />
     <ClInclude Include="include\Embed.h" />
@@ -201,6 +202,7 @@
   <ItemGroup>
     <ClCompile Include="Emoji.cpp" />
     <ClCompile Include="Guild.cpp" />
+    <ClCompile Include="GuildPreview.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Channel.cpp" />
     <ClCompile Include="source\Discord.cpp" />

@@ -140,7 +140,7 @@ std::vector<Invite> Channel::GetInvites() {
 	return result;
 }
 
-Invite Channel::CreateInvite(int max_age, int max_uses, bool temporary, const std::string target_user /*= ""*/) {
+Invite Channel::CreateInvite(int max_age, int max_uses, bool temporary, const std::string &target_user /*= ""*/) {
 	return Invite();
 }
 

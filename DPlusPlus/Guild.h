@@ -4,6 +4,7 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
+#include "GuildPreview.h"
 #include "Utilities.h"
 #include "Member.h"
 #include "Channel.h"
@@ -80,7 +81,7 @@ public:
 	// TODO
 	// Create a new emoji for the guild.
 	// Requires the MANAGE_EMOJIS permission.
-	Emoji CreateEmoji(const std::string &name, /*const Image &image*/ std::vector<Snowflake> *roles = nullptr);
+	Emoji CreateEmoji(const std::string &name, /*Image image*/ std::vector<Snowflake> *roles = nullptr);
 
 	// TODO
 	// Modify the given emoji. 
@@ -91,5 +92,47 @@ public:
 	// Delete the given emoji. 
 	// Requires the MANAGE_EMOJIS permission. 
 	void DeleteEmoji(const std::string &emoji_id);
+
+	// TODO
+	// Returns the guild preview object for the given id. 
+	// If the user is not in the guild, then the guild must be Discoverable.
+	GuildPreview GetGuildPreview();
+
+	// TODO
+	// Modify a guild's settings.
+	// Requires the MANAGE_GUILD permission.
+	Guild ModifyGuild(
+		const std::string &name, const std::string &region,
+		int verification_level, int default_message_notifications, int explicit_content_filter, int afk_timeout,
+		const Snowflake &afk_channel_id
+		/*,Image splash, Image banner*/
+	);
+
+	// TODO
+	// Delete a guild permanently. 
+	// User must be owner.
+	void DeleteGuild();
+
+	// TODO
+	// Returns a list of guild channel objects.
+	std::vector<Channel> GetChannels();
+
+	// TODO
+	// Create a new channel object for the guild. 
+	// Requires the MANAGE_CHANNELS permission.
+	Channel CreateChannel(/*Lista parametrii*/);
+
+	// TODO
+	// Modify the positions of a set of channel objects for the guild. 
+	// Requires MANAGE_CHANNELS permission.
+	void ModifyChannel(const Snowflake &channel_id, int new_position);
+
+	// TODO
+	// Returns a guild member object for the specified user.
+	Member GetMember(const Snowflake &user_id);
+
+	// TODO
+	// Returns a list of guild member objects that are members of the guild.
+	std::vector<Member> GetMembers();
 };
 

@@ -119,7 +119,7 @@ public:
 	// TODO
 	// Create a new invite object for the channel.
 	// Requires the CREATE_INSTANT_INVITE permission.
-	Invite CreateInvite(int max_age, int max_uses, bool temporary, const std::string target_user = "");
+	Invite CreateInvite(int max_age, int max_uses, bool temporary, const std::string &target_user = "");
 
 	// TODO
 	// Returns all pinned messages in the channel.

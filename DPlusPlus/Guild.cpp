@@ -59,7 +59,7 @@ Emoji Guild::GetEmoji(const std::string &emoji_id) {
 	return Emoji();
 }
 
-Emoji Guild::CreateEmoji(const std::string &name, /*const Image &image*/ std::vector<Snowflake> *roles /*= nullptr*/) {
+Emoji Guild::CreateEmoji(const std::string &name, /*Image image*/ std::vector<Snowflake> *roles /*= nullptr*/) {
 	return Emoji();
 }
 
@@ -69,5 +69,37 @@ Emoji Guild::ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles 
 
 void Guild::DeleteEmoji(const std::string &emoji_id) {
 
+}
+
+GuildPreview Guild::GetGuildPreview() {
+	return GuildPreview();
+}
+
+Guild Guild::ModifyGuild(const std::string &name, const std::string &region, int verification_level, int default_message_notifications, int explicit_content_filter, int afk_timeout, const Snowflake &afk_channel_id /*,Image splash, Image banner*/) {
+	return Guild();
+}
+
+void Guild::DeleteGuild() {
+
+}
+
+std::vector<Channel> Guild::GetChannels() {
+	return std::vector<Channel>();
+}
+
+Channel Guild::CreateChannel(/*Lista parametrii*/) {
+	return Channel();
+}
+
+void Guild::ModifyChannel(const Snowflake &channel_id, int new_position) {
+
+}
+
+Member Guild::GetMember(const Snowflake &user_id) {
+	return Member();
+}
+
+std::vector<Member> Guild::GetMembers() {
+	return std::vector<Member>();
 }
 
