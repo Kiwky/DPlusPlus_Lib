@@ -28,5 +28,13 @@ Class Channel:
 	std::vector<Message> GetPinnedMessages();
 	void AddPinnedMessage(const Snowflake &message_id);
 	void DeletePinnedMessage(const Snowflake &message_id);
+	
+Class Guild
+	std::vector<Emoji> ListEmoji();
+	Emoji GetEmoji(const std::string &emoji_id);
+	Emoji CreateEmoji(const std::string &name, /*const Image &image*/ std::vector<Snowflake> *roles = nullptr);
+	Emoji ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles = nullptr);
+	void DeleteEmoji(const std::string &emoji_id);
 
+	
 ```
