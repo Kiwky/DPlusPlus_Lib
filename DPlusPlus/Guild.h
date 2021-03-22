@@ -57,10 +57,10 @@ public:
 	std::vector<Channel> channels;
 	std::vector<Member> members;
 	std::vector<Emoji> emojis;
-	// WelcomeScreen welcome_screen;
-	//std::vector<VoiceState> voice_states;
-	//std::vector<Role> roles;
-	//std::vector<Feature> features;
+	//WelcomeScreen welcome_screen;			TODO
+	//std::vector<VoiceState> voice_states; TODO
+	//std::vector<Role> roles;				TODO
+	//std::vector<Feature> features;		TODO
 
 public:
 	Guild() {}
@@ -208,5 +208,16 @@ public:
 	// Delete a guild role.
 	// Requires the MANAGE_ROLES permission. 
 	void DeleteRole(const Snowflake &role_id);
+
+	// TODO
+	// Returns an object with one 'pruned' key indicating the number of members that would be removed in a prune operation.
+	// Requires the KICK_MEMBERS permission.
+	// Nu stiu ce returneaza. Trebuie sa verific.
+	void GetGuildPruneRole(int days = 7, std::vector<Snowflake> include_roles = "");
+
+	// TODO
+	// Begin a prune operation. 
+	// Requires the KICK_MEMBERS permission.
+	void BeginGuildPrune(int days = 7, bool compute_prune_count = false, std::vector<Snowflake> include_roles);
 };
 

@@ -163,3 +163,11 @@ void Guild::DeleteRole(const Snowflake &role_id) {
 
 }
 
+void Guild::GetGuildPruneRole(int days /*= 7*/, std::vector<Snowflake> include_roles /*= ""*/) {
+
+}
+
+void Guild::BeginGuildPrune(int days /*= 7*/, bool compute_prune_count /*= false*/, std::vector<Snowflake> include_roles) {
+
+}
+
