@@ -198,6 +198,7 @@
     <ClInclude Include="include\Ready.h" />
     <ClInclude Include="include\User.h" />
     <ClInclude Include="include\Utilities.h" />
+    <ClInclude Include="VoiceRegion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Emoji.cpp" />
@@ -217,6 +218,7 @@
     <ClCompile Include="source\Ready.cpp" />
     <ClCompile Include="source\User.cpp" />
     <ClCompile Include="source\Utilities.cpp" />
+    <ClCompile Include="VoiceRegion.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

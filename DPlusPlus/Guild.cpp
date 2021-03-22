@@ -163,11 +163,41 @@ void Guild::DeleteRole(const Snowflake &role_id) {
 
 }
 
-void Guild::GetGuildPruneRole(int days /*= 7*/, std::vector<Snowflake> include_roles /*= ""*/) {
+void Guild::GetGuildPruneRole(int days, std::vector<Snowflake> include_roles) {
 
 }
 
-void Guild::BeginGuildPrune(int days /*= 7*/, bool compute_prune_count /*= false*/, std::vector<Snowflake> include_roles) {
+void Guild::BeginGuildPrune(int day, bool compute_prune_count, std::vector<Snowflake> include_roles) {
+
+}
+
+std::vector<VoiceRegion> Guild::GetGuildVoiceRegions() {
+	return std::vector<VoiceRegion>();
+}
+
+std::vector<Invite> Guild::GetInvites() {
+	return std::vector<Invite>();
+}
+
+/*
+std::vector<Integration> Guild::GetIntegrations() {
+
+}
+*/
+
+void Guild::CreateIntegration(const std::string &type, const Snowflake &id) {
+
+}
+
+void Guild::ModifyIntegration(const Snowflake &integrastion_id, int expire_behavior, int expire_grace_period, int enable_emoticons) {
+
+}
+
+void Guild::DeleteIntegration(const Snowflake &integrastion_id) {
+
+}
+
+void Guild::SyncIntegration(const Snowflake &integrastion_id) {
 
 }
 

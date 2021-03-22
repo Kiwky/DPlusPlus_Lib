@@ -9,6 +9,7 @@
 #include "Member.h"
 #include "Channel.h"
 #include "Emoji.h"
+#include "VoiceRegion.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
@@ -213,11 +214,45 @@ public:
 	// Returns an object with one 'pruned' key indicating the number of members that would be removed in a prune operation.
 	// Requires the KICK_MEMBERS permission.
 	// Nu stiu ce returneaza. Trebuie sa verific.
-	void GetGuildPruneRole(int days = 7, std::vector<Snowflake> include_roles = "");
+	void GetGuildPruneRole(int days, std::vector<Snowflake> include_roles);
 
 	// TODO
 	// Begin a prune operation. 
 	// Requires the KICK_MEMBERS permission.
-	void BeginGuildPrune(int days = 7, bool compute_prune_count = false, std::vector<Snowflake> include_roles);
+	void BeginGuildPrune(int days, bool compute_prune_count, std::vector<Snowflake> include_roles);
+
+	// TODO
+	// Returns a list of voice region objects for the guild.
+	std::vector<VoiceRegion> GetGuildVoiceRegions();
+
+	// TODO
+	// Returns a list of invite objects (with invite metadata) for the guild.
+	// Requires the MANAGE_GUILD permission.
+	std::vector<Invite> GetInvites();
+
+	// TODO
+	// Returns a list of integration objects for the guild.
+	// Requires the MANAGE_GUILD permission.
+	// std::vector<Integration> GetIntegrations();
+
+	// TODO
+	// Attach an integration object from the current user to the guild.
+	// Requires the MANAGE_GUILD permission.
+	void CreateIntegration(const std::string &type, const Snowflake &id);
+
+	// TODO
+	// Modify the behavior and settings of an integration object for the guild.
+	// Requires the MANAGE_GUILD permission.
+	void ModifyIntegration(const Snowflake &integrastion_id, int expire_behavior, int expire_grace_period, int enable_emoticons);
+
+	// TODO
+	// Delete the attached integration object for the guild. 
+	// Requires the MANAGE_GUILD permission. 
+	void DeleteIntegration(const Snowflake &integrastion_id);
+
+	// TODO
+	// Sync an integration. 
+	// Requires the MANAGE_GUILD permission.
+	void SyncIntegration(const Snowflake &integrastion_id);
 };
 
