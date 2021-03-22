@@ -76,7 +76,7 @@ public:
 
 	// TODO
 	// Returns an emoji object for the given guild and emoji IDs.
-	Emoji GetEmoji(const std::string &emoji_id);
+	Emoji GetEmoji(const Snowflake &emoji_id);
 
 	// TODO
 	// Create a new emoji for the guild.
@@ -91,7 +91,7 @@ public:
 	// TODO
 	// Delete the given emoji. 
 	// Requires the MANAGE_EMOJIS permission. 
-	void DeleteEmoji(const std::string &emoji_id);
+	void DeleteEmoji(const Snowflake &emoji_id);
 
 	// TODO
 	// Returns the guild preview object for the given id. 
@@ -124,7 +124,7 @@ public:
 
 	// TODO
 	// Modify the positions of a set of channel objects for the guild. 
-	// Requires MANAGE_CHANNELS permission.
+	// Requires the MANAGE_CHANNELS permission.
 	void ModifyChannel(const Snowflake &channel_id, int new_position);
 
 	// TODO
@@ -134,5 +134,79 @@ public:
 	// TODO
 	// Returns a list of guild member objects that are members of the guild.
 	std::vector<Member> GetMembers();
+
+	// TODO
+	// Modify attributes of a guild member.
+	// Requires permission.
+	// nick			= MANAGE_NICKNAMES
+	// roles		= MANAGE_ROLES
+	// mute			= MUTE_MEMBERS 
+	// deaf			= DEAFEN_MEMBERS
+	// channel_id	= MOVE_MEMBERS
+	Member ModifyMember(const Snowflake &user_id, const std::string &new_nick, std::vector<Snowflake> roles, bool mute, bool deaf, const Snowflake &channel_id);
+
+	// TODO
+	// Modifies the nickname of the current user in a guild.
+	// Requires the MANAGE_NICKNAMES permission.
+	void ModifyMemberNickname(const Snowflake &user_id, const std::string &new_nick);
+
+	// TODO
+	// Adds a role to a guild member.
+	// Requires the MANAGE_ROLES permission.
+	void AddMemberRole(const Snowflake &user_id, const Snowflake &role_id);
+
+	// TODO
+	// Removes a role from a guild member.
+	// Requires the MANAGE_ROLES permission.
+	void RemoveMemberRole(const Snowflake &user_id, const Snowflake &role_id);
+
+	// TODO
+	// Remove a member from a guild.
+	// Requires KICK_MEMBERS permission.
+	void RemoveMemberRole(const Snowflake &user_id);
+
+	// TODO
+	// Returns a list of ban objects for the users banned from this guild.
+	// Requires the BAN_MEMBERS permission.
+	// std::vector<Ban> GetGuildBans();
+
+	// TODO
+	// Returns a ban object for the given user.
+	// Requires the BAN_MEMBERS permission.
+	// Ban GetGuildBan(const Snowflake &user_id);
+
+	// TODO
+	// Create a guild ban, and optionally delete previous messages sent by the banned user.
+	// Requires the BAN_MEMBERS permission. 
+	void Ban(const Snowflake &user_id, const std::string reason = "", int delete_message_days = 0);
+
+	// TODO
+	// Remove the ban for a user. 
+	// Requires the BAN_MEMBERS permissions.
+	void RemoveBan(const Snowflake &user_id);
+
+	// TODO 
+	// Returns a list of role objects for the guild.
+	// std::vector<Role> GetRoles();
+
+	// TODO
+	// Create a new role for the guild.
+	// Requires the MANAGE_ROLES permission. 
+	// Role CreateRole(const std::string &name, const std::string permissions, int color, bool hoist, bool mentionable);
+
+	// TODO
+	// Modify the positions of a set of role objects for the guild. 
+	// Requires the MANAGE_ROLES permission.
+	// std::vector<Role> ModifyRolePosition(const Snowflake &role_id, int position);
+
+	// TODO
+	// Modify a guild role.
+	// Requires the MANAGE_ROLES permission.
+	// Role ModifyRolePosition(const Snowflake &role_id, const std::string &name, const std::string &permissions, int color, bool hoist, bool mentionable);
+
+	// TODO
+	// Delete a guild role.
+	// Requires the MANAGE_ROLES permission. 
+	void DeleteRole(const Snowflake &role_id);
 };
 

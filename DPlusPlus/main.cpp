@@ -27,6 +27,8 @@ public:
 		}*/
 		Guild g(message.guild_id);
 
+		//g.ModifyMember();
+
 		cout << g.name;
 	}
 

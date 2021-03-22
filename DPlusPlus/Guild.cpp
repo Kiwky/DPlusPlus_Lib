@@ -55,7 +55,7 @@ std::vector<Emoji> Guild::ListEmoji() {
 	return std::vector<Emoji>();
 }
 
-Emoji Guild::GetEmoji(const std::string &emoji_id) {
+Emoji Guild::GetEmoji(const Snowflake &emoji_id) {
 	return Emoji();
 }
 
@@ -67,7 +67,7 @@ Emoji Guild::ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles 
 	return Emoji();
 }
 
-void Guild::DeleteEmoji(const std::string &emoji_id) {
+void Guild::DeleteEmoji(const Snowflake &emoji_id) {
 
 }
 
@@ -101,5 +101,65 @@ Member Guild::GetMember(const Snowflake &user_id) {
 
 std::vector<Member> Guild::GetMembers() {
 	return std::vector<Member>();
+}
+
+Member Guild::ModifyMember(const Snowflake &user_id, const std::string &new_nick, std::vector<Snowflake> roles, bool mute, bool deaf, const Snowflake &channel_id) {
+	return Member();
+}
+
+void Guild::ModifyMemberNickname(const Snowflake &user_id, const std::string &new_nick) {
+
+}
+
+void Guild::AddMemberRole(const Snowflake &user_id, const Snowflake &role_id) {
+
+}
+
+void Guild::RemoveMemberRole(const Snowflake &user_id, const Snowflake &role_id) {
+
+}
+
+void Guild::RemoveMemberRole(const Snowflake &user_id) {
+
+}
+
+/*
+Ban Guild::GetGuildBan(const Snowflake &user_id) {
+
+}
+
+std::vector<Ban> Guild::GetGuildBans() {
+
+}
+*/
+
+void Guild::Ban(const Snowflake &user_id, const std::string reason /*= ""*/, int delete_message_days /*= 0*/) {
+
+}
+
+void Guild::RemoveBan(const Snowflake &user_id) {
+
+}
+
+/*
+std::vector<Role> Guild::GetRoles() {
+
+}
+
+Role Guild::CreateRole(const std::string &name, const std::string permissions, int color, bool hoist, bool mentionable) {
+
+}
+
+std::vector<Role> Guild::ModifyRolePosition(const Snowflake &role_id, int position) {
+
+}
+
+Role Guild::ModifyRolePosition(const Snowflake &role_id, const std::string &name, const std::string &permissions, int color, bool hoist, bool mentionable) {
+
+}
+*/
+
+void Guild::DeleteRole(const Snowflake &role_id) {
+
 }
 
