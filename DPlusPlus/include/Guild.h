@@ -10,6 +10,7 @@
 #include "Channel.h"
 #include "Emoji.h"
 #include "VoiceRegion.h"
+#include "Invite.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;

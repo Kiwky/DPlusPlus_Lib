@@ -45,10 +45,18 @@
     <ClInclude Include="include\Invite.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Emoji.h" />
-    <ClInclude Include="Guild.h" />
-    <ClInclude Include="GuildPreview.h" />
-    <ClInclude Include="VoiceRegion.h" />
+    <ClInclude Include="include\Emoji.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Guild.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GuildPreview.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VoiceRegion.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Intents.cpp">
@@ -93,9 +101,17 @@
     <ClCompile Include="source\Invite.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Emoji.cpp" />
-    <ClCompile Include="Guild.cpp" />
-    <ClCompile Include="GuildPreview.cpp" />
-    <ClCompile Include="VoiceRegion.cpp" />
+    <ClCompile Include="source\Emoji.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Guild.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GuildPreview.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VoiceRegion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

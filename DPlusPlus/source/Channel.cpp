@@ -1,6 +1,5 @@
 #include "Channel.h"
 
-// Get channel by id.
 Channel::Channel(const Snowflake channel_id) {
 	*this = Channel(API_Call("/channels/" + channel_id, methods::GET));
 }

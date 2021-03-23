@@ -1,5 +1,9 @@
 #include "User.h"
 
+User::User(const Snowflake &user_id) {
+	*this = API_Call("/users/" + user_id, methods::GET);
+}
+
 User::User(const nJson &data) {
 	GetJson(data, "flags",			/**/ flags);
 	GetJson(data, "premium_type",	/**/ premium_type);
@@ -30,4 +34,16 @@ void User::ToJson(nJson &j) {
 		{ "discriminator",	discriminator	},
 		{ "avatar",			avatar			},
 	};
+}
+
+User User::ModifyBot(const std::string username, /*Image image*/) {
+
+}
+
+Guild User::GetUserGuilds() {
+	return Guild();
+}
+
+void User::LeaveGuild() {
+
 }

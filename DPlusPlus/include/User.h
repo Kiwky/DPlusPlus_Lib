@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 
 #include "Utilities.h"
+#include "Guild.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
@@ -45,10 +46,23 @@ public:
 
 public:
 	User() {}
+	User(const Snowflake &user_id);
 	User(const nJson &data);
 
 public:
 	void ToJson(nJson &j);
 
+	// TODO
+	// Modify the requester's user account settings.
+	User ModifyBot(const std::string username, /*Image image*/);
+
+	// TODO
+	// Returns a list of partial guild objects the current user is a member of. 
+	// Requires the guilds OAuth2 scope.
+	Guild GetUserGuilds();
+
+	// TODO
+	// Leave a guild.
+	void LeaveGuild();
 };
 
