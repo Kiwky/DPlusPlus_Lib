@@ -4,11 +4,15 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-#include "User.h"
+#include "Utilities.h"
+#include "Role.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
 
+class User;
+
+// TODO DESTRUCTOR
 class Emoji {
 
 public:
@@ -18,12 +22,11 @@ public:
 	bool animated;
 	bool available;
 	std::string name;
-	User user;
-	//std::vector<Role> roles;
+	User *user = nullptr;
+	std::vector<Role> roles;
 
 public:
 	Emoji() {}
 	Emoji(const nJson &data);
-
 };
 

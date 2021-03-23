@@ -11,6 +11,8 @@
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
 
+class Channel;
+
 enum Message_Type {
 	DEFAULT = 0,
 	RECIPIENT_ADD,
@@ -55,6 +57,7 @@ public:
 
 };
 
+// TODO DESTRUCTOR
 class Message {
 
 public:
@@ -76,7 +79,8 @@ public:
 	std::vector<User> mentions;
 	//std::vector<Role> mention_roles;		
 	//std::vector<Attachments> attachments;
-	//std::vector<Reaction> reactions;		
+	//std::vector<Reaction> reactions;	
+	Channel *channel;
 
 public:
 	Message() {}

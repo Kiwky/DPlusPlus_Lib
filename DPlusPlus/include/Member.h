@@ -5,15 +5,16 @@
 #include <nlohmann/json.hpp>
 
 #include "Utilities.h"
-#include "User.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
 
+class User;
+
 class Member {
 
 public:
-	User user;
+	std::unique_ptr<User> user;
 	bool deaf;
 	bool mute;
 	bool pending;

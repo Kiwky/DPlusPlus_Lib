@@ -34,6 +34,7 @@ namespace DPlusPlus {
 		}
 	}
 
+	// TODO tempJson este pus dar nu folosit.
 	/* Get json array, return empty vectory. */
 	template <typename T>
 	void GetJsonVector(const nJson &j, const char *key, std::vector<T> &val) {

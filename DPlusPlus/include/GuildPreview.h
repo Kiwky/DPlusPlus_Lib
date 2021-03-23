@@ -4,7 +4,8 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
-#include "Emoji.h"
+#include "Utilities.h"
+//#include "Emoji.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
@@ -20,7 +21,7 @@ public:
 	std::string splash;
 	std::string discovery_splash;
 	std::string description;
-	std::vector<Emoji> emojis;
+	//std::vector<Emoji> emojis;
 	//std::vector<Feature> features;
 
 public:

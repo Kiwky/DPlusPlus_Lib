@@ -24,12 +24,20 @@ namespace DPlusPlus {
 			if((api_method != methods::GET) && (api_method != methods::HEAD))
 				req.set_body(jsonObject);
 
-			pplx::task<http_response> requestTask = client.request(req).then([](http_response response) {
-				return response;
-			});
+			string_t response_string;
+			unsigned short code = 0;
 
-			requestTask.wait();
-			auto response_string = requestTask.get().extract_string().get();
+			do {
+				pplx::task<http_response> requestTask = client.request(req).then([](http_response response) {
+					return response;
+				});
+
+				requestTask.wait();
+				response_string = requestTask.get().extract_string().get();
+
+				code = requestTask.get().status_code();
+				std::cout << code << "\n";
+			} while(code == 429);
 
 			nJson s = nJson::parse(response_string.begin(), response_string.end());
 

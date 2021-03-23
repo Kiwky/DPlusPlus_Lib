@@ -196,8 +196,10 @@
     <ClInclude Include="include\Member.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\Ready.h" />
+    <ClInclude Include="include\Role.h" />
     <ClInclude Include="include\User.h" />
     <ClInclude Include="include\Utilities.h" />
+    <ClInclude Include="include\Voice.h" />
     <ClInclude Include="include\VoiceRegion.h" />
   </ItemGroup>
   <ItemGroup>
@@ -216,8 +218,10 @@
     <ClCompile Include="source\Member.cpp" />
     <ClCompile Include="source\Message.cpp" />
     <ClCompile Include="source\Ready.cpp" />
+    <ClCompile Include="source\Role.cpp" />
     <ClCompile Include="source\User.cpp" />
     <ClCompile Include="source\Utilities.cpp" />
+    <ClCompile Include="source\Voice.cpp" />
     <ClCompile Include="source\VoiceRegion.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

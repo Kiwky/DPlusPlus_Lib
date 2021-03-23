@@ -55,17 +55,17 @@ std::vector<Emoji> Guild::ListEmoji() {
 	return std::vector<Emoji>();
 }
 
-Emoji Guild::GetEmoji(const Snowflake &emoji_id) {
-	return Emoji();
-}
+//Emoji Guild::GetEmoji(const Snowflake &emoji_id) {
+//	return Emoji();
+//}
 
-Emoji Guild::CreateEmoji(const std::string &name, /*Image image*/ std::vector<Snowflake> *roles /*= nullptr*/) {
-	return Emoji();
-}
+//Emoji Guild::CreateEmoji(const std::string &name, /*Image image*/ std::vector<Snowflake> *roles /*= nullptr*/) {
+//	return Emoji();
+//}
 
-Emoji Guild::ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles /*= nullptr*/) {
-	return Emoji();
-}
+//Emoji Guild::ModifyEmoji(const std::string &name, std::vector<Snowflake> *roles /*= nullptr*/) {
+//	return Emoji();
+//}
 
 void Guild::DeleteEmoji(const Snowflake &emoji_id) {
 

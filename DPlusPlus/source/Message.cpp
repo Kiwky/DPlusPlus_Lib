@@ -1,4 +1,5 @@
 #include "Message.h"
+#include "Channel.h"
 
 Message::Message(const nJson &data) {
 	if(data.contains("author"))
@@ -18,6 +19,8 @@ Message::Message(const nJson &data) {
 	GetJson(data, "pinned",				/**/ pinned);
 
 	GetJsonVector(data, "mentions",		/**/ mentions);
+
+	channel = new Channel(channel_id);
 }
 
 void Message::ToJson(nJson &j) {

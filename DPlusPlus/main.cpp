@@ -19,33 +19,12 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
-		Guild g;
-		g.description = "SALUT";
+		cout << message.channel->name << "\n";
+		message.channel->DeleteMessage(message.id);
 
-		nJson j;
-
-		j["guild"]["description"] = g.description;
-		j["channel"]["id"] = "12";
-
-		cout << j.dump(4);
-
-		while(true) {
-			Invite i(j);
-			cout << i.guild->description;
-
+		if(message.content == "ping") {
+			message.channel->SendMessage("pong");
 		}
-
-		/*Channel c(message.channel_id);
-		vector<Invite> list = c.GetInvites();
-		for(int i = 0; i < (int)list.size(); i++) {
-
-			cout << list[i].code << "\n";
-		}*/
-		//Guild g(message.guild_id);
-
-		//g.ModifyMember();
-
-		//cout << g.name;
 	}
 
 	void OnMessageUpdated(const Message &message) {
@@ -73,7 +52,7 @@ public:
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.6TCEPvojYPxrKyfYw8w66JSz0fA");
+	bot.Start("");
 
 	_getch();
 }

@@ -2,10 +2,11 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 #include <nlohmann/json.hpp>
 
 #include "Utilities.h"
-#include "Guild.h"
+//#include "Guild.h"
 
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
@@ -54,12 +55,12 @@ public:
 
 	// TODO
 	// Modify the requester's user account settings.
-	User ModifyBot(const std::string username, /*Image image*/);
+	//User ModifyBot(const std::string username /*, Image image*/);
 
 	// TODO
 	// Returns a list of partial guild objects the current user is a member of. 
 	// Requires the guilds OAuth2 scope.
-	Guild GetUserGuilds();
+	//Guild GetUserGuilds();
 
 	// TODO
 	// Leave a guild.

@@ -57,6 +57,12 @@
     <ClInclude Include="include\VoiceRegion.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="include\Role.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Voice.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Intents.cpp">
@@ -111,6 +117,12 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\VoiceRegion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Role.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Voice.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

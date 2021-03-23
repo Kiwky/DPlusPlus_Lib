@@ -36,13 +36,13 @@ void User::ToJson(nJson &j) {
 	};
 }
 
-User User::ModifyBot(const std::string username, /*Image image*/) {
-
-}
-
-Guild User::GetUserGuilds() {
-	return Guild();
-}
+//User User::ModifyBot(const std::string username /*,Image image*/) {
+//
+//}
+//
+//Guild User::GetUserGuilds() {
+//	return Guild();
+//}
 
 void User::LeaveGuild() {
 

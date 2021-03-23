@@ -1,8 +1,9 @@
 #include "Member.h"
+#include "User.h"
 
 Member::Member(const nJson &data) {
 	if(data.contains("user"))
-		this->user = User(data["user"]);
+		user = std::unique_ptr<User>(new User(data["user"]));
 
 	GetJson(data, "nick",			/**/ nick);
 	GetJson(data, "joined_at",		/**/ joined_at);
