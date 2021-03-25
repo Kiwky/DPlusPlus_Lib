@@ -7,6 +7,15 @@ int main() {
 	bot.Start("BOT TOKEN");
 }
 
+Virtuals:
+	virtual void OnReady(const Ready &ready);
+	virtual void OnMessageCreated(const Message &message);
+	virtual void OnMessageUpdated(const Message &message);
+	virtual void OnMessageDeleted(const MessageDelete &message);
+	virtual void OnMessageDeletedBulk(const MessageDeleteBulk &message);
+	virtual void OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
+
+
 Class Channel:
 	Ctor: Chanel(channel_id);
 	void SendMessage(const std::string &content, Embed *embed = nullptr);
@@ -30,7 +39,7 @@ Class Channel:
 	void AddPinnedMessage(const Snowflake &message_id);
 	void DeletePinnedMessage(const Snowflake &message_id);
 	
-Class Guild
+Class Guild:
 	Ctor: Guild(guild_id);
 	std::vector<Emoji> ListEmoji();
 	Emoji GetEmoji(const std::string &emoji_id);
@@ -73,5 +82,18 @@ Class Guild
 	void ModifyIntegration(const Snowflake &integrastion_id, int expire_behavior, int expire_grace_period, int enable_emoticons);
 	void DeleteIntegration(const Snowflake &integrastion_id);
 	void SyncIntegration(const Snowflake &integrastion_id);
+
+Class User:
+	Ctor: User(user_id);
+	User ModifyBot(const std::string username /*, Image image*/);
+	Guild GetUserGuilds();
+	void LeaveGuild();
+
+Class Embed:
+	void AddField(const std::string &name, const std::string &value, bool _inlineField);
+
+Class Invite:
+	Ctor: Invite(invite_id);
+	void Delete();
 
 ```
