@@ -11,10 +11,11 @@ using namespace DPlusPlus;
 
 class User;
 
+// TODO DESTRUCTOR
 class Member {
 
 public:
-	std::unique_ptr<User> user;
+	User *user = nullptr;
 	bool deaf;
 	bool mute;
 	bool pending;

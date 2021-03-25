@@ -3,7 +3,7 @@
 
 Member::Member(const nJson &data) {
 	if(data.contains("user"))
-		user = std::unique_ptr<User>(new User(data["user"]));
+		user = new User(data["user"]);
 
 	GetJson(data, "nick",			/**/ nick);
 	GetJson(data, "joined_at",		/**/ joined_at);

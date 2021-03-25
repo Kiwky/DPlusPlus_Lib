@@ -5,6 +5,7 @@ User::User(const Snowflake &user_id) {
 }
 
 User::User(const nJson &data) {
+	GetJson(data, "id",				/**/ id);
 	GetJson(data, "flags",			/**/ flags);
 	GetJson(data, "premium_type",	/**/ premium_type);
 	GetJson(data, "bot",			/**/ bot);

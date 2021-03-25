@@ -129,6 +129,23 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnMessageDeletedBulk(message);
 					break;
 				}
+				case hash_string("MESSAGE_REACTION_ADD"):
+				{
+					Member member;
+					std::string channel_id, message_id, guild_id;
+
+					if(data.contains("member")) {
+						member = Member(data["member"]);
+					}
+
+					GetJson(data, "channel_id",		/**/ channel_id);
+					GetJson(data, "message_id",		/**/ message_id);
+					GetJson(data, "guild_id",		/**/ guild_id);
+
+					// Call virtual function.
+					OnMessageReactionAdd(member, guild_id, channel_id, message_id);
+					break;
+				}
 				default:
 				{
 					break;

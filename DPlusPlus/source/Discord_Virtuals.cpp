@@ -20,3 +20,7 @@ void Discord::OnMessageDeleted(const MessageDelete &message) {
 void Discord::OnMessageDeletedBulk(const MessageDeleteBulk &message) {
 	Log::Print(Info, "Message deleted bulk.");
 }
+
+void Discord::OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
+	Log::Print(Info, "Message reaction added.");
+}

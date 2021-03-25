@@ -1,7 +1,7 @@
 /**
  *	TODO:
  *		> OnMessageDeletedBulk modificare parametrii:
- *			> De exemplu (std::vector<Snowflake> ids, Snowflake channel_id, Snowflake guild_id); 
+ *			> De exemplu (std::vector<Snowflake> ids, Snowflake channel_id, Snowflake guild_id);
  */
 
 #pragma once
@@ -17,6 +17,7 @@
 #include "Log.h"
 #include "Ready.h"
 #include "Message.h"
+#include "Member.h"
 #include "Channel.h"	
 
 using namespace DPlusPlus;
@@ -81,4 +82,7 @@ protected:
 
 	/* Sent when multiple messages are deleted at once. */
 	virtual void OnMessageDeletedBulk(const MessageDeleteBulk &message);
+
+	/* Sent when a user adds a reaction to a message. */
+	virtual void OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
 };

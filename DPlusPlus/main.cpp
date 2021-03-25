@@ -20,7 +20,6 @@ public:
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
 		cout << message.channel->name << "\n";
-		message.channel->DeleteMessage(message.id);
 
 		if(message.content == "ping") {
 			message.channel->SendMessage("pong");
@@ -47,6 +46,11 @@ public:
 		for(int i = 0; i < (int)message.id.size(); i++) {
 			cout << message.id[i] << "\n";
 		}
+	}
+
+	void OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
+		cout << member.user->username << " added reaction. \n";
+		cout << "1: " << member.user->id << "\n";
 	}
 };
 
