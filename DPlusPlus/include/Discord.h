@@ -85,4 +85,7 @@ protected:
 
 	/* Sent when a user adds a reaction to a message. */
 	virtual void OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
+	
+	/* Sent when a user removes a reaction from a message. */
+	virtual void OnMessageReactionDeleted(const User &user, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
 };

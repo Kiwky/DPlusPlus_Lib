@@ -52,6 +52,11 @@ public:
 		cout << member.user->username << " added reaction. \n";
 		cout << "1: " << member.user->id << "\n";
 	}
+
+	void OnMessageReactionDeleted(const User &user, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
+		cout << user.username << " deleted reaction. \n";
+		cout << "1: " << user.id << "\n";
+	}
 };
 
 int main() {
