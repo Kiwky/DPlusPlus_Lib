@@ -5,6 +5,7 @@
 
 #include "Discord.h"
 #include "Invite.h"
+#include "Channel.h"
 #include "Guild.h"
 #include "windows.h"
 
@@ -25,8 +26,6 @@ public:
 		/*if(message.content == "ping") {
 			message.channel->SendMessage("pong");
 		}*/
-
-		message.channel->DeleteAllReactions(message.content);
 	}
 
 	void OnMessageUpdated(const Message &message) {
@@ -38,7 +37,7 @@ public:
 	}
 
 	void OnMessageReactionDeletedAll(const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
-		cout << "Deleted all reactions \n";
+		//cout << "Deleted all reactions \n";
 	}
 
 	void OnMessageDeleted(const MessageDelete &message) {
@@ -61,8 +60,24 @@ public:
 	}
 
 	void OnMessageReactionDeleted(const User &user, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
-		cout << user.username << " deleted reaction. \n";
-		cout << "1: " << user.id << "\n";
+		/*cout << user.username << " deleted reaction. \n";
+		cout << "1: " << user.id << "\n";*/
+	}
+
+	void OnVoiceStateUpdate(const Voice &voice) {
+		Channel c((Snowflake)"772188152869814322");
+
+		Embed e;
+		if(voice.channel_id.empty()) {
+			e.color = 15158332;
+			e.description = voice.member->user->username + " s-a deconectat";
+		}
+		else {
+			e.color = 3066993;
+			e.description = voice.member->user->username + " s-a conectat";
+		}
+
+		c.SendMessage("", &e);
 	}
 };
 

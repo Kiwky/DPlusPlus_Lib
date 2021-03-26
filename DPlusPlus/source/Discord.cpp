@@ -184,6 +184,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnMessageReactionRemoveEmoji(emoji, guild_id, channel_id, message_id);
 					break;
 				}
+				case hash_string("VOICE_STATE_UPDATE"):
+				{
+					Voice voice(data);
+
+					// Call virtual function.
+					OnVoiceStateUpdate(voice);
+					break;
+				}
 				default:
 				{
 					break;
@@ -231,4 +239,3 @@ void Discord::ModifyPresence(const std::string &name, const std::string &status_
 	msg.set_utf8_message(to_string(status));
 	client.send(msg);
 }
-

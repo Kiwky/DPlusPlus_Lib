@@ -36,3 +36,7 @@ void Discord::OnMessageReactionDeletedAll(const Snowflake &guild_id, const Snowf
 void Discord::OnMessageReactionRemoveEmoji(const Emoji &emoji, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
 	Log::Print(Info, "Message reaction removed by bot.");
 }
+
+void Discord::OnVoiceStateUpdate(const Voice &voice) {
+	Log::Print(Info, "Voice state updated.");
+}
