@@ -14,6 +14,7 @@ Virtuals:
 	virtual void OnMessageDeleted(const MessageDelete &message);
 	virtual void OnMessageDeletedBulk(const MessageDeleteBulk &message);
 	virtual void OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
+	virtual void OnMessageReactionDeletedAll(const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
 
 
 Class Channel:
