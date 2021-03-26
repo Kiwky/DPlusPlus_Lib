@@ -171,12 +171,24 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnMessageReactionDeletedAll(guild_id, channel_id, message_id);
 					break;
 				}
+				case hash_string("MESSAGE_REACTION_REMOVE_EMOJI"):
+				{
+					Emoji emoji(data["emoji"]);
+					std::string channel_id, message_id, guild_id;
+
+					GetJson(data, "channel_id",		/**/ channel_id);
+					GetJson(data, "message_id",		/**/ message_id);
+					GetJson(data, "guild_id",		/**/ guild_id);
+
+					// Call virtual function.
+					OnMessageReactionRemoveEmoji(emoji, guild_id, channel_id, message_id);
+					break;
+				}
 				default:
 				{
 					break;
 				}
 			}
-
 			break;
 		}
 		case OP_Type::HELLO:
@@ -201,4 +213,22 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	}
 }
 
+void Discord::ModifyPresence(const std::string &name, const std::string &status_type) {
+	websocket_outgoing_message msg;
+	nJson status;
+
+	status["op"] = OP_Type::STATUS_UPDATE;
+	status["d"] = {
+		{"since", 1616783423771},
+		{"activities", {{
+			{"name", name},
+			{"type", 0}
+		}}},
+		{ "status", status_type},
+		{"afk", false}
+	};
+
+	msg.set_utf8_message(to_string(status));
+	client.send(msg);
+}
 

@@ -19,6 +19,7 @@
 #include "Message.h"
 #include "Member.h"
 #include "Channel.h"	
+#include "Emoji.h"	
 
 using namespace DPlusPlus;
 using namespace web;
@@ -55,40 +56,47 @@ public:
 	static std::string token;
 
 public:
-	/* Start the bot instance. */
+	// Start the bot instance. 
 	void Start(const std::string &token);
 
-	/* Try to connect with bot information. */
+	// Try to connect with bot information. 
 	void ProcessBotIdentity();
 
-	/* Send bot information every `heartbeat_interval` ms. */
+	// Send bot information every `heartbeat_interval` ms. 
 	void ProcessBotHeartbeat();
 
-	/* Process the json received. */
+	// Process the json received. 
 	void ProcessBotJson(websocket_incoming_message &msg);
 
+	// Update bot status activity.
+	// Status: online / dnd / idle / invisible / offline.
+	void ModifyPresence(const std::string &name, const std::string &status_type = "online");
+
 protected:
-	/* The ready event is dispatched when a client has completed the initial handshake with the gateway */
+	// The ready event is dispatched when a client has completed the initial handshake with the gateway 
 	virtual void OnReady(const Ready &ready);
 
-	/* Sent when a message is created. */
+	// Sent when a message is created. 
 	virtual void OnMessageCreated(const Message &message);
 
-	/* Sent when a message is updated. */
+	// Sent when a message is updated. 
 	virtual void OnMessageUpdated(const Message &message);
 
-	/* Sent when a message is deleted. */
+	// Sent when a message is deleted. 
 	virtual void OnMessageDeleted(const MessageDelete &message);
 
-	/* Sent when multiple messages are deleted at once. */
+	// Sent when multiple messages are deleted at once. 
 	virtual void OnMessageDeletedBulk(const MessageDeleteBulk &message);
 
-	/* Sent when a user adds a reaction to a message. */
+	// Sent when a user adds a reaction to a message. 
 	virtual void OnMessageReactionAdd(const Member &member, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
 
-	/* Sent when a user removes a reaction from a message. */
+	// Sent when a user removes a reaction from a message. 
 	virtual void OnMessageReactionDeleted(const User &user, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
 
-	/* Sent when a user explicitly removes all reactions from a message. */
+	// Sent when a user explicitly removes all reactions from a message. 
 	virtual void OnMessageReactionDeletedAll(const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
+
+	// Sent when a bot removes all instances of a given emoji from the reactions of a message.
+	virtual void OnMessageReactionRemoveEmoji(const Emoji &emoji, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id);
 };

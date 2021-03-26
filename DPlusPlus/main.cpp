@@ -14,7 +14,9 @@ using nJson = nlohmann::json;
 class Bot: public Discord {
 
 public:
-	void OnReady(const Ready &ready) {}
+	void OnReady(const Ready &ready) {
+		ModifyPresence("Status :) 2");
+	}
 
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
