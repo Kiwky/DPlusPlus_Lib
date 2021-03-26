@@ -28,7 +28,7 @@ using namespace web::http;
 using namespace web::websockets::client;
 using nJson = nlohmann::json;
 
-enum OP_Type {
+enum class OP_Type {
 	DISPATCH				/**/ = 0,
 	HEARTBEAT				/**/ = 1,
 	IDENTIFY				/**/ = 2,
@@ -44,7 +44,7 @@ enum OP_Type {
 };
 
 // Base color. Or convert other hex color to dec.
-enum Colors {
+enum class Colors {
 	DEFAULT				/**/ = 0,
 	AQUA				/**/ = 1752220,
 	DARK_AQUA			/**/ = 1146986,

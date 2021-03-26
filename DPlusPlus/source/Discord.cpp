@@ -82,7 +82,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	const nJson data = jsonMsg["d"];	// Json data
 
 	switch(op) {
-		case OP_Type::DISPATCH:
+		case (int)OP_Type::DISPATCH:
 		{
 			const std::string type = jsonMsg["t"];	// Message type.
 			last_signal_id = jsonMsg["s"];			// Last signal/event id received.
@@ -199,7 +199,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 			}
 			break;
 		}
-		case OP_Type::HELLO:
+		case (int)OP_Type::HELLO:
 		{
 			heartbeat_interval = data["heartbeat_interval"];
 			is_ready = true;

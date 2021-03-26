@@ -48,3 +48,7 @@ void User::ToJson(nJson &j) {
 void User::LeaveGuild() {
 
 }
+
+std::string User::Mention() const {
+	return "<@!" + id + ">";
+}

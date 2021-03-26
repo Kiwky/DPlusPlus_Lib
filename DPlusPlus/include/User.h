@@ -65,5 +65,7 @@ public:
 	// TODO
 	// Leave a guild.
 	void LeaveGuild();
+
+	std::string Mention() const;
 };
 

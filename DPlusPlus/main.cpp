@@ -22,6 +22,10 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
+		// Previne spamul. Botul isi raspunde la mesaj singur la infinit.
+		if(!message.author.bot)
+			message.channel->SendMessage(message.author.Mention());
+
 		//cout << message.channel->name << "\n";
 		/*if(message.content == "ping") {
 			message.channel->SendMessage("pong");
@@ -70,11 +74,11 @@ public:
 		Embed e;
 		if(voice.channel_id.empty()) {
 			e.color = 15158332;
-			e.description = voice.member->user->username + " s-a deconectat";
+			e.description = voice.member->user->Mention() + " s-a deconectat";
 		}
 		else {
 			e.color = 3066993;
-			e.description = voice.member->user->username + " s-a conectat";
+			e.description = voice.member->user->Mention() + " s-a conectat";
 		}
 
 		c.SendMessage("", &e);
