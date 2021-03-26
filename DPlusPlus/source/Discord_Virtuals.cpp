@@ -28,3 +28,7 @@ void Discord::OnMessageReactionAdd(const Member &member, const Snowflake &guild_
 void Discord::OnMessageReactionDeleted(const User &user, const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
 	Log::Print(Info, "Message reaction deleted.");
 }
+
+void Discord::OnMessageReactionDeletedAll(const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
+	Log::Print(Info, "Message reaction deleted all.");
+}

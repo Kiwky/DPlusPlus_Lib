@@ -19,11 +19,12 @@ public:
 	void OnMessageCreated(const Message &message) {
 		printf("Message created: [%s] %s \n", message.channel_id.c_str(), message.content.c_str());
 
-		cout << message.channel->name << "\n";
-
-		if(message.content == "ping") {
+		//cout << message.channel->name << "\n";
+		/*if(message.content == "ping") {
 			message.channel->SendMessage("pong");
-		}
+		}*/
+
+		message.channel->DeleteAllReactions(message.content);
 	}
 
 	void OnMessageUpdated(const Message &message) {
@@ -32,6 +33,10 @@ public:
 			   message.channel_id.c_str(),
 			   message.id.c_str()
 		);
+	}
+
+	void OnMessageReactionDeletedAll(const Snowflake &guild_id, const Snowflake &channel_id, const Snowflake &message_id) {
+		cout << "Deleted all reactions \n";
 	}
 
 	void OnMessageDeleted(const MessageDelete &message) {
