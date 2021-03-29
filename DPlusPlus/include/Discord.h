@@ -110,6 +110,9 @@ protected:
 	// Sent when a channel is updated.
 	virtual void OnChannelUpdate(const Channel &channel);
 
+	// Sent when a message is pinned or unpinned in a text channel. 
+	virtual void OnChannelPinsUpdate(const Snowflake &guild_id, const Snowflake &channel_id);
+
 	// Sent when a channel relevant to the current user is deleted.
 	virtual void OnChannelDeleted(const Channel &channel);
 

@@ -102,11 +102,15 @@ public:
 	void OnChannelDeleted(const Channel &channel) {
 		cout << "Channel deleted: " << channel.name << "\n";
 	}
+
+	void OnChannelPinsUpdate(const Snowflake &guild_id, const Snowflake &channel_id) {
+		cout << "Pins updated: " << guild_id << " " << channel_id << "\n";
+	}
 };
 
 int main() {
 	Bot bot;
-	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.LIcwqzVPS6numiyL3b-xa8TLIYI");
+	bot.Start("");
 
 	_getch();
 }

@@ -13,6 +13,10 @@ void Discord::OnChannelUpdate(const Channel &channel) {
 	Log::Print(Info, "Channel updated.");
 }
 
+void Discord::OnChannelPinsUpdate(const Snowflake &guild_id, const Snowflake &channel_id) {
+	Log::Print(Info, "Channel pins updated.");
+}
+
 void Discord::OnChannelDeleted(const Channel &channel) {
 	Log::Print(Info, "Channel deleted.");
 }

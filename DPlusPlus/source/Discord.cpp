@@ -122,6 +122,17 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnChannelDeleted(channel);
 					break;
 				}
+				case hash_string("CHANNEL_PINS_UPDATE"):
+				{
+					std::string guild_id, channel_id;
+
+					GetJson(data, "guild_id",		/**/ guild_id);
+					GetJson(data, "channel_id",		/**/ channel_id);
+
+					// Call virtual function.
+					OnChannelPinsUpdate(guild_id, channel_id);
+					break;
+				}
 				case hash_string("MESSAGE_CREATE"):
 				{
 					Message message(data);
