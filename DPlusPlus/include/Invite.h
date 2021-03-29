@@ -17,12 +17,13 @@ enum Target_User_Type {
 	STREAM = 1
 };
 
+// TODO DESTRUCTOR
 class Invite {
 
 public:
 	std::string code;
-	std::shared_ptr<Channel> channel;
-	std::shared_ptr<Guild> guild;
+	Channel *channel = nullptr;
+	Guild *guild = nullptr;
 	User inviter;
 
 public:

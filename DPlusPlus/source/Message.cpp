@@ -3,7 +3,7 @@
 
 Message::Message(const nJson &data) {
 	if(data.contains("author"))
-		this->author = User(data["author"]);
+		author = User(data["author"]);
 
 	GetJson(data, "id",					/**/ id);
 	GetJson(data, "channel_id",			/**/ channel_id);

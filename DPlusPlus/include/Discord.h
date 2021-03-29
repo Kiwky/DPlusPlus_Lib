@@ -130,4 +130,7 @@ protected:
 
 	// Sent when someone joins/leaves/moves voice channels.
 	virtual void OnVoiceStateUpdate(const Voice &voice);
+
+	// Sent when a new invite to a channel is created.
+	virtual void OnInviteCreated(const Invite &invite);
 };

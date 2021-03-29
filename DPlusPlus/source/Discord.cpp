@@ -192,6 +192,15 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnVoiceStateUpdate(voice);
 					break;
 				}
+				case hash_string("INVITE_CREATE"):
+				{
+					std::cout << data.dump(4) << "\n";
+					Invite invite(data);
+
+					// Call virtual function.
+					OnInviteCreated(invite);
+					break;
+				}
 				default:
 				{
 					break;

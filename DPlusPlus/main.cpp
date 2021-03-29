@@ -69,7 +69,7 @@ public:
 	}
 
 	void OnVoiceStateUpdate(const Voice &voice) {
-		Channel c((Snowflake)"772188152869814322");
+		Channel c((Snowflake)"748963735762108441");
 
 		Embed e;
 		if(voice.channel_id.empty()) {
@@ -82,6 +82,13 @@ public:
 		}
 
 		c.SendMessage("", &e);
+	}
+
+	void OnInviteCreated(const Invite &invite) {
+		cout << "New invite: \n";
+		cout << "Code: " << invite.code << "\n";
+		cout << "Channel: " << invite.channel->name << "\n";
+		cout << "Guild: " << invite.guild->name << "\n";
 	}
 };
 

@@ -1,0 +1,182 @@
+cmake_minimum_required(VERSION 3.17)
+project(DPlusPlus_Library_C__)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(G:/boost_1_70_0)
+
+
+include_directories(DPlusPlus/include)
+include_directories(packages)
+include_directories(packages/cpprestsdk.v142.2.10.15)
+include_directories(packages/cpprestsdk.v142.2.10.15/build)
+include_directories(packages/cpprestsdk.v142.2.10.15/build/native)
+include_directories(packages/cpprestsdk.v142.2.10.15/build/native/include)
+include_directories(packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest)
+include_directories(packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details)
+include_directories(packages/cpprestsdk.v142.2.10.15/build/native/include/pplx)
+include_directories(packages/nlohmann.json.3.9.1)
+include_directories(packages/nlohmann.json.3.9.1/build)
+include_directories(packages/nlohmann.json.3.9.1/build/native)
+include_directories(packages/nlohmann.json.3.9.1/build/native/include)
+include_directories(packages/nlohmann.json.3.9.1/build/native/include/nlohmann)
+include_directories(packages/openssl-vc141-static-x86_64.1.1.0)
+include_directories(packages/openssl-vc141-static-x86_64.1.1.0/build)
+include_directories(packages/openssl-vc141-static-x86_64.1.1.0/build/native)
+include_directories(packages/openssl-vc141-static-x86_64.1.1.0/build/native/include)
+include_directories(packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl)
+
+add_executable(DPlusPlus_Library_C__
+        DPlusPlus/include/Channel.h
+        DPlusPlus/include/Discord.h
+        DPlusPlus/include/Embed.h
+        DPlusPlus/include/Emoji.h
+        DPlusPlus/include/Guild.h
+        DPlusPlus/include/GuildPreview.h
+        DPlusPlus/include/Intents.h
+        DPlusPlus/include/Invite.h
+        DPlusPlus/include/Log.h
+        DPlusPlus/include/Member.h
+        DPlusPlus/include/Message.h
+        DPlusPlus/include/Ready.h
+        DPlusPlus/include/Role.h
+        DPlusPlus/include/User.h
+        DPlusPlus/include/Utilities.h
+        DPlusPlus/include/Voice.h
+        DPlusPlus/include/VoiceRegion.h
+        DPlusPlus/source/Channel.cpp
+        DPlusPlus/source/Discord.cpp
+        DPlusPlus/source/Discord_Virtuals.cpp
+        DPlusPlus/source/Embed.cpp
+        DPlusPlus/source/Emoji.cpp
+        DPlusPlus/source/Endpoints.cpp
+        DPlusPlus/source/Guild.cpp
+        DPlusPlus/source/GuildPreview.cpp
+        DPlusPlus/source/Intents.cpp
+        DPlusPlus/source/Invite.cpp
+        DPlusPlus/source/Log.cpp
+        DPlusPlus/source/Member.cpp
+        DPlusPlus/source/Message.cpp
+        DPlusPlus/source/Ready.cpp
+        DPlusPlus/source/Role.cpp
+        DPlusPlus/source/User.cpp
+        DPlusPlus/source/Utilities.cpp
+        DPlusPlus/source/Voice.cpp
+        DPlusPlus/source/VoiceRegion.cpp
+        DPlusPlus/main.cpp
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/basic_types.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/cpprest_compat.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/fileio.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/http_helpers.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/http_server.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/http_server_api.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/nosal.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/resource.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/SafeInt3.hpp
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/details/web_utilities.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/astreambuf.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/asyncrt_utils.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/base_uri.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/containerstream.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/filestream.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/http_client.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/http_compression.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/http_headers.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/http_listener.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/http_msg.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/interopstream.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/json.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/oauth1.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/oauth2.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/producerconsumerstream.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/rawptrstream.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/streams.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/uri.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/uri_builder.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/version.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/ws_client.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/cpprest/ws_msg.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplx.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplxcancellation_token.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplxconv.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplxinterface.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplxlinux.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplxtasks.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/pplxwin.h
+        packages/cpprestsdk.v142.2.10.15/build/native/include/pplx/threadpool.h
+        packages/nlohmann.json.3.9.1/build/native/include/nlohmann/json.hpp
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/__DECC_INCLUDE_EPILOGUE.H
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/__DECC_INCLUDE_PROLOGUE.H
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/aes.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/asn1.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/asn1_mac.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/asn1t.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/async.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/bio.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/blowfish.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/bn.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/buffer.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/camellia.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/cast.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/cmac.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/cms.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/comp.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/conf.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/conf_api.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/crypto.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ct.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/des.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/dh.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/dsa.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/dtls1.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/e_os2.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ebcdic.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ec.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ecdh.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ecdsa.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/engine.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/err.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/evp.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/hmac.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/idea.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/kdf.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/lhash.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/md2.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/md4.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/md5.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/mdc2.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/modes.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/obj_mac.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/objects.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ocsp.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/opensslconf.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/opensslv.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ossl_typ.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/pem.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/pem2.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/pkcs12.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/pkcs7.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/rand.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/rc2.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/rc4.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/rc5.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ripemd.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/rsa.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/safestack.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/seed.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/sha.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/srp.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/srtp.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ssl.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ssl2.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ssl3.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/stack.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/symhacks.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/tls1.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ts.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/txt_db.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/ui.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/whrlpool.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/x509.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/x509_vfy.h
+        packages/openssl-vc141-static-x86_64.1.1.0/build/native/include/openssl/x509v3.h)

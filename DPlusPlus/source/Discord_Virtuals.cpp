@@ -40,3 +40,7 @@ void Discord::OnMessageReactionRemoveEmoji(const Emoji &emoji, const Snowflake &
 void Discord::OnVoiceStateUpdate(const Voice &voice) {
 	Log::Print(Info, "Voice state updated.");
 }
+
+void Discord::OnInviteCreated(const Invite &invite) {
+	Log::Print(Info, "New invite was created.");
+}

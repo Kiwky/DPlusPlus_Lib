@@ -13,7 +13,7 @@
 using nJson = nlohmann::json;
 using namespace DPlusPlus;
 
-enum Channel_Type {
+enum class Channel_Type {
 	GUILD_TEXT = 0,
 	DM,
 	GUILD_VOICE,

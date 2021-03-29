@@ -66,6 +66,7 @@ public:
 	// Leave a guild.
 	void LeaveGuild();
 
+	// Mention user.
 	std::string Mention() const;
 };
 
