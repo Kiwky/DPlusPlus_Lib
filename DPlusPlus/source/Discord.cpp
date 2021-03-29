@@ -194,11 +194,22 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				}
 				case hash_string("INVITE_CREATE"):
 				{
-					std::cout << data.dump(4) << "\n";
 					Invite invite(data);
 
 					// Call virtual function.
 					OnInviteCreated(invite);
+					break;
+				}
+				case hash_string("INVITE_DELETE"):
+				{
+					std::string channel_id, guild_id, code;
+
+					GetJson(data, "channel_id",	/**/ channel_id);
+					GetJson(data, "guild_id",	/**/ guild_id);
+					GetJson(data, "code",		/**/ code);
+
+					// Call virtual function.
+					OnInviteDeleted(guild_id, channel_id, code);
 					break;
 				}
 				default:

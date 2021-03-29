@@ -133,4 +133,7 @@ protected:
 
 	// Sent when a new invite to a channel is created.
 	virtual void OnInviteCreated(const Invite &invite);
+
+	// Sent when an invite is deleted.
+	virtual void OnInviteDeleted(const Snowflake &guiild_id, const Snowflake &channel_id, const std::string &code);
 };

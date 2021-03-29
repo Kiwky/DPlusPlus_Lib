@@ -44,3 +44,7 @@ void Discord::OnVoiceStateUpdate(const Voice &voice) {
 void Discord::OnInviteCreated(const Invite &invite) {
 	Log::Print(Info, "New invite was created.");
 }
+
+void Discord::OnInviteDeleted(const Snowflake &guiild_id, const Snowflake &channel_id, const std::string &code) {
+	Log::Print(Info, "Invite deleted.");
+}
