@@ -104,6 +104,12 @@ protected:
 	// The ready event is dispatched when a client has completed the initial handshake with the gateway 
 	virtual void OnReady(const Ready &ready);
 
+	// Sent when a new guild channel is created, relevant to the current user
+	virtual void OnChannelCreated(const Channel &channel);
+
+	// Sent when a channel relevant to the current user is deleted.
+	virtual void OnChannelDeleted(const Channel &channel);
+
 	// Sent when a message is created. 
 	virtual void OnMessageCreated(const Message &message);
 

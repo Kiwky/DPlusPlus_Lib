@@ -94,6 +94,14 @@ public:
 	void OnInviteDeleted(const Snowflake &guiild_id, const Snowflake &channel_id, const std::string &code) {
 		cout << "Invite deleted: GID: " << guiild_id << " | Code: " << code << "\n";
 	}
+
+	void OnChannelCreated(const Channel &channel) {
+		cout << "Channel created: " << channel.name << "\n";
+	}
+
+	void OnChannelDeleted(const Channel &channel) {
+		cout << "Channel deleted: " << channel.name << "\n";
+	}
 };
 
 int main() {

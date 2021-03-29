@@ -5,6 +5,14 @@ void Discord::OnReady(const Ready &ready) {
 	Log::Print(Info, "Client is ready.");
 }
 
+void Discord::OnChannelCreated(const Channel &channel) {
+	Log::Print(Info, "Channel created.");
+}
+
+void Discord::OnChannelDeleted(const Channel &channel) {
+	Log::Print(Info, "Channel deleted.");
+}
+
 void Discord::OnMessageCreated(const Message &message) {
 	Log::Print(Info, "Message created.");
 }
