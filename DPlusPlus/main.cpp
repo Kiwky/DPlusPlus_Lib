@@ -32,7 +32,7 @@ public:
 		}*/
 	}
 
-	void OnMessageUpdated(const Message &message) {
+	void OnMessageUpdate(const Message &message) {
 		printf("Message updated: [%s - %s] %s \n",
 			   message.guild_id.c_str(),
 			   message.channel_id.c_str(),
@@ -106,7 +106,7 @@ public:
 
 int main() {
 	Bot bot;
-	bot.Start("");
+	bot.Start("Nzk1NzU1ODUxOTgxMzg5ODY0.X_N_Yw.LIcwqzVPS6numiyL3b-xa8TLIYI");
 
 	_getch();
 }

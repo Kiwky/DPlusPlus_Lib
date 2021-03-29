@@ -105,6 +105,15 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnChannelCreated(channel);
 					break;
 				}
+				case hash_string("CHANNEL_UPDATE"):
+				{
+					Channel channel(data);
+
+					// Call virtual function.
+					OnChannelUpdate(channel);
+					break;
+
+				}
 				case hash_string("CHANNEL_DELETE"):
 				{
 					Channel channel(data);
@@ -126,7 +135,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					Message message(data);
 
 					// Call virtual function.
-					OnMessageUpdated(message);
+					OnMessageUpdate(message);
 					break;
 				}
 				case hash_string("MESSAGE_DELETE"):

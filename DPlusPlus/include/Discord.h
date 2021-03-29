@@ -107,6 +107,9 @@ protected:
 	// Sent when a new guild channel is created, relevant to the current user
 	virtual void OnChannelCreated(const Channel &channel);
 
+	// Sent when a channel is updated.
+	virtual void OnChannelUpdate(const Channel &channel);
+
 	// Sent when a channel relevant to the current user is deleted.
 	virtual void OnChannelDeleted(const Channel &channel);
 
@@ -114,7 +117,7 @@ protected:
 	virtual void OnMessageCreated(const Message &message);
 
 	// Sent when a message is updated. 
-	virtual void OnMessageUpdated(const Message &message);
+	virtual void OnMessageUpdate(const Message &message);
 
 	// Sent when a message is deleted. 
 	virtual void OnMessageDeleted(const MessageDelete &message);

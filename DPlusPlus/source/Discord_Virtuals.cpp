@@ -9,6 +9,10 @@ void Discord::OnChannelCreated(const Channel &channel) {
 	Log::Print(Info, "Channel created.");
 }
 
+void Discord::OnChannelUpdate(const Channel &channel) {
+	Log::Print(Info, "Channel updated.");
+}
+
 void Discord::OnChannelDeleted(const Channel &channel) {
 	Log::Print(Info, "Channel deleted.");
 }
@@ -17,7 +21,7 @@ void Discord::OnMessageCreated(const Message &message) {
 	Log::Print(Info, "Message created.");
 }
 
-void Discord::OnMessageUpdated(const Message &message) {
+void Discord::OnMessageUpdate(const Message &message) {
 	Log::Print(Info, "Message updated.");
 }
 
