@@ -5,6 +5,10 @@ void Discord::OnReady(const Ready &ready) {
 	Log::Print(Info, "Client is ready.");
 }
 
+void Discord::OnGuildUpdate(const Guild &guild) {
+	Log::Print(Info, "Guild updated.");
+}
+
 void Discord::OnChannelCreated(const Channel &channel) {
 	Log::Print(Info, "Channel created.");
 }

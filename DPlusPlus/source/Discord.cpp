@@ -97,6 +97,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnReady(ready);
 					break;
 				}
+				case hash_string("GUILD_UPDATE"):
+				{
+					Guild guild(data);
+
+					// Call virtual function.
+					OnGuildUpdate(guild);
+					break;
+				}
 				case hash_string("CHANNEL_CREATE"):
 				{
 					Channel channel(data);
@@ -277,6 +285,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	}
 }
 
+// TODO TIMESTAMP AUTO
 void Discord::ModifyPresence(const std::string &name, const std::string &status_type) {
 	websocket_outgoing_message msg;
 	nJson status;
@@ -286,7 +295,7 @@ void Discord::ModifyPresence(const std::string &name, const std::string &status_
 		{"since", 1616783423771},
 		{"activities", {{
 			{"name", name},
-			{"type", 0}
+			{"type", 0},
 		}}},
 		{ "status", status_type},
 		{"afk", false}

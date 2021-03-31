@@ -8,7 +8,7 @@ using namespace web::http::client;
 using namespace utility;
 
 namespace DPlusPlus {
-	nJson API_Call(const std::string &url, method api_method, const std::string &jsonObject) {
+	nJson API_Call(const std::string &url, method api_method, const std::string &json_object) {
 		try {
 			web::json::value json_v;
 			web::http::client::http_client client(U(API_URL));
@@ -22,7 +22,7 @@ namespace DPlusPlus {
 			req.headers().add(L"Content-Type", L"application/json");
 
 			if((api_method != methods::GET) && (api_method != methods::HEAD))
-				req.set_body(jsonObject);
+				req.set_body(json_object);
 
 			string_t response_string;
 			unsigned short code = 0;

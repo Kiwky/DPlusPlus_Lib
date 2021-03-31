@@ -15,6 +15,8 @@
 
 #include "Utilities.h"
 #include "Log.h"
+
+#include "Guild.h"
 #include "Ready.h"
 #include "Message.h"
 #include "Member.h"
@@ -103,6 +105,9 @@ public:
 protected:
 	// The ready event is dispatched when a client has completed the initial handshake with the gateway 
 	virtual void OnReady(const Ready &ready);
+
+	// Sent when a guild is updated.
+	virtual void OnGuildUpdate(const Guild &guild);
 
 	// Sent when a new guild channel is created, relevant to the current user
 	virtual void OnChannelCreated(const Channel &channel);

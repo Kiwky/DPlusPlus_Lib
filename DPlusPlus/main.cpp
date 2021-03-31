@@ -106,6 +106,10 @@ public:
 	void OnChannelPinsUpdate(const Snowflake &guild_id, const Snowflake &channel_id) {
 		cout << "Pins updated: " << guild_id << " " << channel_id << "\n";
 	}
+
+	void OnGuildUpdate(const Guild &guild) {
+		cout << "Guild updated: " << guild.name << "\n";
+	}
 };
 
 int main() {
