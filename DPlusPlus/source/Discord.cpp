@@ -286,7 +286,7 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 	}
 }
 
-// TODO TIMESTAMP AUTO
+// TODO TIMESTAMP AUTOMAT
 void Discord::ModifyPresence(const std::string &name, const std::string &status_type) {
 	websocket_outgoing_message msg;
 	nJson status;
