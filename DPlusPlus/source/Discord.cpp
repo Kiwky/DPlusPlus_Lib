@@ -29,6 +29,7 @@ void Discord::Start(const std::string &token) {
 	client.set_close_handler([&](websocket_close_status status,
 								 const utility::string_t &reason,
 								 const std::error_code &code) {
+		std::wcout << reason << "\n";
 		std::cout << "Bot close handler with code: " << code.value() << "\n";
 	});
 }
@@ -297,7 +298,7 @@ void Discord::ModifyPresence(const std::string &name, const std::string &status_
 			{"name", name},
 			{"type", 0},
 		}}},
-		{ "status", status_type},
+		{"status", status_type},
 		{"afk", false}
 	};
 
