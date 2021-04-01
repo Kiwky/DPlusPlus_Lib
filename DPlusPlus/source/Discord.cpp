@@ -114,6 +114,40 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnGuildUpdate(guild);
 					break;
 				}
+				// TODO GUILD_DELETE
+				case  hash_string("GUILD_ROLE_CREATE"):
+				{
+					Role role(data["role"]);
+					std::string guild_id;
+
+					GetJson(data, "guild_id", guild_id);
+
+					// Call virtual function.
+					OnRoleCreated(guild_id, role);
+					break;
+				}
+				case  hash_string("GUILD_ROLE_UPDATE"):
+				{
+					Role role(data["role"]);
+					std::string guild_id;
+
+					GetJson(data, "guild_id", guild_id);
+
+					// Call virtual function.
+					OnRoleUpdate(guild_id, role);
+					break;
+				}
+				case  hash_string("GUILD_ROLE_DELETE"):
+				{
+					std::string guild_id, role_id;
+
+					GetJson(data, "guild_id", guild_id);
+					GetJson(data, "role_id", role_id);
+
+					// Call virtual function.
+					OnRoleDeleted(guild_id, role_id);
+					break;
+				}
 				case hash_string("CHANNEL_CREATE"):
 				{
 					Channel channel(data);
@@ -143,8 +177,8 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 				{
 					std::string guild_id, channel_id;
 
-					GetJson(data, "guild_id",		/**/ guild_id);
-					GetJson(data, "channel_id",		/**/ channel_id);
+					GetJson(data, "guild_id",	/**/ guild_id);
+					GetJson(data, "channel_id",	/**/ channel_id);
 
 					// Call virtual function.
 					OnChannelPinsUpdate(guild_id, channel_id);

@@ -115,6 +115,15 @@ protected:
 	// Sent when a guild is updated.
 	virtual void OnGuildUpdate(const Guild &guild);
 
+	// Sent when a guild role is created.
+	virtual void OnRoleCreated(const Snowflake &guild_id, const Role &role);
+
+	// Sent when a guild role is updated.
+	virtual void OnRoleUpdate(const Snowflake &guild_id, const Role &role);
+
+	// Sent when a guild role is deleted.
+	virtual void OnRoleDeleted(const Snowflake &guild_id, const Snowflake &role_id);
+
 	// Sent when a new guild channel is created, relevant to the current user
 	virtual void OnChannelCreated(const Channel &channel);
 

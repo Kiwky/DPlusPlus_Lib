@@ -13,6 +13,18 @@ void Discord::OnGuildUpdate(const Guild &guild) {
 	Log::Print(Info, "Guild updated.");
 }
 
+void Discord::OnRoleCreated(const Snowflake &guild_id, const Role &role) {
+	Log::Print(Info, "Role created.");
+}
+
+void Discord::OnRoleUpdate(const Snowflake &guild_id, const Role &role) {
+	Log::Print(Info, "Role updated.");
+}
+
+void Discord::OnRoleDeleted(const Snowflake &guild_id, const Snowflake &role_id) {
+	Log::Print(Info, "Role deleted.");
+}
+
 void Discord::OnChannelCreated(const Channel &channel) {
 	Log::Print(Info, "Channel created.");
 }
