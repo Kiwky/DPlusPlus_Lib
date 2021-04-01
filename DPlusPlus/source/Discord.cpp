@@ -98,6 +98,14 @@ void Discord::ProcessBotJson(websocket_incoming_message &msg) {
 					OnReady(ready);
 					break;
 				}
+				case hash_string("GUILD_CREATE"):
+				{
+					Guild guild(data);
+
+					// Call virtual function.
+					OnGuildCreated(guild);
+					break;
+				}
 				case hash_string("GUILD_UPDATE"):
 				{
 					Guild guild(data);

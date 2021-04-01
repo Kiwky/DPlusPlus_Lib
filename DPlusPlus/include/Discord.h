@@ -106,6 +106,12 @@ protected:
 	// The ready event is dispatched when a client has completed the initial handshake with the gateway 
 	virtual void OnReady(const Ready &ready);
 
+	// This event can be sent in three different scenarios :
+	// 1. When a user is initially connecting.
+	// 2. When a Guild becomes available again to the client.
+	// 3. When the current user joins a new Guild.
+	virtual void OnGuildCreated(const Guild &guild);
+
 	// Sent when a guild is updated.
 	virtual void OnGuildUpdate(const Guild &guild);
 

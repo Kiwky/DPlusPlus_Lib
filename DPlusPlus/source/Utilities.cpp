@@ -17,9 +17,9 @@ namespace DPlusPlus {
 			http_request req(api_method);
 
 			req.set_request_uri(web::uri(utility::conversions::to_string_t(url)));
-			req.headers().add(U("Authorization"), httpToken.c_str());
-			req.headers().add(U("User-Agent"), U("DPlusPlus"));
-			req.headers().add(U("Content-Type"), U("application/json"));
+			req.headers().add(L"Authorization", httpToken.c_str());
+			req.headers().add(L"User-Agent", L"DPlusPlus");
+			req.headers().add(L"Content-Type", L"application/json");
 
 			if((api_method != methods::GET) && (api_method != methods::HEAD))
 				req.set_body(json_object);
